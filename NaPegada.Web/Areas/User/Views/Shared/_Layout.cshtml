@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Na Pegada - @ViewBag.Title</title>
+    @Styles.Render("~/Content/styles/bootstrap.min.css",
+                   "~/Content/styles/bootstrap-theme.min.css",
+                   "~/Content/styles/napegada-theme-1.0.0.css")
+    @RenderSection("styles", false)
+</head>
+<body>
+
+    <div>
+        @RenderBody()
+    </div>
+    <div class="footer-site">
+
+    </div>
+    @Scripts.Render("~/Scripts/jquery-1.9.1.min.js",
+                    "~/Scripts/bootstrap.min.js",
+                    "~/Scripts/jquery.unobtrusive-ajax.min.js")
+    @RenderSection("scripts", false)
+</body>
+</html>
+<link href="" rel="stylesheet" />
