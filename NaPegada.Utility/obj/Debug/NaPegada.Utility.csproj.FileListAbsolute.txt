@@ -1,0 +1,6 @@
+C:\projetos\net\napegada\NaPegada.Utility\bin\Debug\NaPegada.Utility.dll
+C:\projetos\net\napegada\NaPegada.Utility\bin\Debug\NaPegada.Utility.pdb
+C:\projetos\net\napegada\NaPegada.Utility\obj\Debug\NaPegada.Utility.Messages.MessagesUTL.resources
+C:\projetos\net\napegada\NaPegada.Utility\obj\Debug\NaPegada.Utility.csproj.GenerateResource.Cache
+C:\projetos\net\napegada\NaPegada.Utility\obj\Debug\NaPegada.Utility.dll
+C:\projetos\net\napegada\NaPegada.Utility\obj\Debug\NaPegada.Utility.pdb

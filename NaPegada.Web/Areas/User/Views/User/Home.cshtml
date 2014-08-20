@@ -1,0 +1,15 @@
+﻿@model NaPegada.Web.Models.UserViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="container">
+    <h2>Bem vindo</h2>
+    <p>@Model.User.Id</p>
+    <p>@Model.User.Name</p>
+    <p>@Model.User.Mail</p>
+    <p>@Model.User.Password</p>
+    <p>@Html.ActionLink("Sair", "LogOut", "User")</p>
+</div>
+
+

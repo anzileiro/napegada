@@ -34,6 +34,7 @@
       <HintPath>..\packages\NaPegada.Utils\MongoDB.Bson.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -43,12 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alert.cs" />
     <Compile Include="AnimalMOD.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AnimalType.cs" />
     <Compile Include="Upload.cs" />
     <Compile Include="UserMOD.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NaPegada.Utility\NaPegada.Utility.csproj">
+      <Project>{a366e793-84e6-47de-ad33-9a428e95de19}</Project>
+      <Name>NaPegada.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

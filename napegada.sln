@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Repository", "NaPe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Business", "NaPegada.Business\NaPegada.Business.csproj", "{8CF1F98C-586C-45F0-90E2-038E9BAFB051}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Utility", "NaPegada.Utility\NaPegada.Utility.csproj", "{A366E793-84E6-47DE-AD33-9A428E95DE19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8CF1F98C-586C-45F0-90E2-038E9BAFB051}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CF1F98C-586C-45F0-90E2-038E9BAFB051}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CF1F98C-586C-45F0-90E2-038E9BAFB051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A366E793-84E6-47DE-AD33-9A428E95DE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A366E793-84E6-47DE-AD33-9A428E95DE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A366E793-84E6-47DE-AD33-9A428E95DE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A366E793-84E6-47DE-AD33-9A428E95DE19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

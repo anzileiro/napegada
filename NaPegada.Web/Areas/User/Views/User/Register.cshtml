@@ -6,17 +6,19 @@
 <div class="container">
     <div class="form-register">
         <h2 class="text-center">Crie uma conta</h2>
-        @using (Ajax.BeginForm("Register", "User", new AjaxOptions { }, new { @class = "form" }))
+        @using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "form" }))
         {
             @Html.AntiForgeryToken()
             <fieldset>
                 <div class="form-group">
                     <label for="User_Mail">Seu endereço de e-mail</label>
                     @Html.TextBoxFor(u => u.User.Mail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.User.Mail)
                 </div>
                 <div class="form-group">
                     <label for="User_Mail">Criar uma senha</label>
                     @Html.PasswordFor(u => u.User.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.User.Password)
                 </div>
                 <div class="form-group">
                     <p class="help-block">
@@ -35,3 +37,8 @@
         </h4>
     </div>
 </div>
+
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.validate.min.js",
+                    "~/Scripts/jquery.validate.unobtrusive.min.js")
+}
