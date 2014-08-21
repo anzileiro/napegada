@@ -49,6 +49,7 @@
     <Compile Include="Object.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AnimalType.cs" />
+    <Compile Include="Roles.cs" />
     <Compile Include="Upload.cs" />
     <Compile Include="UserMOD.cs" />
   </ItemGroup>

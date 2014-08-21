@@ -24,13 +24,8 @@ namespace NaPegada.Web.Areas.User.Controllers
             if (ModelState.IsValid)
             {
                 _userBUS.Register(userVM.User);
-
-                return RedirectToAction("LogIn", new
-                {
-                    userVM = userVM
-                });
+                return RedirectToAction("LogIn");
             }
-
             return RedirectToAction("Register");
         }
 
@@ -44,7 +39,6 @@ namespace NaPegada.Web.Areas.User.Controllers
                 SignIn(userVM);
                 return RedirectToAction("Home", new { mail = userVM.User.Mail });
             }
-
             return RedirectToAction("LogIn");
         }
 
@@ -76,6 +70,17 @@ namespace NaPegada.Web.Areas.User.Controllers
         public ViewResult LogIn()
         {
             return View();
+        }
+
+        public ViewResult MyProfile(string id)
+        {
+            return View(new UserViewModel { User = _userBUS.GetById(id) });
+        }
+
+        public ActionResult UpdateProfile(UserViewModel userVM)
+        {
+            _userBUS.Update(userVM.User);
+            return RedirectToAction("Home", new { mail = userVM.User.Mail });
         }
 
         #endregion

@@ -4,12 +4,14 @@
 }
 
 <div class="container">
-    <h2>Bem vindo</h2>
-    <p>@Model.User.Id</p>
-    <p>@Model.User.Name</p>
-    <p>@Model.User.Mail</p>
-    <p>@Model.User.Password</p>
+    <h2>Bem vindo, @Model.User.Name</h2>
+    <p>E-mail: @Model.User.Mail</p>
+    <p>Senha: @Model.User.Password</p>
+    <p>Se registrou em: @Model.User.DateOfRegistration.ToShortDateString() às @Model.User.DateOfRegistration.ToShortTimeString()</p>
     <p>@Html.ActionLink("Sair", "LogOut", "User")</p>
+    <p>
+        <a href="@Url.Action("MyProfile", "User", new { id = Model.User.Id.ToString() })">Meu perfil</a>
+    </p>
 </div>
 
 

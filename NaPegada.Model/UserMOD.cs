@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using NaPegada.Utility.Messages;
-using NaPegada.Utility.Regex;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace NaPegada.Model
 {
@@ -13,6 +13,8 @@ namespace NaPegada.Model
         public string Mail { get; set; }
         public string Password { get; set; }
         public bool StayConnected { get; set; }
+        public DateTime DateOfRegistration { get; set; }
+        public Roles Role { get; set; }
         public Upload Upload { get; set; }
         public ICollection<AnimalMOD> Animal { get; set; }
     }

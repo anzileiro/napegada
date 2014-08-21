@@ -2,10 +2,6 @@
 using NaPegada.Model;
 using NaPegada.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NaPegada.Business
 {
@@ -20,6 +16,8 @@ namespace NaPegada.Business
 
         public void Register(UserMOD userMOD)
         {
+            SetRoles(userMOD);
+            userMOD.DateOfRegistration = DateTime.Now;
             _userREP.Register(userMOD);
         }
 
@@ -33,9 +31,31 @@ namespace NaPegada.Business
             return _userREP.GetByMail(mail);
         }
 
+        public UserMOD GetById(string id)
+        {
+            return _userREP.GetById(ConvertToId(id));
+        }
+
         public void Update(UserMOD userMOD)
         {
             _userREP.Update(userMOD);
+        }
+
+        private void SetRoles(UserMOD userMOD, int role = 0)
+        {
+            if (role > 0 && role <= 2)
+            {
+                userMOD.Role = role == 1 ? Roles.User : Roles.Admin;
+            }
+            else
+            {
+                userMOD.Role = Roles.User;
+            }
+        }
+
+        private ObjectId ConvertToId(string s)
+        {
+            return ObjectId.Parse(s);
         }
     }
 }
