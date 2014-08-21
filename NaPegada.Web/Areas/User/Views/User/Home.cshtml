@@ -3,15 +3,11 @@
     ViewBag.Title = "Home";
 }
 
+<div class="page-header">
+    @Html.Partial("_Menu")
+</div>
 <div class="container">
-    <h2>Bem vindo, @Model.User.Name</h2>
-    <p>E-mail: @Model.User.Mail</p>
-    <p>Senha: @Model.User.Password</p>
-    <p>Se registrou em: @Model.User.DateOfRegistration.ToShortDateString() às @Model.User.DateOfRegistration.ToShortTimeString()</p>
-    <p>@Html.ActionLink("Sair", "LogOut", "User")</p>
-    <p>
-        <a href="@Url.Action("MyProfile", "User", new { id = Model.User.Id.ToString() })">Meu perfil</a>
-    </p>
+    Bem vindo !
 </div>
 
 

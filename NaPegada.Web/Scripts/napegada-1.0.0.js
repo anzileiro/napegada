@@ -1,4 +1,12 @@
-﻿//$(function () {
+﻿$(function () {
+    $('.alerts-user').tooltip();
+
+    $('.dropdown-toggle').on('click', function () {
+        
+    });
+});
+
+//$(function () {
 //    $('#form-register').on('submit', function () {
 //        userVM.getUserInput();
 //        func.send('Register', 'post', userVM);
