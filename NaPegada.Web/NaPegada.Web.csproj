@@ -163,6 +163,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Site\Models\" />
     <Folder Include="Areas\User\Models\" />
+    <Folder Include="Content\upload\admin\" />
+    <Folder Include="Content\upload\site\" />
+    <Folder Include="Content\upload\user\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>

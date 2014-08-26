@@ -49,6 +49,15 @@ namespace NaPegada.Web.Areas.User.Controllers
             SignOut();
             return RedirectToAction("LogIn");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateProfile(UserViewModel userVM, string id)
+        {
+            _userBUS.Update(userVM.User, id);
+            return RedirectToAction("Home", new { mail = userVM.User.Mail });
+        }
+
         #endregion
 
         #region [VIEWS]
@@ -72,15 +81,10 @@ namespace NaPegada.Web.Areas.User.Controllers
             return View();
         }
 
+        [HttpGet]
         public ViewResult MyProfile(string id)
         {
             return View(new UserViewModel { User = _userBUS.GetById(id) });
-        }
-
-        public ActionResult UpdateProfile(UserViewModel userVM)
-        {
-            _userBUS.Update(userVM.User);
-            return RedirectToAction("Home", new { mail = userVM.User.Mail });
         }
 
         #endregion

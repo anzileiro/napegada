@@ -7,3 +7,12 @@ C:\projetos\net\napegada\NaPegada.Model\bin\Debug\MongoDB.Bson.xml
 C:\projetos\net\napegada\NaPegada.Model\obj\Debug\NaPegada.Model.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.Model\obj\Debug\NaPegada.Model.dll
 C:\projetos\net\napegada\NaPegada.Model\obj\Debug\NaPegada.Model.pdb
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\bin\Debug\NaPegada.Model.dll
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\bin\Debug\NaPegada.Model.pdb
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\bin\Debug\MongoDB.Bson.dll
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\bin\Debug\NaPegada.Utility.dll
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\bin\Debug\NaPegada.Utility.pdb
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\bin\Debug\MongoDB.Bson.xml
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\obj\Debug\NaPegada.Model.csprojResolveAssemblyReference.cache
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\obj\Debug\NaPegada.Model.dll
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\obj\Debug\NaPegada.Model.pdb

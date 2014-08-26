@@ -30,13 +30,14 @@ namespace NaPegada.Repository
             }
         }
 
-        public void Update(UserMOD userMOD)
+        public void Update(UserMOD userMOD, ObjectId id)
         {
             using (_conn = new Connection<UserMOD>())
             {
                 _conn.Connect("mongodb://localhost", "napegada", "user")
-                     .Update(Query<UserMOD>.EQ(u => u.Id, userMOD.Id), Update<UserMOD>.Set(u => u.Name, userMOD.Name)
-                                                                                      .Set(u => u.Password, userMOD.Password));
+                     .Update(Query<UserMOD>.EQ(u => u.Id, id), Update<UserMOD>.Set(u => u.NameFile, userMOD.NameFile)
+                                                                               .Set(u => u.Password, userMOD.Password)
+                                                                               .Set(u => u.Name, userMOD.Name));
             }
         }
 

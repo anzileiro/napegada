@@ -16,6 +16,7 @@ namespace NaPegada.Model
         public DateTime DateOfRegistration { get; set; }
         public Roles Role { get; set; }
         public Upload Upload { get; set; }
+        public string NameFile { get; set; }
         public ICollection<AnimalMOD> Animal { get; set; }
     }
 }

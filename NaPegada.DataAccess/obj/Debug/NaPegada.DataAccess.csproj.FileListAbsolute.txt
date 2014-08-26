@@ -7,3 +7,12 @@ C:\projetos\net\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Bson.xml
 C:\projetos\net\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.dll
 C:\projetos\net\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.pdb
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\bin\Debug\NaPegada.DataAccess.dll
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\bin\Debug\NaPegada.DataAccess.pdb
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\bin\Debug\MongoDB.Driver.dll
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\bin\Debug\MongoDB.Bson.dll
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\bin\Debug\MongoDB.Driver.xml
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\bin\Debug\MongoDB.Bson.xml
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.dll
+C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.pdb

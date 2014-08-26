@@ -2,6 +2,10 @@
 using NaPegada.Model;
 using NaPegada.Repository;
 using System;
+using System.Web;
+using System.Web.Http;
+using System.Web.Hosting;
+using System.IO;
 
 namespace NaPegada.Business
 {
@@ -36,9 +40,10 @@ namespace NaPegada.Business
             return _userREP.GetById(ConvertToId(id));
         }
 
-        public void Update(UserMOD userMOD)
+        public void Update(UserMOD userMOD, string id)
         {
-            _userREP.Update(userMOD);
+            userMOD.NameFile = SaveFile(userMOD.Upload.File, @"~/Content/upload/user");
+            _userREP.Update(userMOD, ConvertToId(id));
         }
 
         private void SetRoles(UserMOD userMOD, int role = 0)
@@ -56,6 +61,13 @@ namespace NaPegada.Business
         private ObjectId ConvertToId(string s)
         {
             return ObjectId.Parse(s);
+        }
+
+        private string SaveFile(HttpPostedFileBase file, string path)
+        {
+            file.SaveAs(Path.Combine(HostingEnvironment.MapPath(path), file.FileName));
+
+            return file.FileName;
         }
     }
 }
