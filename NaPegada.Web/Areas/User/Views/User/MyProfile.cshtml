@@ -9,8 +9,7 @@
     @using (Html.BeginForm("UpdateProfile", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form", @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-        @*@Html.HiddenFor(u => u.User.Mail)*@
-        <input type="hidden" name="id" value="@Model.User.Id" />
+        @Html.Hidden("id", new { id = Model.User.Id })
         <div class="form-group">
             <label for="User_Name" class="col-sm-2 control-label">Nome:</label>
             <div class="col-sm-10">

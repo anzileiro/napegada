@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alert.cs" />
     <Compile Include="AnimalMOD.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -33,3 +33,8 @@ C:\Users\rm70825\Desktop\napegada-master\NaPegada.Business\bin\Debug\System.Net.
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Business\bin\Debug\Newtonsoft.Json.dll
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Business\bin\Debug\System.Web.Http.xml
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Business\bin\Debug\System.Net.Http.Formatting.xml
+C:\projetos\net\napegada\NaPegada.Business\bin\Debug\System.Web.Http.dll
+C:\projetos\net\napegada\NaPegada.Business\bin\Debug\System.Net.Http.Formatting.dll
+C:\projetos\net\napegada\NaPegada.Business\bin\Debug\Newtonsoft.Json.dll
+C:\projetos\net\napegada\NaPegada.Business\bin\Debug\System.Web.Http.xml
+C:\projetos\net\napegada\NaPegada.Business\bin\Debug\System.Net.Http.Formatting.xml

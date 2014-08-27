@@ -9,7 +9,19 @@
             </button>
         </div>
         <div class="collapse navbar-collapse" id="menu-user">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="form-search">
+                    @using (Ajax.BeginForm(new AjaxOptions { }))
+                    {
+                        @Html.TextBox("search", null, new { @class = "input-search", @placeholder = "Procure animais, pessoas ou novidades" })
+                        <button type="submit" class="btn btn-primary btn-search">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    }
+                </li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
+
                 <li>
                     <a class="alerts-user" href="" title="0 notificações">
                         <span class="glyphicon glyphicon-globe"></span>
@@ -48,4 +60,3 @@
     </div>
 </nav>
 @**@
-

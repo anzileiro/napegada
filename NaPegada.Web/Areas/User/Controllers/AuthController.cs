@@ -1,5 +1,4 @@
-﻿using MongoDB.Bson;
-using NaPegada.Business;
+﻿using NaPegada.Business;
 using NaPegada.Web.Models;
 using System.Web.Mvc;
 using System.Web.Security;

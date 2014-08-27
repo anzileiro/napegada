@@ -95,3 +95,17 @@
     .box-user .info, .box-user .config {
         margin: 0 auto;
     }
+
+.form-search {
+    margin-top: 2%;
+}
+
+    .form-search .input-search {
+        width: 500px;
+        height: 30px;
+    }
+
+    .form-search .btn-search {
+        border-radius: 0;
+        height: 30px;
+    }

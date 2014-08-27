@@ -1,15 +1,10 @@
-﻿using MongoDB.Bson;
-using NaPegada.Model;
+﻿using NaPegada.Model;
 using NaPegada.Repository;
 using System;
-using System.Web;
-using System.Web.Http;
-using System.Web.Hosting;
-using System.IO;
 
 namespace NaPegada.Business
 {
-    public class UserBUS : Alert
+    public class UserBUS : Utility
     {
         private readonly UserREP _userREP;
 
@@ -42,7 +37,7 @@ namespace NaPegada.Business
 
         public void Update(UserMOD userMOD, string id)
         {
-            userMOD.NameFile = SaveFile(userMOD.Upload.File, @"~/Content/upload/user");
+            userMOD.NameFile = VerifyAndSaveFile(userMOD.Upload.File, @"~/Content/upload/user");
             _userREP.Update(userMOD, ConvertToId(id));
         }
 
@@ -58,16 +53,5 @@ namespace NaPegada.Business
             }
         }
 
-        private ObjectId ConvertToId(string s)
-        {
-            return ObjectId.Parse(s);
-        }
-
-        private string SaveFile(HttpPostedFileBase file, string path)
-        {
-            file.SaveAs(Path.Combine(HostingEnvironment.MapPath(path), file.FileName));
-
-            return file.FileName;
-        }
     }
 }

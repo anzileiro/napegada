@@ -37,7 +37,7 @@ namespace NaPegada.Web.Areas.User.Controllers
             if (ModelState.IsValid)
             {
                 SignIn(userVM);
-                return RedirectToAction("Home", new { mail = userVM.User.Mail });
+                return View("Home", new UserViewModel { User = _userBUS.GetByMail(userVM.User.Mail) });
             }
             return RedirectToAction("LogIn");
         }
@@ -54,18 +54,17 @@ namespace NaPegada.Web.Areas.User.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult UpdateProfile(UserViewModel userVM, string id)
         {
-            _userBUS.Update(userVM.User, id);
-            return RedirectToAction("Home", new { mail = userVM.User.Mail });
+            if (ModelState.IsValid)
+            {
+                _userBUS.Update(userVM.User, id);
+                return View("Home", new UserViewModel { User = _userBUS.GetById(id) });
+            }
+            return View("MyProfile", new { id = id });
         }
 
         #endregion
 
         #region [VIEWS]
-        [HttpGet]
-        public ViewResult Home(string mail)
-        {
-            return View(new UserViewModel { User = _userBUS.GetByMail(mail) });
-        }
 
         [HttpGet]
         [AllowAnonymous]
