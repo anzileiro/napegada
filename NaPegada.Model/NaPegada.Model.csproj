@@ -45,14 +45,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdocaoMOD.cs" />
+    <Compile Include="AnimalIdadeMOD.cs" />
     <Compile Include="AnimalMOD.cs" />
     <Compile Include="AnimalPorte.cs" />
     <Compile Include="DoacaoMOD.cs" />
+    <Compile Include="EnderecoMOD.cs" />
     <Compile Include="Object.cs" />
+    <Compile Include="PessoaJuridicaMOD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AnimalEspecie.cs" />
-    <Compile Include="Raca.cs" />
+    <Compile Include="RacaMOD.cs" />
     <Compile Include="Roles.cs" />
+    <Compile Include="TelefoneMOD.cs" />
     <Compile Include="Upload.cs" />
     <Compile Include="UserMOD.cs" />
   </ItemGroup>
