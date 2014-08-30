@@ -45,9 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnimalMOD.cs" />
+    <Compile Include="AnimalSize.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AnimalType.cs" />
+    <Compile Include="AnimalSpecies.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Upload.cs" />
     <Compile Include="UserMOD.cs" />

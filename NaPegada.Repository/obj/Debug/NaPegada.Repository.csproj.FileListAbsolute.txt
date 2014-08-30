@@ -24,3 +24,16 @@ C:\Users\rm70825\Desktop\napegada-master\NaPegada.Repository\bin\Debug\MongoDB.D
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Repository\obj\Debug\NaPegada.Repository.csprojResolveAssemblyReference.cache
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Repository\obj\Debug\NaPegada.Repository.dll
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Repository\obj\Debug\NaPegada.Repository.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\NaPegada.Repository.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\NaPegada.Repository.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\MongoDB.Bson.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\MongoDB.Driver.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\NaPegada.DataAccess.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\NaPegada.Model.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\NaPegada.DataAccess.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\NaPegada.Model.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\MongoDB.Bson.xml
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\bin\Debug\MongoDB.Driver.xml
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\obj\Debug\NaPegada.Repository.csprojResolveAssemblyReference.cache
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\obj\Debug\NaPegada.Repository.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Repository\obj\Debug\NaPegada.Repository.pdb

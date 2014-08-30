@@ -10,3 +10,10 @@ C:\Users\rm70825\Desktop\napegada-master\NaPegada.Utility\obj\Debug\NaPegada.Uti
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Utility\obj\Debug\NaPegada.Utility.csproj.GenerateResource.Cache
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Utility\obj\Debug\NaPegada.Utility.dll
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Utility\obj\Debug\NaPegada.Utility.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Utility\bin\Debug\NaPegada.Utility.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Utility\bin\Debug\NaPegada.Utility.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Utility\obj\Debug\NaPegada.Utility.csprojResolveAssemblyReference.cache
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Utility\obj\Debug\NaPegada.Utility.Messages.MessagesUTL.resources
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Utility\obj\Debug\NaPegada.Utility.csproj.GenerateResource.Cache
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Utility\obj\Debug\NaPegada.Utility.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Utility\obj\Debug\NaPegada.Utility.pdb

@@ -16,3 +16,12 @@ C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\bin\Debug\MongoDB.B
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.dll
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.DataAccess\bin\Debug\NaPegada.DataAccess.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.DataAccess\bin\Debug\NaPegada.DataAccess.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Driver.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Bson.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Driver.xml
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Bson.xml
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.csprojResolveAssemblyReference.cache
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.pdb

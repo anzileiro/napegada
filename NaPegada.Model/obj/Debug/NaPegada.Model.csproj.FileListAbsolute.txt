@@ -16,3 +16,12 @@ C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\bin\Debug\MongoDB.Bson.x
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\obj\Debug\NaPegada.Model.csprojResolveAssemblyReference.cache
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\obj\Debug\NaPegada.Model.dll
 C:\Users\rm70825\Desktop\napegada-master\NaPegada.Model\obj\Debug\NaPegada.Model.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Model\bin\Debug\NaPegada.Model.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Model\bin\Debug\NaPegada.Model.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Model\bin\Debug\MongoDB.Bson.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Model\bin\Debug\NaPegada.Utility.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Model\bin\Debug\NaPegada.Utility.pdb
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Model\bin\Debug\MongoDB.Bson.xml
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Model\obj\Debug\NaPegada.Model.csprojResolveAssemblyReference.cache
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Model\obj\Debug\NaPegada.Model.dll
+F:\fiap\inovTech\na_pegada\napegada\NaPegada.Model\obj\Debug\NaPegada.Model.pdb

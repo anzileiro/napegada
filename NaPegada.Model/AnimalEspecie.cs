@@ -1,7 +1,7 @@
 ﻿
 namespace NaPegada.Model
 {
-    public enum AnimalType
+    public enum AnimalEspecie
     {
         Cat,
         Dog,
