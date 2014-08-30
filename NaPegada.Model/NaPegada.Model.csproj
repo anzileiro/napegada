@@ -44,11 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdocaoMOD.cs" />
     <Compile Include="AnimalMOD.cs" />
-    <Compile Include="AnimalSize.cs" />
+    <Compile Include="AnimalPorte.cs" />
+    <Compile Include="DoacaoMOD.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AnimalSpecies.cs" />
+    <Compile Include="AnimalEspecie.cs" />
+    <Compile Include="Raca.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Upload.cs" />
     <Compile Include="UserMOD.cs" />
