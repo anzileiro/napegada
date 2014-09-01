@@ -1,0 +1,55 @@
+﻿@model NaPegada.Web.Models.UsuarioViewModel
+@{
+    ViewBag.Title = Model.Usuario.Nome;
+}
+<div class="page-header">
+    @Html.Partial("_Menu")
+</div>
+<div class="container">
+    @using (Html.BeginForm("AtualizarUsuario", "Usuario", FormMethod.Post, new { @class = "form-horizontal", role = "form", @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("id", new { id = Model.Usuario.Id })
+        <fieldset>
+            <legend>Informações de perfil</legend>
+            <div class="form-group">
+                <label for="Usuario_Nome" class="col-sm-2 control-label">Nome:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(u => u.Usuario.Nome, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Usuario_Senha" class="col-sm-2 control-label">Senha:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(u => u.Usuario.Senha, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Usuario_FotoPerfil_Arquivo" class="col-sm-2 control-label">Foto do perfil:</label>
+                <div class="col-sm-10">
+                    <input type="file" name="Usuario.FotoPerfil.Arquivo" class="form-control" />
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Informações de localização</legend>
+            <div class="form-group">
+                <label for="Usuario_Endereco_Cep" class="col-sm-2 control-label">CEP:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(u => u.Usuario.Endereco.Cep, new { @class = "form-control" })
+                    <button type="button" id="btn-buscar-cep">Buscar meu cep</button>
+                </div>
+            </div>
+        </fieldset>
+        
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Salvar alterações</button>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    @Scripts.Render("~/Scripts/napegada-usuario-1.0.0.js")
+}

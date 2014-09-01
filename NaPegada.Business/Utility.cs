@@ -10,29 +10,29 @@ namespace NaPegada.Business
 {
     public class Utility
     {
-        public Action<string, string> Message { get; set; }
+        public Action<string, string> Mensagem { get; set; }
         private const string passphrase = "SHIELD";
 
-        private string Save(HttpPostedFileBase file, string path)
+        private string Save(HttpPostedFileBase arquivo, string caminho)
         {
-            var name = FormatNameFile(file);
-            file.SaveAs(Path.Combine(HostingEnvironment.MapPath(path), name));
+            var name = FormatarNomeDoArquivo(arquivo);
+            arquivo.SaveAs(Path.Combine(HostingEnvironment.MapPath(caminho), name));
             return name;
         }
 
-        private string FormatNameFile(HttpPostedFileBase name)
+        private string FormatarNomeDoArquivo(HttpPostedFileBase name)
         {
             return (Guid.NewGuid() + Path.GetExtension(name.FileName)).ToLower().ToString();
         }
 
-        public string VerifyAndSaveFile(HttpPostedFileBase file, string path)
+        public string VerificaEhSalvaArquivo(HttpPostedFileBase arquivo, string caminho)
         {
-            if (file != null)
-                return Save(file, path);
+            if (arquivo != null)
+                return Save(arquivo, caminho);
 
             return string.Empty;
         }
-        public ObjectId ConvertToId(string s)
+        public ObjectId ConverterParaObjectId(string s)
         {
             return ObjectId.Parse(s);
         }

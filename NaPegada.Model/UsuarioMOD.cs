@@ -1,0 +1,19 @@
+﻿using System.Collections.Generic;
+using NaPegada.Utility.Messages;
+using System.ComponentModel.DataAnnotations;
+using System;
+
+namespace NaPegada.Model
+{
+    public class UsuarioMOD : Object
+    {
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
+        public int Reputacao { get; set; }
+        public bool MantenhaMeConectado { get; set; }
+        public Upload FotoPerfil { get; set; }
+        public EnderecoMOD Endereco { get; set; }
+        public IEnumerable<TelefoneMOD> Telefones { get; set; }
+    }
+}

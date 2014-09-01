@@ -9,7 +9,7 @@ namespace NaPegada.Model
     public class AdocaoMOD: Object
     {
 
-        public UserMOD Usuario { get; set; }
+        public UsuarioMOD Usuario { get; set; }
 
         public DateTime DataCadastro { get; set; }
         public string Caracteristicas { get; set; }

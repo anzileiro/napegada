@@ -55,10 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AnimalEspecie.cs" />
     <Compile Include="RacaMOD.cs" />
-    <Compile Include="Roles.cs" />
+    <Compile Include="Grupos.cs" />
     <Compile Include="TelefoneMOD.cs" />
     <Compile Include="Upload.cs" />
-    <Compile Include="UserMOD.cs" />
+    <Compile Include="UsuarioMOD.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NaPegada.Utility\NaPegada.Utility.csproj">
