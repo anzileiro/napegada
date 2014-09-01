@@ -7,23 +7,29 @@ namespace NaPegada.Web.Areas.User.Controllers
 {
     public abstract class AuthController : Controller
     {
-        private readonly UsuarioBUS _userBUS;
+        private readonly UsuarioBUS _usuarioBUS;
+        private readonly Utility _utility;
 
         public AuthController()
         {
-            _userBUS = new UsuarioBUS();
+            _usuarioBUS = new UsuarioBUS();
+            _utility = new Utility();
         }
 
-        public void SignIn(UsuarioViewModel usuarioVM)
+        public bool Logar(UsuarioViewModel usuarioVM)
         {
-            if (_userBUS.EhUsuario(usuarioVM.Usuario))
+            var existeUsuario = false;
+            usuarioVM.Usuario.Senha = _utility.CriptografarSenha(usuarioVM.Usuario.Senha, "sha1");
+            if (_usuarioBUS.EhUsuario(usuarioVM.Usuario))
             {
                 FormsAuthentication.Authenticate(usuarioVM.Usuario.Email, usuarioVM.Usuario.Senha);
                 FormsAuthentication.SetAuthCookie(usuarioVM.Usuario.Email, usuarioVM.Usuario.MantenhaMeConectado);
+                existeUsuario = true;
             }
+            return existeUsuario;
         }
 
-        public void SignOut()
+        public void Deslogar()
         {
             FormsAuthentication.SignOut();
         }

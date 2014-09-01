@@ -34,11 +34,9 @@ namespace NaPegada.Web.Areas.User.Controllers
         [AllowAnonymous]
         public ActionResult Entrar(UsuarioViewModel usuarioVM)
         {
-            if (ModelState.IsValid)
-            {
-                SignIn(usuarioVM);
+            if (ModelState.IsValid && Logar(usuarioVM))
                 return View("Home", new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorEmail(usuarioVM.Usuario.Email) });
-            }
+
             return RedirectToAction("Entrar");
         }
 
@@ -46,20 +44,16 @@ namespace NaPegada.Web.Areas.User.Controllers
         [AllowAnonymous]
         public ActionResult Sair()
         {
-            SignOut();
+            Deslogar();
             return RedirectToAction("Entrar");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AtualizarUsuario(UsuarioViewModel userVM, string id)
+        public ActionResult AtualizarUsuario(UsuarioViewModel usuarioVM, string id)
         {
-            if (ModelState.IsValid)
-            {
-                _usuarioBUS.Atualizar(userVM.Usuario, id);
-                return View("Home", new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorId(id) });
-            }
-            return View("MeuPerfil", new { id = id });
+            _usuarioBUS.Atualizar(usuarioVM.Usuario, id);
+            return View("Home", new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorId(id) });
         }
 
         #endregion

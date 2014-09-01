@@ -142,6 +142,7 @@
     <Content Include="Areas\Site\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Usuario\Views\_ViewStart.cshtml" />
     <Content Include="Scripts\napegada-1.0.0.js" />
+    <Content Include="Scripts\napegada-usuario-1.0.0.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

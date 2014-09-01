@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NaPegada.Model
 {
-    public class AdocaoMOD: Object
+    public class AdocaoMOD: ObjectMongo
     {
 
         public UsuarioMOD Usuario { get; set; }

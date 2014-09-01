@@ -25,9 +25,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="Usuario_FotoPerfil_Arquivo" class="col-sm-2 control-label">Foto do perfil:</label>
+                <label for="Usuario_ArquivoFotoPerfil_Arquivo" class="col-sm-2 control-label">Foto do perfil:</label>
                 <div class="col-sm-10">
-                    <input type="file" name="Usuario.FotoPerfil.Arquivo" class="form-control" />
+                    <input type="file" name="Usuario.ArquivoFotoPerfil.Arquivo" class="form-control" />
                 </div>
             </div>
         </fieldset>
@@ -35,11 +35,44 @@
             <legend>Informações de localização</legend>
             <div class="form-group">
                 <label for="Usuario_Endereco_Cep" class="col-sm-2 control-label">CEP:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                     @Html.TextBoxFor(u => u.Usuario.Endereco.Cep, new { @class = "form-control" })
-                    <button type="button" id="btn-buscar-cep">Buscar meu cep</button>
+                </div>
+                <button class="btn btn-default" type="button" id="btn-buscar-cep">
+                    Procurar
+                </button>
+            </div>
+            <div class="form-group">
+                <label for="Usuario_Endereco_Rua" class="col-sm-2 control-label">Logradouro:</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(u => u.Usuario.Endereco.Logradouro, new { @class = "form-control" })
+                </div>
+                <label for="Usuario_Endereco_Estado" class="col-sm-2 control-label">Número:</label>
+                <div class="col-sm-2">
+                    @Html.TextBoxFor(u => u.Usuario.Endereco.Numero, new { @class = "form-control" })
                 </div>
             </div>
+            <div class="form-group">
+                <label for="Usuario_Endereco_Bairro" class="col-sm-2 control-label">Bairro:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(u => u.Usuario.Endereco.Bairro, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Usuario_Endereco_Cidade" class="col-sm-2 control-label">Cidade:</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(u => u.Usuario.Endereco.Cidade, new { @class = "form-control" })
+                </div>
+
+                <label for="Usuario_Endereco_Estado" class="col-sm-2 control-label">Estado:</label>
+                <div class="col-sm-2">
+                    @Html.TextBoxFor(u => u.Usuario.Endereco.Estado, new { @class = "form-control" })
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Informações de contato</legend>
+            
         </fieldset>
         
         <div class="form-group">

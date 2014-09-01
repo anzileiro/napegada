@@ -35,9 +35,19 @@ namespace NaPegada.Repository
             using (_conn = new Connection<UsuarioMOD>())
             {
                 _conn.Connect("mongodb://localhost", "napegada", "usuario")
-                     .Update(Query<UsuarioMOD>.EQ(u => u.Id, id), Update<UsuarioMOD>.Set(u => u.FotoPerfil, userMOD.FotoPerfil)
-                                                                               .Set(u => u.Senha, userMOD.Senha)
-                                                                               .Set(u => u.Nome, userMOD.Nome));
+                     .Update(Query<UsuarioMOD>.EQ(u => u.Id, id), Update<UsuarioMOD>
+                                              .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
+                                              .Set(u => u.Senha, userMOD.Senha)
+                                              .Set(u => u.Nome, userMOD.Nome)
+                                              .Set(u => u.Endereco, new EnderecoMOD
+                                              {
+                                                  Cep = userMOD.Endereco.Cep,
+                                                  Logradouro = userMOD.Endereco.Logradouro,
+                                                  Numero = userMOD.Endereco.Numero,
+                                                  Bairro = userMOD.Endereco.Bairro,
+                                                  Cidade = userMOD.Endereco.Cidade,
+                                                  Estado = userMOD.Endereco.Estado
+                                              }));
             }
         }
 

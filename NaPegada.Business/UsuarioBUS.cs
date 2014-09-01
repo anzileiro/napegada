@@ -1,6 +1,5 @@
 ﻿using NaPegada.Model;
 using NaPegada.Repository;
-using System;
 
 namespace NaPegada.Business
 {
@@ -13,9 +12,10 @@ namespace NaPegada.Business
             _usuarioREP = new UsuarioREP();
         }
 
-        public void Registrar(UsuarioMOD userMOD)
+        public void Registrar(UsuarioMOD usuarioMOD)
         {
-            _usuarioREP.Registrar(userMOD);
+            usuarioMOD.Senha = CriptografarSenha(usuarioMOD.Senha, "sha1");
+            _usuarioREP.Registrar(usuarioMOD);
         }
 
         public bool EhUsuario(UsuarioMOD usuarioMOD)
@@ -35,7 +35,7 @@ namespace NaPegada.Business
 
         public void Atualizar(UsuarioMOD usuarioMOD, string id)
         {
-            usuarioMOD.FotoPerfil.Nome = VerificaEhSalvaArquivo(usuarioMOD.FotoPerfil.Arquivo, @"~/Content/upload/usuario");
+            usuarioMOD.NomeFotoPerfil = VerificaEhSalvaArquivo(usuarioMOD.ArquivoFotoPerfil.Arquivo, @"~/Content/upload/usuario");
             _usuarioREP.Atualizar(usuarioMOD, ConverterParaObjectId(id));
         }
 

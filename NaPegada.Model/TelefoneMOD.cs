@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NaPegada.Model
 {
-    public class TelefoneMOD : Object
+    public class TelefoneMOD : ObjectMongo
     {
 
         public int Numero { get; set; }

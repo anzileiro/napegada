@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Hosting;
+using System.Web.Security;
 
 namespace NaPegada.Business
 {
@@ -13,7 +14,7 @@ namespace NaPegada.Business
         public Action<string, string> Mensagem { get; set; }
         private const string passphrase = "SHIELD";
 
-        private string Save(HttpPostedFileBase arquivo, string caminho)
+        private string Salvar(HttpPostedFileBase arquivo, string caminho)
         {
             var name = FormatarNomeDoArquivo(arquivo);
             arquivo.SaveAs(Path.Combine(HostingEnvironment.MapPath(caminho), name));
@@ -28,7 +29,7 @@ namespace NaPegada.Business
         public string VerificaEhSalvaArquivo(HttpPostedFileBase arquivo, string caminho)
         {
             if (arquivo != null)
-                return Save(arquivo, caminho);
+                return Salvar(arquivo, caminho);
 
             return string.Empty;
         }
@@ -71,6 +72,11 @@ namespace NaPegada.Business
                 results = decryptor.TransformFinalBlock(decrypt_data, 0, decrypt_data.Length);
             }
             return utf8.GetString(results);
+        }
+
+        public string CriptografarSenha(string senha, string tipoCriptografia)
+        {
+            return FormsAuthentication.HashPasswordForStoringInConfigFile(senha, tipoCriptografia);
         }
 
     }
