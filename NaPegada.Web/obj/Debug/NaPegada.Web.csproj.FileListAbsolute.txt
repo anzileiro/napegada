@@ -82,6 +82,7 @@ F:\fiap\inovTech\na_pegada\napegada\NaPegada.Web\bin\MongoDB.Driver.xml
 F:\fiap\inovTech\na_pegada\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.csprojResolveAssemblyReference.cache
 F:\fiap\inovTech\na_pegada\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.dll
 F:\fiap\inovTech\na_pegada\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.pdb
+C:\projetos\net\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Web.dll.config
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Web.dll
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Web.pdb
@@ -121,6 +122,5 @@ C:\projetos\net\napegada\NaPegada.Web\bin\System.Web.WebPages.Razor.xml
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Repository.pdb
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.DataAccess.pdb
 C:\projetos\net\napegada\NaPegada.Web\bin\MongoDB.Driver.xml
-C:\projetos\net\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.dll
 C:\projetos\net\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.pdb

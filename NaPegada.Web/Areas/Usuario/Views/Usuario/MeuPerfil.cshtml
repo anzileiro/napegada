@@ -10,6 +10,7 @@
     {
         @Html.AntiForgeryToken()
         @Html.Hidden("id", new { id = Model.Usuario.Id })
+        @Html.HiddenFor(u => u.Usuario.NomeFotoPerfil)
         <fieldset>
             <legend>Informações de perfil</legend>
             <div class="form-group">

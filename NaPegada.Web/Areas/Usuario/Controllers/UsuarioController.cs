@@ -1,18 +1,19 @@
-﻿using MongoDB.Bson;
-using NaPegada.Business;
+﻿using NaPegada.Business;
 using NaPegada.Web.Models;
 using System.Web.Mvc;
 
 namespace NaPegada.Web.Areas.User.Controllers
 {
     [Authorize]
-    public class UsuarioController : AuthController
+    public class UsuarioController : Controller
     {
         private readonly UsuarioBUS _usuarioBUS;
+        private readonly AuthController _auth;
 
         public UsuarioController()
         {
-            _usuarioBUS = new UsuarioBUS();
+            _usuarioBUS = new UsuarioBUS(new Utility());
+            _auth = new AuthController(new Utility(), new UsuarioBUS(new Utility()));
         }
 
         #region [ACTIONS]
@@ -34,7 +35,7 @@ namespace NaPegada.Web.Areas.User.Controllers
         [AllowAnonymous]
         public ActionResult Entrar(UsuarioViewModel usuarioVM)
         {
-            if (ModelState.IsValid && Logar(usuarioVM))
+            if (ModelState.IsValid && _auth.Logar(usuarioVM))
                 return View("Home", new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorEmail(usuarioVM.Usuario.Email) });
 
             return RedirectToAction("Entrar");
@@ -44,7 +45,7 @@ namespace NaPegada.Web.Areas.User.Controllers
         [AllowAnonymous]
         public ActionResult Sair()
         {
-            Deslogar();
+            _auth.Deslogar();
             return RedirectToAction("Entrar");
         }
 

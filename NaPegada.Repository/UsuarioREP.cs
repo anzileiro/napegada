@@ -11,12 +11,12 @@ namespace NaPegada.Repository
     {
         private Connection<UsuarioMOD> _conn;
 
-        public void Registrar(UsuarioMOD userMOD)
+        public void Registrar(UsuarioMOD usuarioMOD)
         {
             using (_conn = new Connection<UsuarioMOD>())
             {
                 _conn.Connect("mongodb://localhost", "napegada", "usuario")
-                     .Insert(userMOD);
+                     .Insert(usuarioMOD);
             }
         }
 
@@ -68,5 +68,7 @@ namespace NaPegada.Repository
                             .FindOne(Query.EQ("_id", id));
             }
         }
+
+
     }
 }

@@ -3,19 +3,31 @@ using NaPegada.Repository;
 
 namespace NaPegada.Business
 {
-    public class UsuarioBUS : Utility
+    public class UsuarioBUS
     {
         private readonly UsuarioREP _usuarioREP;
+        private readonly Utility _utility;
 
-        public UsuarioBUS()
+        public UsuarioBUS(Utility utility_)
         {
             _usuarioREP = new UsuarioREP();
+            _utility = utility_;
         }
+
 
         public void Registrar(UsuarioMOD usuarioMOD)
         {
-            usuarioMOD.Senha = CriptografarSenha(usuarioMOD.Senha, "sha1");
-            _usuarioREP.Registrar(usuarioMOD);
+            try
+            {
+                usuarioMOD.Senha = _utility.CriptografarSenha(usuarioMOD.Senha, "sha1");
+                _usuarioREP.Registrar(usuarioMOD);
+                _utility.Mensagem("sucesso", "Registro efetuado com sucesso !");
+            }
+            catch
+            {
+                _utility.Mensagem("erro", "Não foi possível efetuar o registro !");
+            }
+
         }
 
         public bool EhUsuario(UsuarioMOD usuarioMOD)
@@ -30,14 +42,19 @@ namespace NaPegada.Business
 
         public UsuarioMOD ObterPorId(string id)
         {
-            return _usuarioREP.ObterPorId(ConverterParaObjectId(id));
+            return _usuarioREP.ObterPorId(_utility.ConverterParaObjectId(id));
         }
 
         public void Atualizar(UsuarioMOD usuarioMOD, string id)
         {
-            usuarioMOD.NomeFotoPerfil = VerificaEhSalvaArquivo(usuarioMOD.ArquivoFotoPerfil.Arquivo, @"~/Content/upload/usuario");
-            _usuarioREP.Atualizar(usuarioMOD, ConverterParaObjectId(id));
+            if (usuarioMOD.ArquivoFotoPerfil.Arquivo != null)
+            {
+                usuarioMOD.NomeFotoPerfil = _utility.VerificaEhSalvaArquivo(usuarioMOD.ArquivoFotoPerfil.Arquivo, @"~/Content/upload/usuario");
+            }
+
+            _usuarioREP.Atualizar(usuarioMOD, _utility.ConverterParaObjectId(id));
         }
+
 
     }
 }
