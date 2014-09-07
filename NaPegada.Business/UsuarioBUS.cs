@@ -3,7 +3,7 @@ using NaPegada.Repository;
 
 namespace NaPegada.Business
 {
-    public class UsuarioBUS
+    public class UsuarioBUS : AvisoSistema
     {
         private readonly UsuarioREP _usuarioREP;
         private readonly Utility _utility;
@@ -21,11 +21,11 @@ namespace NaPegada.Business
             {
                 usuarioMOD.Senha = _utility.CriptografarSenha(usuarioMOD.Senha, "sha1");
                 _usuarioREP.Registrar(usuarioMOD);
-                _utility.Mensagem("sucesso", "Registro efetuado com sucesso !");
+                Mensagem("sucesso", "Registro efetuado com sucesso !");
             }
             catch
             {
-                _utility.Mensagem("erro", "Não foi possível efetuar o registro !");
+                Mensagem("erro", "Não foi possível efetuar o registro !");
             }
 
         }

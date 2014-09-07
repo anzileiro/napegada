@@ -7,14 +7,30 @@ namespace NaPegada.Web.Areas.User.Controllers
     [Authorize]
     public class UsuarioController : Controller
     {
-        private readonly UsuarioBUS _usuarioBUS;
-        private readonly AuthController _auth;
+
+        #region [GLOBAIS, METODOS e CONSTRUTOR]
+        private UsuarioBUS _usuarioBUS;
+        private AuthController _auth;
 
         public UsuarioController()
         {
+            IniciarInstancias();
+        }
+
+        [NonAction]
+        private void IniciarInstancias()
+        {
             _usuarioBUS = new UsuarioBUS(new Utility());
+            _usuarioBUS.Mensagem += CriarTempData;
             _auth = new AuthController(new Utility(), new UsuarioBUS(new Utility()));
         }
+
+        [NonAction]
+        private void CriarTempData(string tipo, string msg)
+        {
+            TempData[tipo] = msg;
+        }
+        #endregion
 
         #region [ACTIONS]
         [HttpPost]

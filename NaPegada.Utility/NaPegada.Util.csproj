@@ -46,6 +46,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Regex\RegexUTL.cs" />
+    <Compile Include="DI\IInjecao.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Messages\MessagesUTL.resx">

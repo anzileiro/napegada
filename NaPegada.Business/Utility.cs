@@ -11,7 +11,6 @@ namespace NaPegada.Business
 {
     public class Utility
     {
-        public Action<string, string> Mensagem { get; set; }
         private const string passphrase = "SHIELD";
 
         private string Salvar(HttpPostedFileBase arquivo, string caminho)
