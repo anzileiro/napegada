@@ -6,17 +6,20 @@
     <title>Na Pegada - @ViewBag.Title</title>
     @Styles.Render("http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css",
                    "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css",
+                   "http://bootswatch.com/paper/bootstrap.min.css",
                    "~/Content/styles/napegada-user-1.0.0.css",
-                           "https://code.jquery.com/ui/1.9.1/themes/ui-darkness/jquery-ui.css")
+                   "https://code.jquery.com/ui/1.9.1/themes/ui-darkness/jquery-ui.css")
     @RenderSection("styles", false)
 </head>
 <body>
-
-    <div>
-        @RenderBody()
+    <div class="page-header">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.Partial("_Menu")
+        }
     </div>
-    <div class="footer-site">
-
+    <div class="container">
+        @RenderBody()
     </div>
     @Scripts.Render("http://code.jquery.com/jquery-1.9.1.min.js",
                     "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js",

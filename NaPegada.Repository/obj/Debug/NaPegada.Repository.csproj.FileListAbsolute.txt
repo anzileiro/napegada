@@ -37,3 +37,5 @@ C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\MongoDB.Driver.xml
 C:\projetos\net\napegada\NaPegada.Repository\obj\Debug\NaPegada.Repository.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.Repository\obj\Debug\NaPegada.Repository.dll
 C:\projetos\net\napegada\NaPegada.Repository\obj\Debug\NaPegada.Repository.pdb
+C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.Util.dll
+C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.Util.pdb

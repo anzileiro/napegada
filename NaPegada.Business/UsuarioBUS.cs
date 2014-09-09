@@ -1,32 +1,39 @@
 ﻿using NaPegada.Model;
 using NaPegada.Repository;
+using NaPegada.Util;
 
 namespace NaPegada.Business
 {
-    public class UsuarioBUS : AvisoSistema
+    public class UsuarioBUS : AvisoSistema, IInjecao<UsuarioREP, Utilitaria>
     {
-        private readonly UsuarioREP _usuarioREP;
-        private readonly Utility _utility;
+        private UsuarioREP _usuarioREP;
+        private Utilitaria _utilitaria;
 
-        public UsuarioBUS(Utility utility_)
+        public UsuarioBUS()
         {
-            _usuarioREP = new UsuarioREP();
-            _utility = utility_;
+            this.Injetar(new UsuarioREP(), new Utilitaria());
         }
-
+        public void Injetar(UsuarioREP usuarioREP_, Utilitaria utilitaria_)
+        {
+            this._usuarioREP = usuarioREP_;
+            this._utilitaria = utilitaria_;
+        }
 
         public void Registrar(UsuarioMOD usuarioMOD)
         {
-            try
-            {
-                usuarioMOD.Senha = _utility.CriptografarSenha(usuarioMOD.Senha, "sha1");
-                _usuarioREP.Registrar(usuarioMOD);
-                Mensagem("sucesso", "Registro efetuado com sucesso !");
-            }
-            catch
-            {
-                Mensagem("erro", "Não foi possível efetuar o registro !");
-            }
+            usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
+            _usuarioREP.Registrar(usuarioMOD);
+
+            //try
+            //{
+            //    usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
+            //    _usuarioREP.Registrar(usuarioMOD);
+            //    Mensagem("sucesso", "Registro efetuado com sucesso !");
+            //}
+            //catch
+            //{
+            //    Mensagem("erro", "Não foi possível efetuar o registro !");
+            //}
 
         }
 
@@ -42,19 +49,21 @@ namespace NaPegada.Business
 
         public UsuarioMOD ObterPorId(string id)
         {
-            return _usuarioREP.ObterPorId(_utility.ConverterParaObjectId(id));
+            return _usuarioREP.ObterPorId(_utilitaria.ConverterParaObjectId(id));
         }
 
         public void Atualizar(UsuarioMOD usuarioMOD, string id)
         {
             if (usuarioMOD.ArquivoFotoPerfil.Arquivo != null)
             {
-                usuarioMOD.NomeFotoPerfil = _utility.VerificaEhSalvaArquivo(usuarioMOD.ArquivoFotoPerfil.Arquivo, @"~/Content/upload/usuario");
+                usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(usuarioMOD.ArquivoFotoPerfil.Arquivo, @"~/Content/upload/usuario");
             }
 
-            _usuarioREP.Atualizar(usuarioMOD, _utility.ConverterParaObjectId(id));
+            _usuarioREP.Atualizar(usuarioMOD, _utilitaria.ConverterParaObjectId(id));
         }
 
 
+
+       
     }
 }

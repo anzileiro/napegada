@@ -1,12 +1,9 @@
 ﻿@model NaPegada.Web.Models.UsuarioViewModel
 @{
-    ViewBag.Title = Model.Usuario.Nome;
+    ViewBag.Title = ViewBag.Title == string.Empty ? Model.Usuario.Nome : Model.Usuario.Email;
 }
 
-<div class="page-header">
-    @Html.Partial("_Menu")
-</div>
-<div class="container">
+<div>
     Bem vindo, @Model.Usuario.Nome
 </div>
 

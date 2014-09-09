@@ -58,6 +58,10 @@
       <Project>{9ad42331-1845-49c8-9bbc-0c445fdacff7}</Project>
       <Name>NaPegada.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NaPegada.Util\NaPegada.Util.csproj">
+      <Project>{a19c9702-e640-4c8d-ba86-030b7285532f}</Project>
+      <Name>NaPegada.Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

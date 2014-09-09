@@ -1,28 +1,27 @@
 ﻿using NaPegada.Business;
+using NaPegada.Util;
 using NaPegada.Web.Models;
 using System.Web.Mvc;
 
 namespace NaPegada.Web.Areas.User.Controllers
 {
     [Authorize]
-    public class UsuarioController : Controller
+    public class UsuarioController : Controller, IInjecao<UsuarioBUS, AuthController>
     {
 
         #region [GLOBAIS, METODOS e CONSTRUTOR]
         private UsuarioBUS _usuarioBUS;
-        private AuthController _auth;
+        private AuthController _authController;
+        
+        public void Injetar(UsuarioBUS usuarioBUS_, AuthController authController_)
+        {
+            this._usuarioBUS = usuarioBUS_;
+            this._authController = authController_;
+        }
 
         public UsuarioController()
         {
-            IniciarInstancias();
-        }
-
-        [NonAction]
-        private void IniciarInstancias()
-        {
-            _usuarioBUS = new UsuarioBUS(new Utility());
-            _usuarioBUS.Mensagem += CriarTempData;
-            _auth = new AuthController(new Utility(), new UsuarioBUS(new Utility()));
+            this.Injetar(new UsuarioBUS(), new AuthController());
         }
 
         [NonAction]
@@ -51,7 +50,7 @@ namespace NaPegada.Web.Areas.User.Controllers
         [AllowAnonymous]
         public ActionResult Entrar(UsuarioViewModel usuarioVM)
         {
-            if (ModelState.IsValid && _auth.Logar(usuarioVM))
+            if (ModelState.IsValid && _authController.Logar(usuarioVM))
                 return View("Home", new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorEmail(usuarioVM.Usuario.Email) });
 
             return RedirectToAction("Entrar");
@@ -61,7 +60,7 @@ namespace NaPegada.Web.Areas.User.Controllers
         [AllowAnonymous]
         public ActionResult Sair()
         {
-            _auth.Deslogar();
+            _authController.Deslogar();
             return RedirectToAction("Entrar");
         }
 
