@@ -11,7 +11,7 @@ namespace NaPegada.Business
 
         public UsuarioBUS()
         {
-            this.Injetar(new UsuarioREP(), new Utilitaria());
+            if (_usuarioREP == null && _utilitaria == null) this.Injetar(new UsuarioREP(), new Utilitaria());
         }
         public void Injetar(UsuarioREP usuarioREP_, Utilitaria utilitaria_)
         {
@@ -21,19 +21,16 @@ namespace NaPegada.Business
 
         public void Registrar(UsuarioMOD usuarioMOD)
         {
-            usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
-            _usuarioREP.Registrar(usuarioMOD);
-
-            //try
-            //{
-            //    usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
-            //    _usuarioREP.Registrar(usuarioMOD);
-            //    Mensagem("sucesso", "Registro efetuado com sucesso !");
-            //}
-            //catch
-            //{
-            //    Mensagem("erro", "Não foi possível efetuar o registro !");
-            //}
+            try
+            {
+                usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
+                _usuarioREP.Registrar(usuarioMOD);
+                Mensagem("sucesso", "Registro efetuado com sucesso !");
+            }
+            catch
+            {
+                Mensagem("erro", "Não foi possível efetuar o registro !");
+            }
 
         }
 
@@ -64,6 +61,6 @@ namespace NaPegada.Business
 
 
 
-       
+
     }
 }
