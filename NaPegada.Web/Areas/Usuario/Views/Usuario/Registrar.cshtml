@@ -12,7 +12,7 @@
             <fieldset>
                 <div class="form-group">
                     <label for="Usuario_Email">Seu endereço de e-mail</label>
-                    @Html.TextBoxFor(u => u.b.Email, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.Usuario.Email, new { @class = "form-control" })
                     @Html.ValidationMessageFor(u => u.Usuario.Email)
                 </div>
                 <div class="form-group">
