@@ -17,7 +17,6 @@
         <h2 class="text-center">Entrar</h2>
         @using (Html.BeginForm("Entrar", "Usuario", FormMethod.Post, new { @class = "form" }))
         {
-            @Html.AntiForgeryToken()
             <fieldset>
                 <div class="form-group">
                     <label for="User_Mail">Seu endereço de e-mail</label>

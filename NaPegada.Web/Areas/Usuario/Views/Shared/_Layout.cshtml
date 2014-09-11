@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model NaPegada.Web.Models.UsuarioViewModel
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -12,12 +13,13 @@
     @RenderSection("styles", false)
 </head>
 <body>
-    <div class="page-header">
-        @if (User.Identity.IsAuthenticated)
-        {
+    @if (Model != null && User.Identity.IsAuthenticated)
+    {
+        <div class="page-header">
             @Html.Partial("_Menu")
-        }
-    </div>
+        </div>
+    }
+
     <div class="container">
         @RenderBody()
     </div>

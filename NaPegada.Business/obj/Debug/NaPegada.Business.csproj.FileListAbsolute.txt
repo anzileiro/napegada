@@ -43,6 +43,7 @@ C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.Business.pdb
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\MongoDB.Bson.dll
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.Model.dll
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.Repository.dll
+C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.Util.dll
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\System.Web.Http.dll
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.DataAccess.dll
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\MongoDB.Driver.dll
@@ -50,6 +51,7 @@ C:\projetos\net\napegada\NaPegada.Business\bin\Debug\System.Net.Http.Formatting.
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\Newtonsoft.Json.dll
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.Model.pdb
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.Repository.pdb
+C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.Util.pdb
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\MongoDB.Bson.xml
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\System.Web.Http.xml
 C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.DataAccess.pdb
@@ -58,5 +60,3 @@ C:\projetos\net\napegada\NaPegada.Business\bin\Debug\System.Net.Http.Formatting.
 C:\projetos\net\napegada\NaPegada.Business\obj\Debug\NaPegada.Business.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.Business\obj\Debug\NaPegada.Business.dll
 C:\projetos\net\napegada\NaPegada.Business\obj\Debug\NaPegada.Business.pdb
-C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.Util.dll
-C:\projetos\net\napegada\NaPegada.Business\bin\Debug\NaPegada.Util.pdb

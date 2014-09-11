@@ -117,7 +117,7 @@
   <ItemGroup>
     <Compile Include="Areas\Site\Controllers\SiteController.cs" />
     <Compile Include="Areas\Site\SiteAreaRegistration.cs" />
-    <Compile Include="Areas\Usuario\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Usuario\Controllers\FiltroController.cs" />
     <Compile Include="Areas\Usuario\Controllers\UsuarioController.cs" />
     <Compile Include="Areas\Usuario\UsuarioAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">

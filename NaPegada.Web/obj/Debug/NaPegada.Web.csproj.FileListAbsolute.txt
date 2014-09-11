@@ -82,7 +82,6 @@ F:\fiap\inovTech\na_pegada\napegada\NaPegada.Web\bin\MongoDB.Driver.xml
 F:\fiap\inovTech\na_pegada\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.csprojResolveAssemblyReference.cache
 F:\fiap\inovTech\na_pegada\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.dll
 F:\fiap\inovTech\na_pegada\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.pdb
-C:\projetos\net\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Web.dll.config
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Web.dll
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Web.pdb
@@ -91,6 +90,7 @@ C:\projetos\net\napegada\NaPegada.Web\bin\Microsoft.Web.Mvc.FixedDisplayModes.dl
 C:\projetos\net\napegada\NaPegada.Web\bin\MongoDB.Bson.dll
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Business.dll
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Model.dll
+C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Util.dll
 C:\projetos\net\napegada\NaPegada.Web\bin\Newtonsoft.Json.dll
 C:\projetos\net\napegada\NaPegada.Web\bin\System.Net.Http.Formatting.dll
 C:\projetos\net\napegada\NaPegada.Web\bin\System.Web.Helpers.dll
@@ -107,6 +107,7 @@ C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.DataAccess.dll
 C:\projetos\net\napegada\NaPegada.Web\bin\MongoDB.Driver.dll
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Business.pdb
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Model.pdb
+C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Util.pdb
 C:\projetos\net\napegada\NaPegada.Web\bin\MongoDB.Bson.xml
 C:\projetos\net\napegada\NaPegada.Web\bin\System.Web.Optimization.xml
 C:\projetos\net\napegada\NaPegada.Web\bin\Newtonsoft.Json.xml
@@ -122,7 +123,6 @@ C:\projetos\net\napegada\NaPegada.Web\bin\System.Web.WebPages.Razor.xml
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Repository.pdb
 C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.DataAccess.pdb
 C:\projetos\net\napegada\NaPegada.Web\bin\MongoDB.Driver.xml
+C:\projetos\net\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.dll
 C:\projetos\net\napegada\NaPegada.Web\obj\Debug\NaPegada.Web.pdb
-C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Util.dll
-C:\projetos\net\napegada\NaPegada.Web\bin\NaPegada.Util.pdb

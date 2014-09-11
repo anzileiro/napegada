@@ -5,15 +5,15 @@ using System.Web.Mvc;
 
 namespace NaPegada.Web.Areas.User.Controllers
 {
-    [Authorize]
-    public class UsuarioController : Controller, IInjecao<UsuarioBUS, AuthController>
+    [Autorizar]
+    public class UsuarioController : Controller, IInjecao<UsuarioBUS, AutenticarController>
     {
 
         #region [GLOBAIS, METODOS e CONSTRUTOR]
         private UsuarioBUS _usuarioBUS;
-        private AuthController _authController;
+        private AutenticarController _authController;
         
-        public void Injetar(UsuarioBUS usuarioBUS_, AuthController authController_)
+        public void Injetar(UsuarioBUS usuarioBUS_, AutenticarController authController_)
         {
             this._usuarioBUS = usuarioBUS_;
             this._authController = authController_;
@@ -21,7 +21,7 @@ namespace NaPegada.Web.Areas.User.Controllers
 
         public UsuarioController()
         {
-            this.Injetar(new UsuarioBUS(), new AuthController());
+            this.Injetar(new UsuarioBUS(), new AutenticarController());
         }
 
         [NonAction]
@@ -46,7 +46,6 @@ namespace NaPegada.Web.Areas.User.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         [AllowAnonymous]
         public ActionResult Entrar(UsuarioViewModel usuarioVM)
         {

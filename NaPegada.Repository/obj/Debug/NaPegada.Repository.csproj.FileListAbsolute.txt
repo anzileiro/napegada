@@ -30,12 +30,12 @@ C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\MongoDB.Bson.dll
 C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\MongoDB.Driver.dll
 C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.DataAccess.dll
 C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.Model.dll
+C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.Util.dll
 C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.DataAccess.pdb
 C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.Model.pdb
+C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.Util.pdb
 C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\MongoDB.Bson.xml
 C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\MongoDB.Driver.xml
 C:\projetos\net\napegada\NaPegada.Repository\obj\Debug\NaPegada.Repository.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.Repository\obj\Debug\NaPegada.Repository.dll
 C:\projetos\net\napegada\NaPegada.Repository\obj\Debug\NaPegada.Repository.pdb
-C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.Util.dll
-C:\projetos\net\napegada\NaPegada.Repository\bin\Debug\NaPegada.Util.pdb
