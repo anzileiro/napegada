@@ -40,15 +40,4 @@ namespace NaPegada.Web.Areas.User.Controllers
             FormsAuthentication.SignOut();
         }
     }
-
-    public class Autorizar : AuthorizeAttribute
-    {
-        public override void OnAuthorization(AuthorizationContext filterContext)
-        {
-            if (filterContext.RequestContext.HttpContext.Request.Cookies["napegada_auth"] != null)
-            {
-                filterContext.RequestContext.HttpContext.Response.Cookies["napegada_auth"].Expires = DateTime.Now.AddDays(-1);
-            }
-        }
-    }
 }

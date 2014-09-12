@@ -1,6 +1,7 @@
 ﻿using NaPegada.Model;
 using NaPegada.Repository;
 using NaPegada.Util;
+using System.Collections.Generic;
 
 namespace NaPegada.Business
 {
@@ -59,8 +60,9 @@ namespace NaPegada.Business
             _usuarioREP.Atualizar(usuarioMOD, _utilitaria.ConverterParaObjectId(id));
         }
 
-
-
-
+        public IEnumerable<PesquisaMOD> Pesquisar(string dadosPesquisa)
+        {
+            return _usuarioREP.Pesquisar(dadosPesquisa);
+        }
     }
 }

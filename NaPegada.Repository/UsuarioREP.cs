@@ -4,6 +4,7 @@ using MongoDB.Driver.Linq;
 using System.Linq;
 using MongoDB.Driver.Builders;
 using MongoDB.Bson;
+using System.Collections.Generic;
 
 namespace NaPegada.Repository
 {
@@ -70,5 +71,21 @@ namespace NaPegada.Repository
         }
 
 
+
+        public IEnumerable<PesquisaMOD> Pesquisar(string dadosPesquisa)
+        {
+            using (_conn = new Conexao<UsuarioMOD>())
+            {
+                return _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+                            .AsQueryable<UsuarioMOD>()
+                            .Where(u => u.Nome.Contains(dadosPesquisa))
+                            .ToList().ConvertAll(u => new PesquisaMOD 
+                            {
+                                Id = u.Id,
+                                Titulo = u.Nome,
+                                Descricao = u.Email
+                            });
+            }
+        }
     }
 }

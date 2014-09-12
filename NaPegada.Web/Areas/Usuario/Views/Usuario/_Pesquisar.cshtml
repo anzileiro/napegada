@@ -1,0 +1,25 @@
+﻿@model NaPegada.Web.Models.UsuarioViewModel
+
+@if (Model.ResultadoPesquisa != null)
+{
+    if (Model.ResultadoPesquisa.Any())
+    {
+        foreach (var item in Model.ResultadoPesquisa)
+        {
+            <input type="hidden" name="id" value="@item.Id" />
+            <h4>
+                @item.Titulo
+            </h4>
+            <p>
+                @item.Descricao
+            </p>
+            <p>
+                <a href="@Url.Action("Perfil", "Usuario", new { id = item.Id.ToString() })">Ver Perfil</a>
+            </p>
+        }
+    }
+    else
+    {
+        <h3>Nada foi encontrado!</h3>
+    }
+}

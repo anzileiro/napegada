@@ -52,6 +52,7 @@
     <Compile Include="DoacaoMOD.cs" />
     <Compile Include="EnderecoMOD.cs" />
     <Compile Include="ObjectMongo.cs" />
+    <Compile Include="PesquisaMOD.cs" />
     <Compile Include="PessoaJuridicaMOD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AnimalEspecie.cs" />

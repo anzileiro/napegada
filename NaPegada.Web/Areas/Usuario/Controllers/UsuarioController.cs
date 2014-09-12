@@ -5,18 +5,19 @@ using System.Web.Mvc;
 
 namespace NaPegada.Web.Areas.User.Controllers
 {
-    [Autorizar]
+    [Authorize]
     public class UsuarioController : Controller, IInjecao<UsuarioBUS, AutenticarController>
     {
 
         #region [GLOBAIS, METODOS e CONSTRUTOR]
         private UsuarioBUS _usuarioBUS;
         private AutenticarController _authController;
-        
+
         public void Injetar(UsuarioBUS usuarioBUS_, AutenticarController authController_)
         {
             this._usuarioBUS = usuarioBUS_;
             this._authController = authController_;
+            this._usuarioBUS.Mensagem += CriarTempData;
         }
 
         public UsuarioController()
@@ -71,6 +72,12 @@ namespace NaPegada.Web.Areas.User.Controllers
             return View("Home", new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorId(id) });
         }
 
+        [HttpPost]
+        public ActionResult Pesquisar(string dadosPesquisa)
+        {
+            return View("_Pesquisar", new UsuarioViewModel { ResultadoPesquisa = _usuarioBUS.Pesquisar(dadosPesquisa) });
+        }
+
         #endregion
 
         #region [VIEWS]
@@ -91,6 +98,12 @@ namespace NaPegada.Web.Areas.User.Controllers
 
         [HttpGet]
         public ViewResult MeuPerfil(string id)
+        {
+            return View(new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorId(id) });
+        }
+
+        [HttpGet]
+        public ViewResult Perfil(string id)
         {
             return View(new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorId(id) });
         }

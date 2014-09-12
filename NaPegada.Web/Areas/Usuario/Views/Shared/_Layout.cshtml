@@ -13,13 +13,6 @@
     @RenderSection("styles", false)
 </head>
 <body>
-    @if (Model != null && User.Identity.IsAuthenticated)
-    {
-        <div class="page-header">
-            @Html.Partial("_Menu")
-        </div>
-    }
-
     <div class="container">
         @RenderBody()
     </div>

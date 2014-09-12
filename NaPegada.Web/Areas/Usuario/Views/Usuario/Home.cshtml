@@ -2,9 +2,16 @@
 @{
     ViewBag.Title = ViewBag.Title == string.Empty ? Model.Usuario.Nome : Model.Usuario.Email;
 }
-
+<div class="page-header">
+    @Html.Partial("_Menu")
+</div>
 <div>
     Bem vindo, @Model.Usuario.Nome
+
+    <div id="resultado-pesquisa">
+        @Html.Partial("_Pesquisar")
+    </div>
+
 </div>
 
 
