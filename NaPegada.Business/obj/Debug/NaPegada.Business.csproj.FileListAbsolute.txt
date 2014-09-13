@@ -60,3 +60,5 @@ C:\projetos\net\napegada\NaPegada.Business\bin\Debug\System.Net.Http.Formatting.
 C:\projetos\net\napegada\NaPegada.Business\obj\Debug\NaPegada.Business.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.Business\obj\Debug\NaPegada.Business.dll
 C:\projetos\net\napegada\NaPegada.Business\obj\Debug\NaPegada.Business.pdb
+E:\Github\NaPegada\napegada\NaPegada.Business\obj\Debug\NaPegada.Business.csprojResolveAssemblyReference.cache
+E:\Github\NaPegada\napegada\NaPegada.Business\obj\Debug\NaPegada.Business.dll

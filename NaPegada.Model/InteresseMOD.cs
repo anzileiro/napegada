@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace NaPegada.Model
 {
-    public class AdocaoMOD: ObjectMongo
+    public class InteresseMOD: ObjectMongo
     {
-
-        public UsuarioMOD Usuario { get; set; }
-
-        public DateTime DataCadastro { get; set; }
         public string Caracteristicas { get; set; }
 
         public bool EhVacinado { get; set; }
@@ -19,7 +15,6 @@ namespace NaPegada.Model
         public bool TomouVermifugo { get; set; }
 
         public bool EhCastrado { get; set; }
-
         public IEnumerable<AnimalPorte> Porte { get; set; }
         public IEnumerable<AnimalEspecie> Especie { get; set; }
 

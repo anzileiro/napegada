@@ -44,13 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdocaoMOD.cs" />
+    <Compile Include="InteresseMOD.cs" />
     <Compile Include="AnimalIdadeMOD.cs" />
     <Compile Include="AnimalMOD.cs" />
     <Compile Include="AnimalPorte.cs" />
     <Compile Include="AvisoSistema.cs" />
     <Compile Include="DoacaoMOD.cs" />
     <Compile Include="EnderecoMOD.cs" />
+    <Compile Include="MensagemPrivadaMOD.cs" />
     <Compile Include="ObjectMongo.cs" />
     <Compile Include="PesquisaMOD.cs" />
     <Compile Include="PessoaJuridicaMOD.cs" />
@@ -58,7 +59,9 @@
     <Compile Include="AnimalEspecie.cs" />
     <Compile Include="RacaMOD.cs" />
     <Compile Include="Grupos.cs" />
+    <Compile Include="MensageiroMOD.cs" />
     <Compile Include="TelefoneMOD.cs" />
+    <Compile Include="TipoPJ.cs" />
     <Compile Include="Upload.cs" />
     <Compile Include="UsuarioMOD.cs" />
   </ItemGroup>

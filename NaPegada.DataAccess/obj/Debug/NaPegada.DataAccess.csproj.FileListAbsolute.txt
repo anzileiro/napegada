@@ -27,3 +27,14 @@ C:\projetos\net\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Bson.xml
 C:\projetos\net\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.csprojResolveAssemblyReference.cache
 C:\projetos\net\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.dll
 C:\projetos\net\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.pdb
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\bin\Debug\NaPegada.DataAccess.dll
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\bin\Debug\NaPegada.DataAccess.pdb
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Driver.dll
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\bin\Debug\NaPegada.Util.dll
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Bson.dll
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\bin\Debug\NaPegada.Util.pdb
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Driver.xml
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\bin\Debug\MongoDB.Bson.xml
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.csprojResolveAssemblyReference.cache
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.dll
+E:\Github\NaPegada\napegada\NaPegada.DataAccess\obj\Debug\NaPegada.DataAccess.pdb

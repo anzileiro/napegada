@@ -18,7 +18,7 @@ namespace NaPegada.Model
             } 
             protected set
             {
-                _pathsFotos = new List<string>();
+                _pathsFotos = (IList<string>)value;
             }
         }
 
@@ -32,6 +32,7 @@ namespace NaPegada.Model
         public bool? TomouVermifugo { get; set; }
         public bool? EhCastrado { get; set; }
         public AnimalIdadeMOD IdadeAnimal { get; set; }
+        public RelatorioDoacaoMOD Relatorio { get; set; }
 
         public DoacaoMOD()
         {
