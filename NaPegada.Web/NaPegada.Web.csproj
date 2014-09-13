@@ -117,13 +117,14 @@
   <ItemGroup>
     <Compile Include="Areas\Site\Controllers\SiteController.cs" />
     <Compile Include="Areas\Site\SiteAreaRegistration.cs" />
-    <Compile Include="Areas\User\Controllers\AuthController.cs" />
-    <Compile Include="Areas\User\Controllers\UserController.cs" />
-    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Areas\Usuario\Controllers\FiltroController.cs" />
+    <Compile Include="Areas\Usuario\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Usuario\UsuarioAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\PesquisaViewModel.cs" />
+    <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,10 +139,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Site\Views\Web.config" />
-    <Content Include="Areas\User\Views\Web.config" />
+    <Content Include="Areas\Usuario\Views\Web.config" />
     <Content Include="Areas\Site\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\User\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Usuario\Views\_ViewStart.cshtml" />
     <Content Include="Scripts\napegada-1.0.0.js" />
+    <Content Include="Scripts\napegada-usuario-1.0.0.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -154,11 +156,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Site\Models\" />
-    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\Usuario\Models\" />
     <Folder Include="Content\images\" />
     <Folder Include="Content\upload\admin\" />
     <Folder Include="Content\upload\site\" />
-    <Folder Include="Content\upload\user\" />
+    <Folder Include="Content\upload\usuario\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
@@ -173,12 +175,16 @@
       <Project>{9ad42331-1845-49c8-9bbc-0c445fdacff7}</Project>
       <Name>NaPegada.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NaPegada.Util\NaPegada.Util.csproj">
+      <Project>{a19c9702-e640-4c8d-ba86-030b7285532f}</Project>
+      <Name>NaPegada.Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Site\Views\Site\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\User\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Usuario\Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Menu.cshtml" />
@@ -187,22 +193,31 @@
     <Content Include="Areas\Site\Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\User\Views\User\Register.cshtml" />
+    <Content Include="Areas\Usuario\Views\Usuario\Registrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\User\Views\User\LogIn.cshtml" />
+    <Content Include="Areas\Usuario\Views\Usuario\Entrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\User\Views\User\Home.cshtml" />
+    <Content Include="Areas\Usuario\Views\Usuario\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\User\Views\User\MyProfile.cshtml" />
+    <Content Include="Areas\Usuario\Views\Usuario\MeuPerfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\User\Views\Shared\_Menu.cshtml" />
+    <Content Include="Areas\Usuario\Views\Shared\_Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Usuario\Views\Shared\_Sucesso.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Usuario\Views\Usuario\Perfil.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Usuario\Views\Usuario\_Pesquisar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

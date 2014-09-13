@@ -46,8 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility.cs" />
-    <Compile Include="UserBUS.cs" />
+    <Compile Include="Utilitaria.cs" />
+    <Compile Include="UsuarioBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NaPegada.Model\NaPegada.Model.csproj">
@@ -57,6 +57,10 @@
     <ProjectReference Include="..\NaPegada.Repository\NaPegada.Repository.csproj">
       <Project>{da01e13f-784d-41e8-a307-3ee8acfd8b79}</Project>
       <Name>NaPegada.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NaPegada.Util\NaPegada.Util.csproj">
+      <Project>{a19c9702-e640-4c8d-ba86-030b7285532f}</Project>
+      <Name>NaPegada.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

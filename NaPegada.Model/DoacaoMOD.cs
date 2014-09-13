@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NaPegada.Model
 {
-    public class DoacaoMOD : Object
+    public class DoacaoMOD : ObjectMongo
     {
         private IList<string> _pathsFotos;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NaPegada.Model
 {
-    public class AnimalIdadeMOD : Object
+    public class AnimalIdadeMOD : ObjectMongo
     {
         public ushort Anos { get; set; }
         public ushort Meses { get; set; }

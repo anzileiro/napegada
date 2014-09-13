@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace NaPegada.Model
 {
-    public class AdocaoMOD: Object
+    public class AdocaoMOD: ObjectMongo
     {
 
-        public UserMOD Usuario { get; set; }
+        public UsuarioMOD Usuario { get; set; }
 
         public DateTime DataCadastro { get; set; }
         public string Caracteristicas { get; set; }

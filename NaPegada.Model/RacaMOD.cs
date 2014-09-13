@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NaPegada.Model
 {
-    public class RacaMOD: Object
+    public class RacaMOD: ObjectMongo
     {
         
         public string Nome { get; set; }
