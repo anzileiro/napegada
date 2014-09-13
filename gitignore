@@ -2,3 +2,4 @@
 *.suo
 *.force
 *.dll
+*.cache
