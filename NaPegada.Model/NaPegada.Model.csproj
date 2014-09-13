@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdotanteMOD.cs" />
     <Compile Include="InteresseMOD.cs" />
     <Compile Include="AnimalIdadeMOD.cs" />
     <Compile Include="AnimalMOD.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="AvisoSistema.cs" />
     <Compile Include="DoacaoMOD.cs" />
     <Compile Include="EnderecoMOD.cs" />
+    <Compile Include="ItemRelatorioDoacaoMOD.cs" />
     <Compile Include="MensagemPrivadaMOD.cs" />
     <Compile Include="ObjectMongo.cs" />
     <Compile Include="PesquisaMOD.cs" />
@@ -60,10 +62,14 @@
     <Compile Include="RacaMOD.cs" />
     <Compile Include="Grupos.cs" />
     <Compile Include="MensageiroMOD.cs" />
+    <Compile Include="RelatorioDoacaoMOD.cs" />
     <Compile Include="TelefoneMOD.cs" />
     <Compile Include="TipoPJ.cs" />
     <Compile Include="Upload.cs" />
     <Compile Include="UsuarioMOD.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,5 @@
+E:\Github\NaPegada\napegada\NaPegada.Util\bin\Debug\NaPegada.Util.dll
+E:\Github\NaPegada\napegada\NaPegada.Util\bin\Debug\NaPegada.Util.pdb
+E:\Github\NaPegada\napegada\NaPegada.Util\obj\Debug\NaPegada.Util.csprojResolveAssemblyReference.cache
+E:\Github\NaPegada\napegada\NaPegada.Util\obj\Debug\NaPegada.Util.dll
+E:\Github\NaPegada\napegada\NaPegada.Util\obj\Debug\NaPegada.Util.pdb
