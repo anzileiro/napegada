@@ -1,4 +1,0 @@
-C:\projetos\net\napegada\NaPegada.Util\bin\Debug\NaPegada.Util.dll
-C:\projetos\net\napegada\NaPegada.Util\bin\Debug\NaPegada.Util.pdb
-C:\projetos\net\napegada\NaPegada.Util\obj\Debug\NaPegada.Util.dll
-C:\projetos\net\napegada\NaPegada.Util\obj\Debug\NaPegada.Util.pdb
