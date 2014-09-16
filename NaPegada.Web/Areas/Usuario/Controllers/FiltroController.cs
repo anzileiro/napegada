@@ -2,25 +2,19 @@
 using NaPegada.Web.Models;
 using System.Web.Mvc;
 using System.Web.Security;
-using NaPegada.Util;
-using System;
 
 namespace NaPegada.Web.Areas.User.Controllers
 {
-    public class AutenticarController : Controller, IInjecao<UsuarioBUS, Utilitaria>
+    public class AutenticarController : Controller
     {
-        private UsuarioBUS _usuarioBUS;
-        private Utilitaria _utilitaria;
+        private readonly UsuarioBUS _usuarioBUS;
+        private readonly Utilitaria _utilitaria;
 
-        public void Injetar(UsuarioBUS usuarioBUS_, Utilitaria utilitaria_)
-        {
-            this._usuarioBUS = usuarioBUS_;
-            this._utilitaria = utilitaria_;
-        }
 
         public AutenticarController()
         {
-            this.Injetar(new UsuarioBUS(), new Utilitaria());
+            _usuarioBUS = new UsuarioBUS();
+            _utilitaria = new Utilitaria();
         }
 
         public bool Logar(UsuarioViewModel usuarioVM)
@@ -29,7 +23,7 @@ namespace NaPegada.Web.Areas.User.Controllers
             if (_usuarioBUS.EhUsuario(usuarioVM.Usuario))
             {
                 FormsAuthentication.Authenticate(usuarioVM.Usuario.Email, usuarioVM.Usuario.Senha);
-                FormsAuthentication.SetAuthCookie(usuarioVM.Usuario.Email, usuarioVM.Usuario.MantenhaMeConectado);
+                FormsAuthentication.SetAuthCookie(usuarioVM.Usuario.Email, false);
                 return true;
             }
             return false;

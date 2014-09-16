@@ -1,23 +1,18 @@
 ﻿using NaPegada.Model;
 using NaPegada.Repository;
-using NaPegada.Util;
 using System.Collections.Generic;
 
 namespace NaPegada.Business
 {
-    public class UsuarioBUS : AvisoSistema, IInjecao<UsuarioREP, Utilitaria>
+    public class UsuarioBUS : AvisoSistema
     {
-        private UsuarioREP _usuarioREP;
-        private Utilitaria _utilitaria;
+        private readonly UsuarioREP _usuarioREP;
+        private readonly Utilitaria _utilitaria;
 
         public UsuarioBUS()
         {
-            if (_usuarioREP == null && _utilitaria == null) this.Injetar(new UsuarioREP(), new Utilitaria());
-        }
-        public void Injetar(UsuarioREP usuarioREP_, Utilitaria utilitaria_)
-        {
-            this._usuarioREP = usuarioREP_;
-            this._utilitaria = utilitaria_;
+            _usuarioREP = new UsuarioREP();
+            _utilitaria = new Utilitaria();
         }
 
         public void Registrar(UsuarioMOD usuarioMOD)
@@ -52,10 +47,10 @@ namespace NaPegada.Business
 
         public void Atualizar(UsuarioMOD usuarioMOD, string id)
         {
-            if (usuarioMOD.ArquivoFotoPerfil.Arquivo != null)
-            {
-                usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(usuarioMOD.ArquivoFotoPerfil.Arquivo, @"~/Content/upload/usuario");
-            }
+            //if (usuarioMOD.ArquivoFotoPerfil.Arquivo != null)
+            //{
+            //    usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(usuarioMOD.ArquivoFotoPerfil.Arquivo, @"~/Content/upload/usuario");
+            //}
 
             _usuarioREP.Atualizar(usuarioMOD, _utilitaria.ConverterParaObjectId(id));
         }

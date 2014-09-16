@@ -39,16 +39,7 @@ namespace NaPegada.Repository
                      .Update(Query<UsuarioMOD>.EQ(u => u.Id, id), Update<UsuarioMOD>
                                               .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
                                               .Set(u => u.Senha, userMOD.Senha)
-                                              .Set(u => u.Nome, userMOD.Nome)
-                                              .Set(u => u.Endereco, new EnderecoMOD
-                                              {
-                                                  Cep = userMOD.Endereco.Cep,
-                                                  Logradouro = userMOD.Endereco.Logradouro,
-                                                  Numero = userMOD.Endereco.Numero,
-                                                  Bairro = userMOD.Endereco.Bairro,
-                                                  Cidade = userMOD.Endereco.Cidade,
-                                                  Estado = userMOD.Endereco.Estado
-                                              }));
+                                              .Set(u => u.Nome, userMOD.Nome));
             }
         }
 

@@ -1,28 +1,22 @@
 ﻿using NaPegada.Business;
-using NaPegada.Util;
 using NaPegada.Web.Models;
 using System.Web.Mvc;
 
 namespace NaPegada.Web.Areas.User.Controllers
 {
     [Authorize]
-    public class UsuarioController : Controller, IInjecao<UsuarioBUS, AutenticarController>
+    public class UsuarioController : Controller
     {
 
         #region [GLOBAIS, METODOS e CONSTRUTOR]
-        private UsuarioBUS _usuarioBUS;
-        private AutenticarController _authController;
-
-        public void Injetar(UsuarioBUS usuarioBUS_, AutenticarController authController_)
-        {
-            this._usuarioBUS = usuarioBUS_;
-            this._authController = authController_;
-            this._usuarioBUS.Mensagem += CriarTempData;
-        }
+        private readonly UsuarioBUS _usuarioBUS;
+        private readonly AutenticarController _authController;
 
         public UsuarioController()
         {
-            this.Injetar(new UsuarioBUS(), new AutenticarController());
+            _usuarioBUS = new UsuarioBUS();
+            _authController = new AutenticarController();
+            _usuarioBUS.Mensagem += CriarTempData;
         }
 
         [NonAction]
