@@ -1,6 +1,8 @@
-﻿using NaPegada.Model;
+﻿using MongoDB.Bson;
+using NaPegada.Model;
 using NaPegada.Repository;
-using System.Collections.Generic;
+using System.Web;
+using System.Web.Security;
 
 namespace NaPegada.Business
 {
@@ -42,22 +44,40 @@ namespace NaPegada.Business
 
         public UsuarioMOD ObterPorId(string id)
         {
-            return _usuarioREP.ObterPorId(_utilitaria.ConverterParaObjectId(id));
+            return _usuarioREP.ObterPorId(ConverterParaObjectId(id));
         }
 
-        public void Atualizar(UsuarioMOD usuarioMOD, string id)
+        public void Atualizar(UsuarioMOD usuarioMOD, HttpPostedFileBase arquivo)
         {
-            //if (usuarioMOD.ArquivoFotoPerfil.Arquivo != null)
-            //{
-            //    usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(usuarioMOD.ArquivoFotoPerfil.Arquivo, @"~/Content/upload/usuario");
-            //}
+            if (arquivo != null)
+                usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(arquivo, @"~/Content/upload/usuario");
+            else
+                usuarioMOD.NomeFotoPerfil = usuarioMOD.NomeFotoPerfil;
 
-            _usuarioREP.Atualizar(usuarioMOD, _utilitaria.ConverterParaObjectId(id));
+            _usuarioREP.Atualizar(usuarioMOD);
         }
 
-        public IEnumerable<PesquisaMOD> Pesquisar(string dadosPesquisa)
+        public bool Logar(UsuarioMOD usuarioMOD, bool manterCookie)
         {
-            return _usuarioREP.Pesquisar(dadosPesquisa);
+            usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
+            if (EhUsuario(usuarioMOD))
+            {
+                FormsAuthentication.Authenticate(usuarioMOD.Email, usuarioMOD.Senha);
+                FormsAuthentication.SetAuthCookie(usuarioMOD.Email, manterCookie);
+                return true;
+            }
+            return false;
         }
+
+        public void Deslogar()
+        {
+            FormsAuthentication.SignOut();
+        }
+
+        public ObjectId ConverterParaObjectId(string s)
+        {
+            return ObjectId.Parse(s);
+        }
+
     }
 }

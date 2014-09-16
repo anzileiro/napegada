@@ -1,6 +1,6 @@
 ﻿@model NaPegada.Web.Models.UsuarioViewModel
 @{
-    ViewBag.Title = Model.Usuario.Nome;
+    ViewBag.Title = Model.Nome;
 }
 <div class="page-header">
     @Html.Partial("_Menu")
@@ -9,73 +9,84 @@
     @using (Html.BeginForm("AtualizarUsuario", "Usuario", FormMethod.Post, new { @class = "form-horizontal", role = "form", @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-        @Html.Hidden("id", new { id = Model.Usuario.Id })
-        @Html.HiddenFor(u => u.Usuario.NomeFotoPerfil)
+        @Html.HiddenFor(u => u.Id)
+        @Html.HiddenFor(u => u.Email)
+        @Html.HiddenFor(u => u.Senha)
+        @Html.HiddenFor(u => u.NomeFotoPerfil)
         <fieldset>
             <legend>Informações de perfil</legend>
             <div class="form-group">
-                <label for="Usuario_Nome" class="col-sm-2 control-label">Nome:</label>
+                <label for="Nome" class="col-sm-2 control-label">Nome:</label>
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(u => u.Usuario.Nome, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.Nome, new { @class = "form-control" })
                 </div>
             </div>
-            @*<div class="form-group">
-                <label for="Usuario_Senha" class="col-sm-2 control-label">Senha:</label>
-                <div class="col-sm-10">
-                    @Html.TextBoxFor(u => u.Usuario.Senha, new { @class = "form-control" })
-                </div>
-            </div>*@
             <div class="form-group">
-                <label for="Usuario_ArquivoFotoPerfil_Arquivo" class="col-sm-2 control-label">Foto do perfil:</label>
+                <label for="Email" class="col-sm-2 control-label">E-mail:</label>
                 <div class="col-sm-10">
-                    <input type="file" name="Usuario.ArquivoFotoPerfil.Arquivo" class="form-control" />
+                    @Html.TextBoxFor(u => u.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Upload" class="col-sm-2 control-label">Foto do perfil:</label>
+                <div class="col-sm-6">
+                    <input type="file" name="Upload" class="form-control" />
+                </div>
+                <div class="col-sm-4 img-usuario">
+                    @if (!string.IsNullOrEmpty(Model.NomeFotoPerfil))
+                    {
+                        <img src="~/Content/upload/usuario/@Model.NomeFotoPerfil" alt="@Model.NomeFotoPerfil" />
+                    }
+                    else
+                    {
+                        <img src="~/Content/upload/usuario/sem-imagem.jpg" alt="Sem Imagem" />
+                    }
                 </div>
             </div>
         </fieldset>
         <fieldset>
             <legend>Informações de localização</legend>
             <div class="form-group">
-                <label for="Usuario_Endereco_Cep" class="col-sm-2 control-label">CEP:</label>
+                <label for="Endereco_Cep" class="col-sm-2 control-label">CEP:</label>
                 <div class="col-sm-4">
-                    @Html.TextBoxFor(u => u.Usuario.Endereco.Cep, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.Cep, new { @class = "form-control" })
                 </div>
                 <button class="btn btn-default" type="button" id="btn-buscar-cep">
                     Procurar
                 </button>
             </div>
             <div class="form-group">
-                <label for="Usuario_Endereco_Rua" class="col-sm-2 control-label">Logradouro:</label>
+                <label for="Logradouro" class="col-sm-2 control-label">Logradouro:</label>
                 <div class="col-sm-6">
-                    @Html.TextBoxFor(u => u.Usuario.Endereco.Logradouro, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.Logradouro, new { @class = "form-control" })
                 </div>
-                <label for="Usuario_Endereco_Estado" class="col-sm-2 control-label">Número:</label>
+                <label for="Numero" class="col-sm-2 control-label">Número:</label>
                 <div class="col-sm-2">
-                    @Html.TextBoxFor(u => u.Usuario.Endereco.Numero, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.Numero, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                <label for="Usuario_Endereco_Bairro" class="col-sm-2 control-label">Bairro:</label>
+                <label for="Bairro" class="col-sm-2 control-label">Bairro:</label>
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(u => u.Usuario.Endereco.Bairro, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.Bairro, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
-                <label for="Usuario_Endereco_Cidade" class="col-sm-2 control-label">Cidade:</label>
+                <label for="Localidade" class="col-sm-2 control-label">Cidade:</label>
                 <div class="col-sm-6">
-                    @Html.TextBoxFor(u => u.Usuario.Endereco.Cidade, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.Localidade, new { @class = "form-control" })
                 </div>
 
-                <label for="Usuario_Endereco_Estado" class="col-sm-2 control-label">Estado:</label>
+                <label for="Uf" class="col-sm-2 control-label">Estado:</label>
                 <div class="col-sm-2">
-                    @Html.TextBoxFor(u => u.Usuario.Endereco.Estado, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.Uf, new { @class = "form-control" })
                 </div>
             </div>
         </fieldset>
         <fieldset>
             <legend>Informações de contato</legend>
-            
         </fieldset>
-        
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success">Salvar alterações</button>

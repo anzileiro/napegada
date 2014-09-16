@@ -1,10 +1,23 @@
-﻿$(function () {
+﻿///<reference path="http://code.jquery.com/jquery-1.9.1.js" />
+
+$(function () {
     $('#btn-buscar-cep').on('click', function () {
-        $.getJSON('http://viacep.com.br/ws/' + $('#Usuario_Endereco_Cep').val() + '/json', function (retorno) {
-            $('#Usuario_Endereco_Logradouro').val(retorno.logradouro);
-            $('#Usuario_Endereco_Estado').val(retorno.uf);
-            $('#Usuario_Endereco_Cidade').val(retorno.localidade);
-            $('#Usuario_Endereco_Bairro').val(retorno.bairro);
-        });
+        var url = 'http://viacep.com.br/ws/' + $('#Cep').val() + '/json';
+        funcoes.obterJson(
+            url,
+            undefined,
+            function (r) { funcoes.popularEndereco(r) });
     });
 });
+
+var funcoes = {
+    'obterJson': function (url_, data_, callback_) {
+        $.getJSON(url_, data_, callback_);
+    },
+    'popularEndereco': function (r) {
+        $('#Logradouro').val(r.logradouro);
+        $('#Uf').val(r.uf);
+        $('#Localidade').val(r.localidade);
+        $('#Bairro').val(r.bairro);
+    }
+};

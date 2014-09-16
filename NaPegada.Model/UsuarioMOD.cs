@@ -16,6 +16,7 @@ namespace NaPegada.Model
         public int Reputacao { get; set; }
         public string NomeFotoPerfil { get; set; }
         public InteresseMOD Interesse { get; set; }
+        public EnderecoMOD Endereco { get; set; }
         public IEnumerable<TelefoneMOD> Telefones 
         {
             get { return _telefones; } 

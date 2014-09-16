@@ -117,13 +117,11 @@
   <ItemGroup>
     <Compile Include="Areas\Site\Controllers\SiteController.cs" />
     <Compile Include="Areas\Site\SiteAreaRegistration.cs" />
-    <Compile Include="Areas\Usuario\Controllers\FiltroController.cs" />
     <Compile Include="Areas\Usuario\Controllers\UsuarioController.cs" />
     <Compile Include="Areas\Usuario\UsuarioAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\PesquisaViewModel.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -142,7 +140,9 @@
     <Content Include="Areas\Usuario\Views\Web.config" />
     <Content Include="Areas\Site\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Usuario\Views\_ViewStart.cshtml" />
-    <Content Include="Scripts\napegada-1.0.0.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\napegada-usuario-1.0.0.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -208,12 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Usuario\Views\Shared\_Sucesso.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Usuario\Views\Usuario\Perfil.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Usuario\Views\Usuario\_Pesquisar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

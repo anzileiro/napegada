@@ -4,7 +4,6 @@ using MongoDB.Driver.Linq;
 using System.Linq;
 using MongoDB.Driver.Builders;
 using MongoDB.Bson;
-using System.Collections.Generic;
 
 namespace NaPegada.Repository
 {
@@ -31,15 +30,24 @@ namespace NaPegada.Repository
             }
         }
 
-        public void Atualizar(UsuarioMOD userMOD, ObjectId id)
+        public void Atualizar(UsuarioMOD userMOD)
         {
             using (_conn = new Conexao<UsuarioMOD>())
             {
                 _conn.Conectar("mongodb://localhost", "napegada", "usuario")
-                     .Update(Query<UsuarioMOD>.EQ(u => u.Id, id), Update<UsuarioMOD>
-                                              .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
+                     .Update(Query<UsuarioMOD>.EQ(u => u.Id, userMOD.Id), Update<UsuarioMOD>
+                     .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
                                               .Set(u => u.Senha, userMOD.Senha)
-                                              .Set(u => u.Nome, userMOD.Nome));
+                                              .Set(u => u.Nome, userMOD.Nome)
+                                              .Set(u => u.Endereco, new EnderecoMOD
+                                              {
+                                                  Cep = userMOD.Endereco.Cep,
+                                                  Bairro = userMOD.Endereco.Bairro,
+                                                  Localidade = userMOD.Endereco.Localidade,
+                                                  Logradouro = userMOD.Endereco.Logradouro,
+                                                  Numero = userMOD.Endereco.Numero,
+                                                  Uf = userMOD.Endereco.Uf
+                                              }));
             }
         }
 
@@ -58,24 +66,6 @@ namespace NaPegada.Repository
             {
                 return _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                             .FindOne(Query.EQ("_id", id));
-            }
-        }
-
-
-
-        public IEnumerable<PesquisaMOD> Pesquisar(string dadosPesquisa)
-        {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                return _conn.Conectar("mongodb://localhost", "napegada", "usuario")
-                            .AsQueryable<UsuarioMOD>()
-                            .Where(u => u.Nome.Contains(dadosPesquisa))
-                            .ToList().ConvertAll(u => new PesquisaMOD 
-                            {
-                                Id = u.Id,
-                                Titulo = u.Nome,
-                                Descricao = u.Email
-                            });
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using NaPegada.Business;
+using NaPegada.Model;
 using NaPegada.Web.Models;
 using System.Web.Mvc;
 
@@ -10,12 +11,10 @@ namespace NaPegada.Web.Areas.User.Controllers
 
         #region [GLOBAIS, METODOS e CONSTRUTOR]
         private readonly UsuarioBUS _usuarioBUS;
-        private readonly AutenticarController _authController;
 
         public UsuarioController()
         {
             _usuarioBUS = new UsuarioBUS();
-            _authController = new AutenticarController();
             _usuarioBUS.Mensagem += CriarTempData;
         }
 
@@ -34,7 +33,13 @@ namespace NaPegada.Web.Areas.User.Controllers
         {
             if (ModelState.IsValid)
             {
-                _usuarioBUS.Registrar(usuarioVM.Usuario);
+                _usuarioBUS.Registrar(new UsuarioMOD
+                {
+                    Nome = usuarioVM.Nome,
+                    Email = usuarioVM.Email,
+                    Senha = usuarioVM.Senha
+                });
+
                 return RedirectToAction("Entrar");
             }
             return RedirectToAction("Registrar");
@@ -44,8 +49,13 @@ namespace NaPegada.Web.Areas.User.Controllers
         [AllowAnonymous]
         public ActionResult Entrar(UsuarioViewModel usuarioVM)
         {
-            if (ModelState.IsValid && _authController.Logar(usuarioVM))
-                return View("Home", new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorEmail(usuarioVM.Usuario.Email) });
+            if (ModelState.IsValid && _usuarioBUS.Logar(new UsuarioMOD
+            {
+                Email = usuarioVM.Email,
+                Senha = usuarioVM.Senha
+
+            }, usuarioVM.ManterConectado))
+                return View("Home", new UsuarioViewModel(_usuarioBUS.ObterPorEmail(usuarioVM.Email)));
 
             return RedirectToAction("Entrar");
         }
@@ -54,22 +64,33 @@ namespace NaPegada.Web.Areas.User.Controllers
         [AllowAnonymous]
         public ActionResult Sair()
         {
-            _authController.Deslogar();
+            _usuarioBUS.Deslogar();
             return RedirectToAction("Entrar");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AtualizarUsuario(UsuarioViewModel usuarioVM, string id)
+        public ActionResult AtualizarUsuario(UsuarioViewModel usuarioVM)
         {
-            _usuarioBUS.Atualizar(usuarioVM.Usuario, id);
-            return View("Home", new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorId(id) });
-        }
+            _usuarioBUS.Atualizar(new UsuarioMOD
+            {
+                Id = _usuarioBUS.ConverterParaObjectId(usuarioVM.Id),
+                Nome = usuarioVM.Nome,
+                Email = usuarioVM.Email,
+                Senha = usuarioVM.Senha,
+                NomeFotoPerfil = usuarioVM.NomeFotoPerfil,
+                Endereco = new EnderecoMOD
+                {
+                    Cep = usuarioVM.Cep,
+                    Bairro = usuarioVM.Bairro,
+                    Localidade = usuarioVM.Localidade,
+                    Logradouro = usuarioVM.Logradouro,
+                    Numero = usuarioVM.Numero,
+                    Uf = usuarioVM.Uf
+                }
+            }, usuarioVM.Upload);
 
-        [HttpPost]
-        public ActionResult Pesquisar(string dadosPesquisa)
-        {
-            return View("_Pesquisar", new UsuarioViewModel { ResultadoPesquisa = _usuarioBUS.Pesquisar(dadosPesquisa) });
+            return View("Home", new UsuarioViewModel(_usuarioBUS.ObterPorId(usuarioVM.Id)));
         }
 
         #endregion
@@ -93,13 +114,7 @@ namespace NaPegada.Web.Areas.User.Controllers
         [HttpGet]
         public ViewResult MeuPerfil(string id)
         {
-            return View(new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorId(id) });
-        }
-
-        [HttpGet]
-        public ViewResult Perfil(string id)
-        {
-            return View(new UsuarioViewModel { Usuario = _usuarioBUS.ObterPorId(id) });
+            return View(new UsuarioViewModel(_usuarioBUS.ObterPorId(id)));
         }
 
         #endregion

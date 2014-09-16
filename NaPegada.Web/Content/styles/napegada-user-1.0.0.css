@@ -46,3 +46,9 @@
 .forgot {
     margin-top: 5%;
 }
+
+.img-usuario img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+}
