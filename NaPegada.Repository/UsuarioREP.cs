@@ -36,9 +36,10 @@ namespace NaPegada.Repository
             {
                 _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                      .Update(Query<UsuarioMOD>.EQ(u => u.Id, userMOD.Id), Update<UsuarioMOD>
-                     .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
+                                              .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
                                               .Set(u => u.Senha, userMOD.Senha)
                                               .Set(u => u.Nome, userMOD.Nome)
+                                              .Set(u => u.Email, userMOD.Email)
                                               .Set(u => u.Endereco, new EnderecoMOD
                                               {
                                                   Cep = userMOD.Endereco.Cep,

@@ -6,12 +6,18 @@
     @Html.Partial("_Menu")
 </div>
 <div>
+
+    <div>
+        @if (TempData["sucesso"] != null)
+        {
+            @Html.Partial("_Sucesso")
+        }
+    </div>
+
     @using (Html.BeginForm("AtualizarUsuario", "Usuario", FormMethod.Post, new { @class = "form-horizontal", role = "form", @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(u => u.Id)
-        @Html.HiddenFor(u => u.Email)
-        @Html.HiddenFor(u => u.Senha)
         @Html.HiddenFor(u => u.NomeFotoPerfil)
         <fieldset>
             <legend>Informações de perfil</legend>
@@ -90,6 +96,7 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success">Salvar alterações</button>
+                <a href="@Url.Action("Home", "Usuario", new { id = Model.Id })" class="btn btn-default">Voltar / Cancelar</a>
             </div>
         </div>
     }

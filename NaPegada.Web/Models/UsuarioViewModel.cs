@@ -10,6 +10,9 @@ namespace NaPegada.Web.Models
 
         public UsuarioViewModel(UsuarioMOD usuarioMOD)
         {
+            if (usuarioMOD.Endereco == null)
+                usuarioMOD.Endereco = new EnderecoMOD();
+
             Id = usuarioMOD.Id.ToString();
             Nome = usuarioMOD.Nome;
             Email = usuarioMOD.Email;

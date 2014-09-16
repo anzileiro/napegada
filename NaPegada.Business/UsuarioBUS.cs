@@ -23,6 +23,7 @@ namespace NaPegada.Business
             {
                 usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
                 _usuarioREP.Registrar(usuarioMOD);
+
                 Mensagem("sucesso", "Registro efetuado com sucesso !");
             }
             catch
@@ -49,12 +50,23 @@ namespace NaPegada.Business
 
         public void Atualizar(UsuarioMOD usuarioMOD, HttpPostedFileBase arquivo)
         {
-            if (arquivo != null)
-                usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(arquivo, @"~/Content/upload/usuario");
-            else
-                usuarioMOD.NomeFotoPerfil = usuarioMOD.NomeFotoPerfil;
+            try
+            {
+                if (arquivo != null)
+                    usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(arquivo, @"~/Content/upload/usuario");
+                else
+                    usuarioMOD.NomeFotoPerfil = usuarioMOD.NomeFotoPerfil;
 
-            _usuarioREP.Atualizar(usuarioMOD);
+                _usuarioREP.Atualizar(usuarioMOD);
+
+                Mensagem("sucesso", "Seu perfil foi atualizado!");
+            }
+            catch
+            {
+                Mensagem("erro", "Não foi possível atualizar seu perfil!");
+            }
+
+
         }
 
         public bool Logar(UsuarioMOD usuarioMOD, bool manterCookie)

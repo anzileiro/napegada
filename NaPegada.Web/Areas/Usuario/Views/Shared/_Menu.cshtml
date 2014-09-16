@@ -9,11 +9,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand">Na Pegada</a>
+            <a href="@Url.Action("Home", "Usuario", new { id = Model.Id })" class="navbar-brand">Na Pegada</a>
         </div>
         <div class="collapse navbar-collapse" id="menu-usuario">
             <ul class="nav navbar-nav">
-                <li><a href="#">Link</a></li>
+                <li><a href="#">Adoções</a></li>
+                <li><a href="#">Doações</a></li>
             </ul>
             @using (Ajax.BeginForm("Pesquisar", "Usuario", new AjaxOptions 
             {

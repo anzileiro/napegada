@@ -90,7 +90,7 @@ namespace NaPegada.Web.Areas.User.Controllers
                 }
             }, usuarioVM.Upload);
 
-            return View("Home", new UsuarioViewModel(_usuarioBUS.ObterPorId(usuarioVM.Id)));
+            return View("MeuPerfil", new UsuarioViewModel(_usuarioBUS.ObterPorId(usuarioVM.Id)));
         }
 
         #endregion
@@ -113,6 +113,12 @@ namespace NaPegada.Web.Areas.User.Controllers
 
         [HttpGet]
         public ViewResult MeuPerfil(string id)
+        {
+            return View(new UsuarioViewModel(_usuarioBUS.ObterPorId(id)));
+        }
+
+        [HttpGet]
+        public ViewResult Home(string id)
         {
             return View(new UsuarioViewModel(_usuarioBUS.ObterPorId(id)));
         }
