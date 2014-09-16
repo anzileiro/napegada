@@ -54,7 +54,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\NaPegada.Utils\System.Web.Optimization.dll</HintPath>
+      <HintPath>..\packages\libs\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />

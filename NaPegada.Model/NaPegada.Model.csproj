@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MongoDB.Bson">
-      <HintPath>..\packages\NaPegada.Utils\MongoDB.Bson.dll</HintPath>
+      <HintPath>..\packages\libs\MongoDB.Bson.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
