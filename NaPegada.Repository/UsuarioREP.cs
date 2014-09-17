@@ -47,7 +47,8 @@ namespace NaPegada.Repository
                                                   Localidade = userMOD.Endereco.Localidade,
                                                   Logradouro = userMOD.Endereco.Logradouro,
                                                   Numero = userMOD.Endereco.Numero,
-                                                  Uf = userMOD.Endereco.Uf
+                                                  Uf = userMOD.Endereco.Uf,
+                                                  Complemento = userMOD.Endereco.Complemento
                                               }));
             }
         }

@@ -86,7 +86,8 @@ namespace NaPegada.Web.Areas.User.Controllers
                     Localidade = usuarioVM.Localidade,
                     Logradouro = usuarioVM.Logradouro,
                     Numero = usuarioVM.Numero,
-                    Uf = usuarioVM.Uf
+                    Uf = usuarioVM.Uf,
+                    Complemento = usuarioVM.Complemento
                 }
             }, usuarioVM.Upload);
 
