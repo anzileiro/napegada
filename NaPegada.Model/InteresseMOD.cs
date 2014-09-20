@@ -8,17 +8,32 @@ namespace NaPegada.Model
 {
     public class InteresseMOD: ObjectMongo
     {
-        public string Caracteristicas { get; set; }
+        private IList<AnimalPorte> _portes;
 
         public bool EhVacinado { get; set; }
 
         public bool TomouVermifugo { get; set; }
 
         public bool EhCastrado { get; set; }
-        public IEnumerable<AnimalPorte> Porte { get; set; }
-        public IEnumerable<AnimalEspecie> Especie { get; set; }
+        public IEnumerable<AnimalPorte> Porte 
+        {
+            get { return _portes; }
+            protected set { _portes = (IList<AnimalPorte>)value; }
+        }
+        public AnimalEspecie Especie { get; set; }
 
         public RacaMOD raca { get; set; }
+        public int IdadeMinimaEmAnos { get; set; }
+        public int IdadeMaximaEmAnos { get; set; }
 
+        protected InteresseMOD()
+        {
+            _portes = new List<AnimalPorte>();
+        }
+
+        public void AdicionarPorte(AnimalPorte porte)
+        {
+            _portes.Add(porte);
+        }
     }
 }

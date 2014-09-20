@@ -9,13 +9,18 @@ namespace NaPegada.Model
         private IList<MensagemPrivadaMOD> _mensagensEnviadas;
         private IList<MensagemPrivadaMOD> _mensagensRecebidas;
         private IList<DoacaoMOD> _doacoes;
+        private IList<InteresseMOD> _interesses;
 
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
         public int Reputacao { get; set; }
         public string NomeFotoPerfil { get; set; }
-        public InteresseMOD Interesse { get; set; }
+        public IEnumerable<InteresseMOD> Interesse 
+        {
+            get { return _interesses; }
+            protected set { _interesses = (IList<InteresseMOD>)value; }
+        }
         public EnderecoMOD Endereco { get; set; }
         public IEnumerable<TelefoneMOD> Telefones 
         {
@@ -44,6 +49,7 @@ namespace NaPegada.Model
             _mensagensEnviadas = new List<MensagemPrivadaMOD>();
             _mensagensRecebidas = new List<MensagemPrivadaMOD>();
             _doacoes = new List<DoacaoMOD>();
+            _interesses = new List<InteresseMOD>();
         }
 
         public void AdicionarTelefone(TelefoneMOD telefone)
