@@ -2,7 +2,15 @@
     ViewBag.Title = "Home";
 }
 
+
+
+    @Html.Partial("_Menu")
+
+    
+
+
 <div class="container">
+
     <h2>HOME</h2>
     @if (Request.Cookies["napegada_auth"] != null)
     {
@@ -13,56 +21,7 @@
         <p>Nao tem cookie !!!</p>
     }
 
-    <div class="btn-group">
-        <a href="#" class="btn btn-success">Success</a>
-        <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a  href="#"  data-toggle="modal" data-target="#modal-entrar">Entrar</a></li>
-            <li><a href="#"  data-toggle="modal" data-target="#modal-cadastrar">Cadastrar</a></li>
-        </ul>
-    </div>
-
-
 </div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="modal-entrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Entrar</h4>
-            </div>
-            <div class="modal-body">
-
-                @Html.Partial("_Entrar")
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="modal-cadastrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Entrar</h4>
-            </div>
-            <div class="modal-body">
-
-                @Html.Partial("_Registrar")
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
 
 @section scripts{
     @Scripts.Render("~/Scripts/jquery.validate.min.js",

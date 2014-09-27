@@ -88,7 +88,9 @@ namespace NaPegada.Business
 
         public ObjectId ConverterParaObjectId(string s)
         {
-            return ObjectId.Parse(s);
+            //return ObjectId.Parse(s);
+
+            return ObjectId.Empty;
         }
 
     }

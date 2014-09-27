@@ -138,7 +138,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Content\styles\napegada-site-1.0.0.css" />
+    <Content Include="Content\styles\napegada-menu-1.0.0.css" />
     <Content Include="Content\styles\napegada-user-1.0.0.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -223,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Registrar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Site\Views\Shared\_Menu.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

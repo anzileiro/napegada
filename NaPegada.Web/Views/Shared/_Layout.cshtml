@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>Na Pegada - @ViewBag.Title</title>
     @Styles.Render("http://bootswatch.com/sandstone/bootstrap.min.css",
-                   "https://code.jquery.com/ui/1.9.1/themes/ui-darkness/jquery-ui.css")
+                   "https://code.jquery.com/ui/1.9.1/themes/ui-darkness/jquery-ui.css",
+                   "~/Content/styles/napegada-menu-1.0.0.css")
     @RenderSection("styles", false)
 </head>
 <body>
-    <div class="container">
+    
         @RenderBody()
     </div>
     @Scripts.Render("http://code.jquery.com/jquery-1.9.1.min.js",
