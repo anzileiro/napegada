@@ -9,17 +9,17 @@
         @using (Html.BeginForm("Registrar", "Usuario", FormMethod.Post, new { @class = "form" }))
         {
             @Html.AntiForgeryToken()
-            @Html.ValidationSummary(false)
+            @*@Html.ValidationSummary(false)*@
             <fieldset>
                 <div class="form-group">
                     <label for="Email">Seu endereço de e-mail</label>
                     @Html.TextBoxFor(u => u.Email, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(u => u.Email)
+                    @*@Html.ValidationMessageFor(u => u.Email)*@
                 </div>
                 <div class="form-group">
                     <label for="Senha">Criar uma senha</label>
                     @Html.PasswordFor(u => u.Senha, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(u => u.Senha)
+                    @*@Html.ValidationMessageFor(u => u.Senha)*@
                 </div>
                 <div class="form-group">
                     <p class="help-block">

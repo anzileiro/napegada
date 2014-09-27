@@ -35,7 +35,7 @@ namespace NaPegada.Web.Models
         public string NomeFotoPerfil { get; set; }
         public bool ManterConectado { get; set; }
 
-        [Required(ErrorMessage = "Informe seu CEP.")]
+        //[Required(ErrorMessage = "Informe seu CEP.")]
         public string Cep { get; set; }
         public string Logradouro { get; set; }
         public string Uf { get; set; }

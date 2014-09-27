@@ -4,5 +4,13 @@
 
 <div class="container">
     <h2>HOME</h2>
+    @if (Request.Cookies["napegada_auth"] != null)
+    {
+        @FormsAuthentication.Decrypt(Request.Cookies["napegada_auth"].Value).Name
+    }
+    else
+    {
+        <p>Nao tem cookie !!!</p>
+    }
 </div>
 
