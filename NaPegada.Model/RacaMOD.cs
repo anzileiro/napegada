@@ -11,7 +11,7 @@ namespace NaPegada.Model
         
         public string Nome { get; set; }
 
-        public IEnumerable<AnimalEspecie> Especie { get; set; }
+        public AnimalEspecie Especie { get; set; }
 
     }
 }
