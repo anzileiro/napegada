@@ -11,4 +11,91 @@
     ViewBag.Title = "MinhasDoacoes";
 }
 
-<h2>MinhasDoacoes</h2>
+<h2>Doações</h2>
+<div>
+<a href="#" data-toggle="modal" data-target="#modal-cadastrar-doacao" class="btn btn-success btn-sm">Cadastrar Doação</a>
+</div>
+
+<br />
+<br /> 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Lista de Doações</h3>
+    </div>
+    <div class="panel-body">
+<table class="table table-striped">
+    <tr>
+        <th>Nome</th>
+        <th>Raça</th>
+        <th>Porte</th>
+        <th>Espécie</th>
+        <th>Data de Cadastro</th>
+        <th>Idade</th>
+        <th>Vacinado</th>
+        <th>Castrado</th>
+        <th>Vermifugo</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>Mylon</td>
+        <td>Pitbull</td>
+        <td>Grande</td>
+        <td>Cachorro</td>
+        <td>01/10/2014</td>
+        <td>5 anos e 3 meses</td>
+        <td>Sim</td>
+        <td>Não</td>
+        <td>Sim</td>
+        <td><span class="glyphicon glyphicon-pencil"></span></td>
+        <td><span class="glyphicon glyphicon-remove"></span></td>
+    </tr>
+    <tr>
+        <td>Nina</td>
+        <td>Poodle</td>
+        <td>Pequeno</td>
+        <td>Cachorro</td>
+        <td>05/10/2014</td>
+        <td>3 anos</td>
+        <td>Sim</td>
+        <td>Não</td>
+        <td>Sim</td>
+        <td><span class="glyphicon glyphicon-pencil"></span></td>
+        <td><span class="glyphicon glyphicon-remove"></span></td>
+    </tr>
+    <tr>
+        <td>Totó</td>
+        <td>Schnauzer</td>
+        <td>Médio</td>
+        <td>Cachorro</td>
+        <td>01/11/2014</td>
+        <td>8 anos e 6 meses</td>
+        <td>Sim</td>
+        <td>Não</td>
+        <td>Sim</td>
+        <td><span class="glyphicon glyphicon-pencil"></span></td>
+        <td><span class="glyphicon glyphicon-remove"></span></td>
+    </tr>
+</table>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="modal-cadastrar-doacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Cadastrar Doação</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_Doacao")
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
