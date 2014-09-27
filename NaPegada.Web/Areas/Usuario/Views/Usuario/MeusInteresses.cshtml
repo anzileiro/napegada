@@ -8,4 +8,115 @@
     ViewBag.Title = "Adocao";
 }
 
-<h2>Adocao</h2>
+   <div>
+       <a href="#" data-toggle="modal" class="btn-group btn btn-success btn-sm" data-target="#modal-cadastrar-interesse">Cadastrar</a>
+    
+</div>
+<br />
+<br />
+
+<div class="panel panel-success"  >
+    <div class="panel-heading">
+        <h3 class="panel-title">Lista de Cachorros</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+
+            <tr>
+
+                <th> Nome</th>
+                <th>Raça</th>
+                <th>Idade</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+
+                <td>Nicholas</td>
+                <td>Pitty Lessy</td>
+                <td>01 até 3 anos</td>
+                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
+            </tr>
+            <tr>
+
+                <td>Caca</td>
+                <td>Caca</td>
+                <td>01 até 4 anos</td>
+                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
+            </tr>
+            <tr>
+
+                <td>toto</td>
+                <td> toto</td>
+                <td>01 até 5 anos</td>
+                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<br />
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Lista de Gatos</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+
+            <tr>
+
+                <th> Nome</th>
+                <th>Raça</th>
+                <th>Idade</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+
+                <td>Nicholas</td>
+                <td>Pitty Lessy</td>
+                <td>01 até 3 anos</td>
+                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
+            </tr>
+            <tr>
+
+                <td>Anderson</td>
+                <td>Rex</td>
+                <td>01 até 4 anos</td>
+                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
+            </tr>
+            <tr>
+
+                <td>Caca</td>
+                <td>Caca</td>
+                <td>01 até 5 anos</td>
+                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!--Modal-->
+<div class="modal fade" id="modal-cadastrar-interesse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Cadastrar</h4>
+            </div>
+
+            <div class="modal-body">
+
+                @Html.Partial("_Interesse")
+
+            </div>
+        </div>
+    </div>
+</div>
