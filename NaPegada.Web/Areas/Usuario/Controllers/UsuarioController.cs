@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace NaPegada.Web.Areas.User.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class UsuarioController : Controller
     {
 
@@ -123,6 +123,19 @@ namespace NaPegada.Web.Areas.User.Controllers
         {
             return View(new UsuarioViewModel(_usuarioBUS.ObterPorId(id)));
         }
+
+
+        public ActionResult MinhasDoacoes()
+        {
+            return View();
+        }
+
+
+        public ActionResult MeusInteresses()
+        {
+            return View();
+        }
+
 
         #endregion
     }
