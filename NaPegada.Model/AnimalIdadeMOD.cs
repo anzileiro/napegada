@@ -8,7 +8,7 @@ namespace NaPegada.Model
 {
     public class AnimalIdadeMOD : ObjectMongo
     {
-        public ushort Anos { get; set; }
-        public ushort Meses { get; set; }
+        public ushort? Anos { get; set; }
+        public ushort? Meses { get; set; }
     }
 }
