@@ -1,0 +1,14 @@
+﻿<div>
+    <h2>HOME</h2>
+    @if (Request.Cookies["napegada_auth"] != null && HttpContext.Current.Session["napegada_auth"] != null)
+    {
+        @FormsAuthentication.Decrypt(Request.Cookies["napegada_auth"].Value).Name
+    }
+    else
+    {
+        <p>Não tem cookie e nem sessão...</p>
+    }
+</div>
+@section scripts{
+    @Scripts.Render("~/Scripts/napegada.js")
+}

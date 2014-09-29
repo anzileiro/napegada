@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Web", "NaPegada.Web\NaPegada.Web.csproj", "{4495547C-B357-41A9-8309-0A7D5ECB3892}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Model", "NaPegada.Model\NaPegada.Model.csproj", "{9AD42331-1845-49C8-9BBC-0C445FDACFF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.DataAccess", "NaPegada.DataAccess\NaPegada.DataAccess.csproj", "{F3F85355-2AD0-4F5D-A644-DA9EBBE6724E}"
@@ -13,16 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Repository", "NaPe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Business", "NaPegada.Business\NaPegada.Business.csproj", "{8CF1F98C-586C-45F0-90E2-038E9BAFB051}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Web", "NaPegada.Web\NaPegada.Web.csproj", "{737A1FAD-202B-4046-9243-D4A589F6FA01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4495547C-B357-41A9-8309-0A7D5ECB3892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4495547C-B357-41A9-8309-0A7D5ECB3892}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4495547C-B357-41A9-8309-0A7D5ECB3892}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4495547C-B357-41A9-8309-0A7D5ECB3892}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9AD42331-1845-49C8-9BBC-0C445FDACFF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9AD42331-1845-49C8-9BBC-0C445FDACFF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AD42331-1845-49C8-9BBC-0C445FDACFF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{8CF1F98C-586C-45F0-90E2-038E9BAFB051}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CF1F98C-586C-45F0-90E2-038E9BAFB051}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CF1F98C-586C-45F0-90E2-038E9BAFB051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737A1FAD-202B-4046-9243-D4A589F6FA01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737A1FAD-202B-4046-9243-D4A589F6FA01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737A1FAD-202B-4046-9243-D4A589F6FA01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737A1FAD-202B-4046-9243-D4A589F6FA01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

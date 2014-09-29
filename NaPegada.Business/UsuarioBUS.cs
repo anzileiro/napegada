@@ -69,15 +69,17 @@ namespace NaPegada.Business
 
         }
 
-        public bool Logar(UsuarioMOD usuarioMOD, bool manterCookie)
+        public bool Logar(UsuarioMOD usuarioMOD)
         {
-            usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
-            if (EhUsuario(usuarioMOD))
-            {
-                FormsAuthentication.Authenticate(usuarioMOD.Email, usuarioMOD.Senha);
-                FormsAuthentication.SetAuthCookie(usuarioMOD.Email, manterCookie);
-                return true;
-            }
+            //usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
+            //if (EhUsuario(usuarioMOD))
+            //{
+            //    FormsAuthentication.Authenticate(usuarioMOD.Email, usuarioMOD.Senha);
+            //    FormsAuthentication.SetAuthCookie(usuarioMOD.Email, manterCookie);
+            //    return true;
+            //}
+            //return false;
+
             return false;
         }
 

@@ -1,31 +1,30 @@
-﻿@model NaPegada.Web.Models.UsuarioViewModel
-@{
-    ViewBag.Title = "Registrar";
-}
-
-
-<h2>Crie uma conta</h2>
-@using (Html.BeginForm("Registrar", "Usuario", FormMethod.Post, new { @class = "form" }))
-{
-    @Html.AntiForgeryToken()
-    @*@Html.ValidationSummary(false)*@
-
-    <div class="form-group">
-        <label for="Email">Seu endereço de e-mail</label>
-        @Html.TextBoxFor(u => u.Email, new { @class = "form-control" })
-        @*@Html.ValidationMessageFor(u => u.Email)*@
+﻿<!-- Modal - Cadastrar usuario -->
+<div class="modal fade" id="modal-cadastrar" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Entrar</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form">
+                    <div class="form-group">
+                        <label for="Email">Seu endereço de e-mail</label>
+                        <input type="text" name="u-email" id="u-email" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Senha">Criar uma senha</label>
+                        <input type="password" name="u-senha" id="u-senha" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <p class="help-block">
+                            Ao clicar em Criar conta, concordo com os
+                            <a>Termos de Serviço</a> e a <a>Política de Privacidade</a>.
+                        </p>
+                    </div>
+                    <button class="btn btn-success" type="button">Criar conta</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="Senha">Criar uma senha</label>
-        @Html.PasswordFor(u => u.Senha, new { @class = "form-control" })
-        @*@Html.ValidationMessageFor(u => u.Senha)*@
-    </div>
-    <div class="form-group">
-        <p class="help-block">
-            Ao clicar em Criar conta, concordo com os
-            <a>Termos de Serviço</a> e a <a>Política de Privacidade</a>.
-        </p>
-    </div>
-    <button class="btn btn-success" type="submit">Criar conta</button>
-
-}
+</div>
