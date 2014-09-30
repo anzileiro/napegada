@@ -45,6 +45,9 @@ namespace NaPegada.Model
 
         public UsuarioMOD()
         {
+            //E quando não for utilizado ? Serão instanciados ?
+            //Toda vez que chamamos a classe UsuarioMOD isso esta sendo instanciado mesmo sem usar ?
+            //Podemos colocar esta logica na camada de negocio e utilizar quando realmente for necessário ?
             _telefones = new List<TelefoneMOD>();
             _mensagensEnviadas = new List<MensagemPrivadaMOD>();
             _mensagensRecebidas = new List<MensagemPrivadaMOD>();

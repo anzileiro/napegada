@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using NaPegada.Model;
 using NaPegada.Repository;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
 
@@ -33,9 +34,9 @@ namespace NaPegada.Business
 
         }
 
-        public bool EhUsuario(UsuarioMOD usuarioMOD)
+        public async Task<bool> EhUsuario(UsuarioMOD usuarioMOD)
         {
-            return _usuarioREP.EhUsuario(usuarioMOD);
+            return await _usuarioREP.EhUsuario(usuarioMOD);
         }
 
         public UsuarioMOD ObterPorEmail(string email)

@@ -1,5 +1,6 @@
 ﻿using NaPegada.Business;
 using NaPegada.Web.Models;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -26,9 +27,9 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("Entrar/{usuarioVM}")]
-        public JsonResult Logar(UsuarioViewModel usuarioVM)
+        public async Task<JsonResult> Logar(UsuarioViewModel usuarioVM)
         {
-            return Json(new { resposta = LogarComSecao(usuarioVM) });
+            return Json(new { resposta = await LogarComSecao(usuarioVM) });
         }
 
         [HttpGet]
@@ -41,9 +42,9 @@ namespace NaPegada.Web.Controllers
         }
 
         [NonAction]
-        private bool LogarComSecao(UsuarioViewModel usuarioVM)
+        private async Task<bool> LogarComSecao(UsuarioViewModel usuarioVM)
         {
-            var secao = HttpContext.Session["napegada_auth"] = _usuarioBUS.EhUsuario(usuarioVM.Usuario) ? HttpContext.Session["napegada_auth"] = usuarioVM : null;
+            var secao = await _usuarioBUS.EhUsuario(usuarioVM.Usuario) ? HttpContext.Session["napegada_auth"] = usuarioVM : null;
             return secao != null;
         }
         [NonAction]

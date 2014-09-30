@@ -4,6 +4,7 @@ using MongoDB.Driver.Linq;
 using System.Linq;
 using MongoDB.Driver.Builders;
 using MongoDB.Bson;
+using System.Threading.Tasks;
 
 namespace NaPegada.Repository
 {
@@ -20,13 +21,13 @@ namespace NaPegada.Repository
             }
         }
 
-        public bool EhUsuario(UsuarioMOD userMOD)
+        public async Task<bool> EhUsuario(UsuarioMOD userMOD)
         {
             using (_conn = new Conexao<UsuarioMOD>())
             {
-                return _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                         .AsQueryable<UsuarioMOD>()
-                        .Any(u => u.Email.Equals(userMOD.Email) && u.Senha.Equals(userMOD.Senha));
+                        .Any(u => u.Email.Equals(userMOD.Email) && u.Senha.Equals(userMOD.Senha)));
             }
         }
 
