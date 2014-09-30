@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width" />
     <title>Na Pegada - @ViewBag.Title</title>
     @Styles.Render("http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", 
-                   "http://bootswatch.com/sandstone/bootstrap.min.css")
+                   "http://bootswatch.com/sandstone/bootstrap.min.css",
+                   "~/Content/css/napegada-1.0.0.css")
     @RenderSection("styles", false)
 </head>
 <body>
-    <div class="page-header">
+    
         @Html.Partial("_Menu")
-    </div>
+    
     <div class="container">
         @RenderBody()
     </div>
