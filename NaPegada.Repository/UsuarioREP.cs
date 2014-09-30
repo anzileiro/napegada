@@ -12,12 +12,11 @@ namespace NaPegada.Repository
     {
         private Conexao<UsuarioMOD> _conn;
 
-        public void Registrar(UsuarioMOD usuarioMOD)
+        public async Task Registrar(UsuarioMOD usuarioMOD)
         {
             using (_conn = new Conexao<UsuarioMOD>())
             {
-                _conn.Conectar("mongodb://localhost", "napegada", "usuario")
-                     .Insert(usuarioMOD);
+                await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").Insert(usuarioMOD));
             }
         }
 
@@ -25,9 +24,7 @@ namespace NaPegada.Repository
         {
             using (_conn = new Conexao<UsuarioMOD>())
             {
-                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
-                        .AsQueryable<UsuarioMOD>()
-                        .Any(u => u.Email.Equals(userMOD.Email) && u.Senha.Equals(userMOD.Senha)));
+                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable<UsuarioMOD>().Any(u => u.Email.Equals(userMOD.Email) && u.Senha.Equals(userMOD.Senha)));
             }
         }
 
