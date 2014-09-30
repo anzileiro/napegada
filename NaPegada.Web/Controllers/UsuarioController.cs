@@ -52,5 +52,15 @@ namespace NaPegada.Web.Controllers
         {
             HttpContext.Session["napegada_auth"] = null;
         }
+
+        public ActionResult MinhasDoacoes()
+        {
+            return View();
+        }
+
+        public ActionResult MeusInteresses()
+        {
+            return View();
+        }
     }
 }
