@@ -22,7 +22,7 @@ namespace NaPegada.Model
         }
         public AnimalEspecie Especie { get; set; }
 
-        public RacaMOD raca { get; set; }
+        public RacaMOD Raca { get; set; }
         public ushort? IdadeMinimaEmAnos { get; set; }
         public ushort? IdadeMaximaEmAnos { get; set; }
 
