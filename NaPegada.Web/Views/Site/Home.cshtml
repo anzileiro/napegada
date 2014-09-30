@@ -1,12 +1,12 @@
 ﻿<div>
     <h2>HOME</h2>
-    @if (Request.Cookies["napegada_auth"] != null && HttpContext.Current.Session["napegada_auth"] != null)
+    @if (HttpContext.Current.Session["napegada_auth"] != null)
     {
-        @FormsAuthentication.Decrypt(Request.Cookies["napegada_auth"].Value).Name
+        <p>Você esta logado !</p>
     }
     else
     {
-        <p>Não tem cookie e nem sessão...</p>
+        <p>Você não esta logado !</p>
     }
 </div>
 @section scripts{

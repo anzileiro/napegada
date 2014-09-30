@@ -1,9 +1,10 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace NaPegada.Web.Controllers
 {
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
     public class Autenticar : AuthorizeAttribute
     {
         protected override bool AuthorizeCore(HttpContextBase contextoHttp)
@@ -21,7 +22,7 @@ namespace NaPegada.Web.Controllers
             {
                 base.HandleUnauthorizedRequest(contexto);
                 contexto.Controller.TempData["Mensagem"] = "Por favor faça login!";
-                contexto.Result = new RedirectResult("/Usuario/Entrar");
+                contexto.Result = new RedirectResult("/Site/Home");
             }
         }
     }

@@ -28,11 +28,11 @@ namespace NaPegada.Repository
             }
         }
 
-        public void Atualizar(UsuarioMOD userMOD)
+        public async Task Atualizar(UsuarioMOD userMOD)
         {
             using (_conn = new Conexao<UsuarioMOD>())
             {
-                _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+               await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                      .Update(Query<UsuarioMOD>.EQ(u => u.Id, userMOD.Id), Update<UsuarioMOD>
                                               .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
                                               .Set(u => u.Senha, userMOD.Senha)
@@ -47,25 +47,23 @@ namespace NaPegada.Repository
                                                   Numero = userMOD.Endereco.Numero,
                                                   Uf = userMOD.Endereco.Uf,
                                                   Complemento = userMOD.Endereco.Complemento
-                                              }));
+                                              })));
             }
         }
 
-        public UsuarioMOD ObterPorEmail(string email)
+        public async Task<UsuarioMOD> ObterPorEmail(string email)
         {
             using (_conn = new Conexao<UsuarioMOD>())
             {
-                return _conn.Conectar("mongodb://localhost", "napegada", "usuario")
-                            .FindOne(Query.EQ("Email", email));
+                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").FindOne(Query.EQ("Email", email)));
             }
         }
 
-        public UsuarioMOD ObterPorId(ObjectId id)
+        public async Task<UsuarioMOD> ObterPorId(ObjectId id)
         {
             using (_conn = new Conexao<UsuarioMOD>())
             {
-                return _conn.Conectar("mongodb://localhost", "napegada", "usuario")
-                            .FindOne(Query.EQ("_id", id));
+                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").FindOne(Query.EQ("_id", id)));
             }
         }
     }

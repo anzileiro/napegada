@@ -2,9 +2,28 @@
 
 $(function () {
     $('#btn-entrar').on('click', function () {
-        f.ajax('/Usuario/Logar',
+        f.ajax('/Usuario/Entrar',
                'post',
-               data_ = { 'usuarioVM': $('#frm-usuario-entrar').serialize() },
+               data_ = $('#frm-usuario-entrar').serialize(),
+               function () {
+                   alert('Before send...');
+               },
+               function () {
+                   alert('Success...');
+               },
+               function () {
+                   alert('Complete...');
+               }, function (x) {
+                   alert(JSON.stringify(x));
+               }, function () {
+                   alert('Callback de brinde !!!');
+               });
+    });
+
+    $('#btn-registrar').on('click', function () {
+        f.ajax('/Usuario/Registrar',
+               'post',
+               data_ = $('#frm-usuario-registrar').serialize(),
                function () {
                    alert('Before send...');
                },

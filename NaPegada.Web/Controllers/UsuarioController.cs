@@ -17,50 +17,75 @@ namespace NaPegada.Web.Controllers
             _usuarioBUS = new UsuarioBUS();
         }
 
+        #region [ViewResult]
         [HttpGet]
         [AllowAnonymous]
-        public ViewResult Home()
+        [OutputCache(Duration = 720000)]
+        public async Task<ViewResult> Home()
         {
-            return View();
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        [Route("Entrar/{usuarioVM}")]
-        public async Task<JsonResult> Logar(UsuarioViewModel usuarioVM)
-        {
-            return Json(new { resposta = await LogarComSecao(usuarioVM) });
+            return await Task.Run(() => View());
         }
 
         [HttpGet]
         [AllowAnonymous]
         [Route("Sair")]
-        public ViewResult Deslogar()
+        public async Task<ViewResult> Sair()
         {
-            DeslogarComSecao();
-            return View("Entrar");
+            LogOut();
+            return await Task.Run(() => View("Entrar"));
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [OutputCache(Duration = 720000)]
+        public async Task<ViewResult> MinhasDoacoes()
+        {
+            return await Task.Run(() => View());
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [OutputCache(Duration = 720000)]
+        public async Task<ViewResult> MeusInteresses()
+        {
+            return await Task.Run(() => View());
+        }
+        #endregion
+
+        #region [JsonResult]
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("Entrar")]
+        public async Task<ActionResult> Entrar(UsuarioViewModel usuarioVM)
+        {
+            if (await LogIn(usuarioVM))
+            {
+                return await Task.Run(() => RedirectToAction("Home"));
+            }
+            return await Task.Run(() => RedirectToAction("Site/Home"));
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("Registrar")]
+        public async Task<JsonResult> Registrar(UsuarioViewModel usuarioVM)
+        {
+            return await Task.Run(() => Json(_usuarioBUS.Registrar(usuarioVM.Usuario)));
+        }
+        #endregion
+
+        #region [NonAction]
+        [NonAction]
+        private async Task<bool> LogIn(UsuarioViewModel usuarioVM)
+        {
+            return (await _usuarioBUS.EhUsuario(usuarioVM.Usuario) ? HttpContext.Session["napegada_auth"] = usuarioVM : null) != null;
         }
 
         [NonAction]
-        private async Task<bool> LogarComSecao(UsuarioViewModel usuarioVM)
-        {
-            var secao = await _usuarioBUS.EhUsuario(usuarioVM.Usuario) ? HttpContext.Session["napegada_auth"] = usuarioVM : null;
-            return secao != null;
-        }
-        [NonAction]
-        private void DeslogarComSecao()
+        private void LogOut()
         {
             HttpContext.Session["napegada_auth"] = null;
         }
-
-        public ActionResult MinhasDoacoes()
-        {
-            return View();
-        }
-
-        public ActionResult MeusInteresses()
-        {
-            return View();
-        }
+        #endregion
     }
 }

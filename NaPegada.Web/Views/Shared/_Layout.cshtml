@@ -4,9 +4,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Na Pegada - @ViewBag.Title</title>
-    @Styles.Render("http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", 
+    @Styles.Render("http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css",
                    "http://bootswatch.com/sandstone/bootstrap.min.css",
-                   "~/Content/css/napegada-1.0.0.css")
+                   "~/Content/css/napegada.css")
     @RenderSection("styles", false)
 </head>
 <body>
@@ -16,8 +16,8 @@
     <div class="container">
         @RenderBody()
     </div>
-    @Scripts.Render("http://code.jquery.com/jquery-1.9.1.min.js",
-                    "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+    @Scripts.Render("http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js",
+                    "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js")
     @RenderSection("scripts", false)
 </body>
 </html>

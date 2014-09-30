@@ -18,56 +18,36 @@ namespace NaPegada.Business
             _utilitaria = new Utilitaria();
         }
 
-        public void Registrar(UsuarioMOD usuarioMOD)
+        public async Task Registrar(UsuarioMOD usuarioMOD)
         {
-            try
-            {
-                usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
-                _usuarioREP.Registrar(usuarioMOD);
-
-                Mensagem("sucesso", "Registro efetuado com sucesso !");
-            }
-            catch
-            {
-                Mensagem("erro", "Não foi possível efetuar o registro !");
-            }
-
+            usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha);
+            await _usuarioREP.Registrar(usuarioMOD);
         }
 
         public async Task<bool> EhUsuario(UsuarioMOD usuarioMOD)
         {
+            usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha);
             return await _usuarioREP.EhUsuario(usuarioMOD);
         }
 
-        public UsuarioMOD ObterPorEmail(string email)
+        public async Task<UsuarioMOD> ObterPorEmail(string email)
         {
-            return _usuarioREP.ObterPorEmail(email);
+            return await _usuarioREP.ObterPorEmail(email);
         }
 
-        public UsuarioMOD ObterPorId(string id)
+        public async Task<UsuarioMOD> ObterPorId(string id)
         {
-            return _usuarioREP.ObterPorId(ConverterParaObjectId(id));
+            return await _usuarioREP.ObterPorId(ConverterParaObjectId(id));
         }
 
-        public void Atualizar(UsuarioMOD usuarioMOD, HttpPostedFileBase arquivo)
+        public async Task Atualizar(UsuarioMOD usuarioMOD, HttpPostedFileBase arquivo)
         {
-            try
-            {
-                if (arquivo != null)
-                    usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(arquivo, @"~/Content/upload/usuario");
-                else
-                    usuarioMOD.NomeFotoPerfil = usuarioMOD.NomeFotoPerfil;
+            if (arquivo != null)
+                usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(arquivo, @"~/Content/upload/usuario").Result;
+            else
+                usuarioMOD.NomeFotoPerfil = usuarioMOD.NomeFotoPerfil;
 
-                _usuarioREP.Atualizar(usuarioMOD);
-
-                Mensagem("sucesso", "Seu perfil foi atualizado!");
-            }
-            catch
-            {
-                Mensagem("erro", "Não foi possível atualizar seu perfil!");
-            }
-
-
+            await _usuarioREP.Atualizar(usuarioMOD);
         }
 
         public bool Logar(UsuarioMOD usuarioMOD)

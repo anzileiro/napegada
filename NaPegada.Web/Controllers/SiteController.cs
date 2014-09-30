@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace NaPegada.Web.Controllers
 {
     public class SiteController : Controller
     {
-        public ViewResult Home()
+        public async Task<ViewResult> Home()
         {
-            return View();
+            return await Task.Run(() => View());
         }
     }
 }
