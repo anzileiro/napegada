@@ -3,7 +3,6 @@ using NaPegada.Model;
 using NaPegada.Repository;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Security;
 
 namespace NaPegada.Business
 {
@@ -43,37 +42,19 @@ namespace NaPegada.Business
         public async Task Atualizar(UsuarioMOD usuarioMOD, HttpPostedFileBase arquivo)
         {
             if (arquivo != null)
+            {
                 usuarioMOD.NomeFotoPerfil = _utilitaria.VerificaEhSalvaArquivo(arquivo, @"~/Content/upload/usuario").Result;
+            }
             else
+            {
                 usuarioMOD.NomeFotoPerfil = usuarioMOD.NomeFotoPerfil;
-
+            }
             await _usuarioREP.Atualizar(usuarioMOD);
-        }
-
-        public bool Logar(UsuarioMOD usuarioMOD)
-        {
-            //usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha, "sha1");
-            //if (EhUsuario(usuarioMOD))
-            //{
-            //    FormsAuthentication.Authenticate(usuarioMOD.Email, usuarioMOD.Senha);
-            //    FormsAuthentication.SetAuthCookie(usuarioMOD.Email, manterCookie);
-            //    return true;
-            //}
-            //return false;
-
-            return false;
-        }
-
-        public void Deslogar()
-        {
-            FormsAuthentication.SignOut();
         }
 
         public ObjectId ConverterParaObjectId(string s)
         {
-            //return ObjectId.Parse(s);
-
-            return ObjectId.Empty;
+            return ObjectId.Parse(s);
         }
 
     }

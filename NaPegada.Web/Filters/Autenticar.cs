@@ -21,7 +21,6 @@ namespace NaPegada.Web.Controllers
             else
             {
                 base.HandleUnauthorizedRequest(contexto);
-                contexto.Controller.TempData["Mensagem"] = "Por favor faça login!";
                 contexto.Result = new RedirectResult("/Site/Home");
             }
         }

@@ -19,33 +19,30 @@ namespace NaPegada.Web.Controllers
 
         #region [ViewResult]
         [HttpGet]
-        [AllowAnonymous]
-        [OutputCache(Duration = 720000)]
+        [OutputCache(Duration = 86400)]
         public async Task<ViewResult> Home()
         {
-            return await Task.Run(() => View());
+            return await Task.Run(() => View(ObterUsuarioDaSecao().Result));
         }
 
         [HttpGet]
         [AllowAnonymous]
         [Route("Sair")]
-        public async Task<ViewResult> Sair()
+        public async Task<ActionResult> Sair()
         {
             LogOut();
-            return await Task.Run(() => View("Entrar"));
+            return await Task.Run(() => RedirectToAction("Home", "Site"));
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        [OutputCache(Duration = 720000)]
+        [OutputCache(Duration = 86400)]
         public async Task<ViewResult> MinhasDoacoes()
         {
             return await Task.Run(() => View());
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        [OutputCache(Duration = 720000)]
+        [OutputCache(Duration = 86400)]
         public async Task<ViewResult> MeusInteresses()
         {
             return await Task.Run(() => View());
@@ -58,11 +55,7 @@ namespace NaPegada.Web.Controllers
         [Route("Entrar")]
         public async Task<ActionResult> Entrar(UsuarioViewModel usuarioVM)
         {
-            if (await LogIn(usuarioVM))
-            {
-                return await Task.Run(() => RedirectToAction("Home"));
-            }
-            return await Task.Run(() => RedirectToAction("Site/Home"));
+            return await (await LogIn(usuarioVM) ? Task.Run(() => RedirectToAction("Home", "Usuario")) : Task.Run(() => RedirectToAction("Home", "Site")));
         }
 
         [HttpPost]
@@ -78,13 +71,19 @@ namespace NaPegada.Web.Controllers
         [NonAction]
         private async Task<bool> LogIn(UsuarioViewModel usuarioVM)
         {
-            return (await _usuarioBUS.EhUsuario(usuarioVM.Usuario) ? HttpContext.Session["napegada_auth"] = usuarioVM : null) != null;
+            return (await _usuarioBUS.EhUsuario(usuarioVM.Usuario) ? Session["napegada_auth"] = usuarioVM : null) != null;
         }
 
         [NonAction]
         private void LogOut()
         {
-            HttpContext.Session["napegada_auth"] = null;
+            Session["napegada_auth"] = null;
+        }
+
+        [NonAction]
+        private async Task<UsuarioViewModel> ObterUsuarioDaSecao()
+        {
+            return await Task.Run(() => Session["napegada_auth"] as UsuarioViewModel);
         }
         #endregion
     }
