@@ -144,6 +144,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
     <Folder Include="Content\upload\" />
+    <Folder Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NaPegada.Business\NaPegada.Business.csproj">
