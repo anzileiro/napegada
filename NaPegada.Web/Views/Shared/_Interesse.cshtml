@@ -1,4 +1,4 @@
-﻿@model NaPegada.Model.InteresseMOD
+﻿@model NaPegada.Web.Models.UsuarioViewModel
 
 
 @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form" }))
@@ -7,26 +7,26 @@
         <label for="Especie">Espécie</label>
         
         
-            @Html.TextBoxFor(u => u.Especie, new { @class = "form-control" })
+            @Html.TextBoxFor(u => u.Interesse.Especie, new { @class = "form-control" })
         
     </div>
 
     <div class="form-group">
         <label for="Raca">Raca</label>
-        @Html.TextBoxFor(u => u.Raca, new { @class = "form-control" })
+        @Html.TextBoxFor(u => u.Interesse.Raca, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
         <label for="IdadeMin" class="col-sm-2">Idade Min.</label>
 
         <div class="col-sm-4">
-            @Html.TextBoxFor(u => u.IdadeMinimaEmAnos, new { @class = "form-control" })
+            @Html.TextBoxFor(u => u.Interesse.IdadeMinimaEmAnos, new { @class = "form-control" })
         </div>
         
         <label for="IdadeMax" class="col-sm-2">Idade Max.</label>
         
         <div class="col-sm-4">
-            @Html.TextBoxFor(u => u.IdadeMaximaEmAnos, new { @class = "form-control" })
+            @Html.TextBoxFor(u => u.Interesse.IdadeMaximaEmAnos, new { @class = "form-control" })
         </div>
     </div>
 

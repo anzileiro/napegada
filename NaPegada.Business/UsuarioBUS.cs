@@ -56,6 +56,5 @@ namespace NaPegada.Business
         {
             return ObjectId.Parse(s);
         }
-
     }
 }

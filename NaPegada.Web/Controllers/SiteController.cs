@@ -7,7 +7,7 @@ namespace NaPegada.Web.Controllers
     public class SiteController : AsyncController
     {
         [HttpGet]
-        [OutputCache(Duration = 86400)]
+        //[OutputCache(Duration = 86400)]
         public async Task<ViewResult> Home()
         {
             return await Task.Run(() => View());

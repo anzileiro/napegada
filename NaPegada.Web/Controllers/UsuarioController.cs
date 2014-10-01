@@ -18,7 +18,7 @@ namespace NaPegada.Web.Controllers
 
         #region [ViewResult]
         [HttpGet]
-        [OutputCache(Duration = 86400)]
+        //[OutputCache(Duration = 86400)]
         public async Task<ViewResult> Home()
         {
             return await Task.Run(() => View(ObterUsuarioDaSecao().Result));
@@ -34,17 +34,17 @@ namespace NaPegada.Web.Controllers
         }
 
         [HttpGet]
-        [OutputCache(Duration = 86400)]
+        //[OutputCache(Duration = 86400)]
         public async Task<ViewResult> MinhasDoacoes()
         {
-            return await Task.Run(() => View());
+            return await Task.Run(() => View(ObterUsuarioDaSecao().Result));
         }
 
         [HttpGet]
-        [OutputCache(Duration = 86400)]
+        //[OutputCache(Duration = 86400)]
         public async Task<ViewResult> MeusInteresses()
         {
-            return await Task.Run(() => View());
+            return await Task.Run(() => View(ObterUsuarioDaSecao().Result));
         }
         #endregion
 

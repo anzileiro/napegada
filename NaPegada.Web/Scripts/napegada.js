@@ -9,7 +9,21 @@ $(function () {
                    alert('Logando...');
                },
                function (r) {
-                   return window.location.href = r.url;
+                   f.redirecionar(r.url);
+               },
+               undefined, undefined, undefined);
+    });
+
+    $('body').on('click', '#btn-sair', function () {
+        alert();
+        f.ajax('/Usuario/Sair',
+               'get',
+               undefined,
+               function () {
+                   alert('Saindo...');
+               },
+               function (r) {
+                   f.redirecionar(r.url);
                },
                undefined, undefined, undefined);
     });
@@ -19,18 +33,12 @@ $(function () {
                'post',
                data_ = $('#frm-usuario-registrar').serialize(),
                function () {
-                   alert('Before send...');
+                   alert('Registrando...');
                },
-               function () {
-                   alert('Success...');
+               function (r) {
+                   f.redirecionar(r.url);
                },
-               function () {
-                   alert('Complete...');
-               }, function (x) {
-                   alert(JSON.stringify(x));
-               }, function () {
-                   alert('Callback de brinde !!!');
-               });
+               undefined, undefined, undefined);
     });
 });
 
@@ -45,5 +53,8 @@ var f = {
             complete: complete_,
             error: error_
         }, callback_);
+    },
+    'redirecionar': function (url_) {
+        return window.location.href = url_;
     }
 };
