@@ -102,6 +102,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\load-100x9.gif" />
+    <Content Include="Content\images\load-20x21.gif" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\napegada.js" />
     <Content Include="Web.config" />
@@ -142,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
     <Folder Include="Content\upload\" />
   </ItemGroup>
   <ItemGroup>

@@ -5,45 +5,30 @@ $(function () {
         f.ajax('/Usuario/Entrar',
                'post',
                data_ = $('#frm-usuario-entrar').serialize(),
-               function () {
-                   alert('Logando...');
-               },
+               f.exibirLoad('.load', true),
                function (r) {
                    f.redirecionar(r.url);
                },
-               undefined, undefined, undefined);
+               f.exibirLoad('.load', false), undefined);
     });
 
-    $('body').on('click', '#btn-sair', function () {
-        alert();
-        f.ajax('/Usuario/Sair',
-               'get',
-               undefined,
-               function () {
-                   alert('Saindo...');
-               },
-               function (r) {
-                   f.redirecionar(r.url);
-               },
-               undefined, undefined, undefined);
+    $('#btn-sair').on('click', function () {
+        f.obter('/Usuario/Sair', undefined, function (r) { f.redirecionar(r.url) });
     });
 
     $('#btn-registrar').on('click', function () {
         f.ajax('/Usuario/Registrar',
                'post',
                data_ = $('#frm-usuario-registrar').serialize(),
-               function () {
-                   alert('Registrando...');
-               },
+               f.exibirLoad('.load', true),
                function (r) {
                    f.redirecionar(r.url);
-               },
-               undefined, undefined, undefined);
+               }, f.exibirLoad('.load', false), undefined);
     });
 });
 
 var f = {
-    'ajax': function (url_, type_, data_, beforeSend_, success_, complete_, error_, callback_) {
+    'ajax': function (url_, type_, data_, beforeSend_, success_, complete_, error_) {
         $.ajax({
             url: url_,
             type: type_,
@@ -52,9 +37,22 @@ var f = {
             success: success_,
             complete: complete_,
             error: error_
-        }, callback_);
+        });
+    },
+    'postar': function (url_, data_, callback_, type_) {
+        $.post(url_, data_, callback_, type_);
+    },
+    'obter': function (url_, data_, callback_) {
+        $.getJSON(url_, data_, callback_);
     },
     'redirecionar': function (url_) {
         return window.location.href = url_;
+    },
+    'exibirLoad': function (elemento_, mostrar_) {
+        if (mostrar_) {
+            $(elemento_).html('<img src="/Content/images/load-100x9.gif" />');
+        } else {
+            $(elemento_).html('');
+        }
     }
 };

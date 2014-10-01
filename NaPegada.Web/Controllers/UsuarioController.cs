@@ -65,7 +65,13 @@ namespace NaPegada.Web.Controllers
         [Route("Registrar")]
         public async Task<JsonResult> Registrar(UsuarioViewModel usuarioVM)
         {
-            return await Task.Run(() => Json(_usuarioBUS.Registrar(usuarioVM.Usuario)));
+            //return await Task.Run(() => Json(_usuarioBUS.Registrar(usuarioVM.Usuario)));
+            var usuario = usuarioVM;
+            _usuarioBUS.Registrar(usuarioVM.Usuario);
+            return await Task.Run(async () => Json(new
+            {
+                url = await LogIn(usuario) ? "/Usuario/Home" : "/Site/Home"
+            }));
         }
         #endregion
 
