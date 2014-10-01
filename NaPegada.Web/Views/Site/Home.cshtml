@@ -1,12 +1,13 @@
-﻿<div>
-    <h2>Home</h2>
-    @if (HttpContext.Current.Session["napegada_auth"] != null)
+﻿@model NaPegada.Web.Models.UsuarioViewModel
+<div>
+    <h2>/Site/Home</h2>
+    @if (Session["napegada_auth"] != null)
     {
-        <p>Você esta logado !</p>
+        <p>Você está logado.</p>
     }
     else
     {
-        <p>Você não esta logado !</p>
+        <p>Você não está logado.</p>
     }
 </div>
 @section scripts{

@@ -1,12 +1,11 @@
 ﻿using NaPegada.Business;
 using NaPegada.Web.Models;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NaPegada.Web.Controllers
 {
-    [Autenticar]
+    [AutenticarAutorizar]
     [RoutePrefix("Usuario")]
     public class UsuarioController : AsyncController
     {
@@ -28,10 +27,10 @@ namespace NaPegada.Web.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("Sair")]
-        public async Task<ActionResult> Sair()
+        public async Task<JsonResult> Sair()
         {
             LogOut();
-            return await Task.Run(() => RedirectToAction("Home", "Site"));
+            return await Task.Run(() => Json(new { url = "/Site/Home" }, JsonRequestBehavior.AllowGet));
         }
 
         [HttpGet]
@@ -53,9 +52,12 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("Entrar")]
-        public async Task<ActionResult> Entrar(UsuarioViewModel usuarioVM)
+        public async Task<JsonResult> Entrar(UsuarioViewModel usuarioVM)
         {
-            return await (await LogIn(usuarioVM) ? Task.Run(() => RedirectToAction("Home", "Usuario")) : Task.Run(() => RedirectToAction("Home", "Site")));
+            return await Task.Run(async () => Json(new
+            {
+                url = await LogIn(usuarioVM) ? "/Usuario/Home" : "/Site/Home"
+            }));
         }
 
         [HttpPost]

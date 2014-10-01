@@ -5,7 +5,7 @@ using System.Web.Mvc;
 namespace NaPegada.Web.Controllers
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
-    public class Autenticar : AuthorizeAttribute
+    public class AutenticarAutorizar : AuthorizeAttribute
     {
         protected override bool AuthorizeCore(HttpContextBase contextoHttp)
         {
@@ -20,7 +20,6 @@ namespace NaPegada.Web.Controllers
             }
             else
             {
-                base.HandleUnauthorizedRequest(contexto);
                 contexto.Result = new RedirectResult("/Site/Home");
             }
         }

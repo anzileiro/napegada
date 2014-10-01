@@ -6,18 +6,12 @@ $(function () {
                'post',
                data_ = $('#frm-usuario-entrar').serialize(),
                function () {
-                   alert('Before send...');
+                   alert('Logando...');
                },
-               function () {
-                   alert('Success...');
+               function (r) {
+                   return window.location.href = r.url;
                },
-               function () {
-                   alert('Complete...');
-               }, function (x) {
-                   alert(JSON.stringify(x));
-               }, function () {
-                   alert('Callback de brinde !!!');
-               });
+               undefined, undefined, undefined);
     });
 
     $('#btn-registrar').on('click', function () {
