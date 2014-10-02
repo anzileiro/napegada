@@ -2,14 +2,20 @@
 
 $(function () {
     $('#btn-entrar').on('click', function () {
-        f.ajax('/Usuario/Entrar',
-               'post',
-               data_ = $('#frm-usuario-entrar').serialize(),
-               f.exibirLoad('.load', true),
-               function (r) {
-                   f.redirecionar(r.url);
-               },
-               f.exibirLoad('.load', false), undefined);
+        var retornoJson = undefined;
+        $.ajax({
+            url: '/Usuario/Entrar',
+            type: 'post',
+            data: $('#frm-usuario-entrar').serialize(),
+            beforeSend: f.exibirLoad('.load', true),
+            success: function (r) {
+                retornoJson = r.url;
+            },
+            complete: function () {
+                f.exibirLoad('.load', false)
+                f.redirecionar(retornoJson);
+            }
+        });
     });
 
     $('#btn-sair').on('click', function () {
@@ -17,9 +23,19 @@ $(function () {
     });
 
     $('#btn-registrar').on('click', function () {
-        for (var i = 0; i < 999999999; i++) {
-            f.postar('/Usuario/Registrar', data_ = $('#frm-usuario-registrar').serialize(), 'post');
-        }
+        var dados = $('#frm-usuario-registrar').serialize();
+        $.ajax({
+            url: '/Usuario/Registrar',
+            type: 'post',
+            data: dados,
+            beforeSend: f.exibirLoad('.load', true),
+            complete: function () {
+                f.postar('/Usuario/Entrar', data_ = dados, function (r) {
+                    f.exibirLoad('.load', false);
+                    f.redirecionar(r.url);
+                });
+            }
+        });
     });
 });
 
