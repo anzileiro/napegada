@@ -33,6 +33,7 @@ $(function () {
                 f.postar('/Usuario/Entrar', data_ = dados, function (r) {
                     f.exibirLoad('.load', false);
                     f.redirecionar(r.url);
+
                 });
             }
         });
