@@ -73,6 +73,7 @@ namespace NaPegada.Web.Controllers
         [NonAction]
         private async Task<bool> LogIn(UsuarioViewModel usuarioVM)
         {
+            Session.Timeout = 1440;
             return (await _usuarioBUS.EhUsuario(usuarioVM.Usuario) ? Session["napegada_auth"] = usuarioVM : null) != null;
         }
 

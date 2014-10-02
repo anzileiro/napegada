@@ -135,6 +135,7 @@
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Site\Home.cshtml" />
     <Content Include="Content\css\napegada.css" />
+    <Content Include="Views\Shared\_MeuPerfil.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

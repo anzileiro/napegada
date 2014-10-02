@@ -1,6 +1,8 @@
 ﻿///<reference path="http://code.jquery.com/jquery-1.9.1.js" />
 
 $(function () {
+    $('#frm-usuario-perfil-dados .form-control').attr('disabled', 'disabled');
+    $('#frm-usuario-perfil-conta .form-control').attr('disabled', 'disabled');
 
     $('#btn-modal-entrar').on('click', function () {
         f.resetar(['.msg', '.load', '.form-control'], true);

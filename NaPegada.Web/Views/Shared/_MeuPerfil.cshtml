@@ -1,0 +1,62 @@
+﻿<div class="modal fade" id="modal-perfil" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Meu Perfil</h4>
+            </div>
+            <div class="modal-body">
+                <h2>Nome do Usuario</h2>
+                <hr />
+                <div class="msg"></div>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#dados" role="tab" data-toggle="tab">Meus dados</a></li>
+                    <li><a href="#conta" role="tab" data-toggle="tab">Minha conta</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="dados">
+                        <form id="frm-usuario-perfil-dados" class="form" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="Usuario.Foto">Minha foto:</label>
+                                <input type="file" name="Usuario.Foto" id="u-foto" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Usuario.Nome">Meu nome:</label>
+                                <input type="text" name="Usuario.Nome" id="u-nome" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Usuario.Endereco">Meu endereço:</label>
+                                <input type="text" name="Usuario.Endereco" id="u-endereco" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Usuario.Telefones">Meus telefones:</label>
+                                <input type="text" name="Usuario.Telefones" id="u-telefones" class="form-control" />
+                            </div>
+                            <button id="btn-atualizar-perfil-dados" class="btn btn-success" type="button">Salvar alterações</button>
+                            <span class="load"></span>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="conta">
+                        <form id="frm-usuario-perfil-conta" class="form">
+                            <div class="form-group">
+                                <label for="Email">Meu e-mail</label>
+                                <input type="text" name="Usuario.Email" id="u-email" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <button id="btn-alterar-senha" class="btn btn-primary" type="button">Alterar minha senha</button>
+                            </div>
+                            <button id="btn-atualizar-perfil-conta" class="btn btn-success" type="button">Salvar alterações</button>
+                            <span class="load"></span>
+                        </form>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
