@@ -28,9 +28,9 @@ namespace NaPegada.Model
         public DateTime DataCadastro { get; set; }
         public string NomeAnimal { get; set; }
         public string Caracteristicas { get; set; }
-        public bool? EhVacinado { get; set; }
-        public bool? TomouVermifugo { get; set; }
-        public bool? EhCastrado { get; set; }
+        public bool EhVacinado { get; set; }
+        public bool TomouVermifugo { get; set; }
+        public bool EhCastrado { get; set; }
         public AnimalIdadeMOD IdadeAnimal { get; set; }
         public RelatorioDoacaoMOD Relatorio { get; set; }
 

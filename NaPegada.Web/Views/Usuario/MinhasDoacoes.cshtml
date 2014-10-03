@@ -48,8 +48,8 @@
         <td>Sim</td>
         <td>Não</td>
         <td>Sim</td>
-        <td><span class="glyphicon glyphicon-pencil"></span></td>
-        <td><span class="glyphicon glyphicon-remove"></span></td>
+        <td><a href="#" data-toggle="modal" data-target="#modal-editar-doacao"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td><a href="#" data-toggle="modal" data-target="#modal-deletar-doacao"><span class="glyphicon glyphicon-remove"></span></a></td>
     </tr>
     <tr>
         <td>Nina</td>
@@ -61,8 +61,8 @@
         <td>Sim</td>
         <td>Não</td>
         <td>Sim</td>
-        <td><span class="glyphicon glyphicon-pencil"></span></td>
-        <td><span class="glyphicon glyphicon-remove"></span></td>
+        <td><a href="#" data-toggle="modal" data-target="#modal-editar-doacao"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td><a href="#" data-toggle="modal" data-target="#modal-deletar-doacao"><span class="glyphicon glyphicon-remove"></span></a></td>
     </tr>
     <tr>
         <td>Totó</td>
@@ -74,14 +74,14 @@
         <td>Sim</td>
         <td>Não</td>
         <td>Sim</td>
-        <td><span class="glyphicon glyphicon-pencil"></span></td>
-        <td><span class="glyphicon glyphicon-remove"></span></td>
+        <td><a href="#" data-toggle="modal" data-target="#modal-editar-doacao"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td><a href="#" data-toggle="modal" data-target="#modal-deletar-doacao"><span class="glyphicon glyphicon-remove"></span></a></td>
     </tr>
 </table>
     </div>
 </div>
 
-<!-- MODAL -->
+<!-- MODAL CADASTRAR -->
 <div class="modal fade" id="modal-cadastrar-doacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -93,6 +93,40 @@
                 @Html.Partial("_Doacao")
             </div>
            
+        </div>
+    </div>
+</div>
+
+<!-- MODAL EDITAR -->
+<div class="modal fade" id="modal-editar-doacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Editar Doação</h4>
+            </div>
+            <div class="modal-body">
+
+                @Html.Partial("_EditarDoacao")
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DELETAR -->
+<div class="modal fade" id="modal-deletar-doacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Deletar Doação</h4>
+            </div>
+            <div class="modal-body">
+
+                @Html.Partial("_DeletarDoacao")
+            </div>
+
         </div>
     </div>
 </div>

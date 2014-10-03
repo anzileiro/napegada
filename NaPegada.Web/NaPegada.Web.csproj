@@ -105,6 +105,14 @@
     <Content Include="Content\images\load-100x9.gif" />
     <Content Include="Content\images\load-20x21.gif" />
     <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\napegada.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -136,6 +144,9 @@
     <Content Include="Views\Site\Home.cshtml" />
     <Content Include="Content\css\napegada.css" />
     <Content Include="Views\Shared\_MeuPerfil.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_EditarDoacao.cshtml" />
+    <Content Include="Views\Shared\_DeletarDoacao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
