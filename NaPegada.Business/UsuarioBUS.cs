@@ -23,7 +23,14 @@ namespace NaPegada.Business
             await _usuarioREP.Registrar(usuarioMOD);
         }
 
-        public async Task<bool> EhUsuario(UsuarioMOD usuarioMOD)
+        public async Task CadastrarInteresse(ObjectId userId, InteresseMOD interesseMOD)
+        {
+
+            await _usuarioREP.CadastrarInteresse(userId, interesseMOD);
+
+        }
+
+        public async Task<UsuarioMOD> EhUsuario(UsuarioMOD usuarioMOD)
         {
             usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha);
             return await _usuarioREP.EhUsuario(usuarioMOD);
@@ -56,5 +63,7 @@ namespace NaPegada.Business
         {
             return ObjectId.Parse(s);
         }
+
+        
     }
 }

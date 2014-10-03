@@ -20,11 +20,11 @@ namespace NaPegada.Repository
             }
         }
 
-        public async Task<bool> EhUsuario(UsuarioMOD userMOD)
+        public async Task<UsuarioMOD> EhUsuario(UsuarioMOD userMOD)
         {
             using (_conn = new Conexao<UsuarioMOD>())
             {
-                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable<UsuarioMOD>().Any(u => u.Email.Equals(userMOD.Email) && u.Senha.Equals(userMOD.Senha)));
+                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable<UsuarioMOD>().FirstOrDefault(u => u.Email.Equals(userMOD.Email) && u.Senha.Equals(userMOD.Senha)));
             }
         }
 
@@ -50,6 +50,19 @@ namespace NaPegada.Repository
                                               })));
             }
         }
+
+        public async Task CadastrarInteresse(ObjectId userId, InteresseMOD interesseMOD)
+        {
+
+            using(_conn = new Conexao<UsuarioMOD>()){
+
+                await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+                     .Update(Query<UsuarioMOD>.EQ(u => u.Id, userId), Update.PushWrapped("Interesses", interesseMOD)));
+
+            }
+
+        }
+
 
         public async Task<UsuarioMOD> ObterPorEmail(string email)
         {

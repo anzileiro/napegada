@@ -1,4 +1,5 @@
 ﻿using NaPegada.Business;
+using NaPegada.Model;
 using NaPegada.Web.Models;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -21,7 +22,10 @@ namespace NaPegada.Web.Controllers
         //[OutputCache(Duration = 86400)]
         public async Task<ViewResult> Home()
         {
-            return await Task.Run(() => View(ObterUsuarioDaSecao().Result));
+            var viewModel = new UsuarioViewModel();
+
+            viewModel.Usuario = ObterUsuarioDaSecao();
+            return await Task.Run(() => View(viewModel));
         }
 
         [HttpGet]
@@ -37,14 +41,14 @@ namespace NaPegada.Web.Controllers
         //[OutputCache(Duration = 86400)]
         public async Task<ViewResult> MinhasDoacoes()
         {
-            return await Task.Run(() => View(ObterUsuarioDaSecao().Result));
+            return await Task.Run(() => View(ObterUsuarioDaSecao()));
         }
 
         [HttpGet]
         //[OutputCache(Duration = 86400)]
         public async Task<ViewResult> MeusInteresses()
         {
-            return await Task.Run(() => View(ObterUsuarioDaSecao().Result));
+            return await Task.Run(() => View(ObterUsuarioDaSecao()));
         }
         #endregion
 
@@ -67,6 +71,21 @@ namespace NaPegada.Web.Controllers
         {
             return await Task.Run(() => Json(_usuarioBUS.Registrar(usuarioVM.Usuario)));
         }
+
+        [HttpPost]
+        public ActionResult CadastrarInteresse(InteresseViewModel interesseVM)
+        {
+
+            var id = ObterUsuarioDaSecao().Id;
+
+            _usuarioBUS.CadastrarInteresse(id, interesseVM.Interesse);
+
+            TempData["msg"] = "Seu interesse foi cadastrado com sucesso!";
+
+            return RedirectToAction("MeusInteresses");
+        }
+
+
         #endregion
 
         #region [NonAction]
@@ -74,7 +93,9 @@ namespace NaPegada.Web.Controllers
         private async Task<bool> LogIn(UsuarioViewModel usuarioVM)
         {
             Session.Timeout = 1440;
-            return (await _usuarioBUS.EhUsuario(usuarioVM.Usuario) ? Session["napegada_auth"] = usuarioVM : null) != null;
+
+            var retornoUser = await _usuarioBUS.EhUsuario(usuarioVM.Usuario);
+            return (Session["napegada_auth"] = retornoUser) != null;
         }
 
         [NonAction]
@@ -84,9 +105,9 @@ namespace NaPegada.Web.Controllers
         }
 
         [NonAction]
-        private async Task<UsuarioViewModel> ObterUsuarioDaSecao()
+        private UsuarioMOD ObterUsuarioDaSecao()
         {
-            return await Task.Run(() => Session["napegada_auth"] as UsuarioViewModel);
+            return Session["napegada_auth"] as UsuarioMOD;
         }
         #endregion
     }

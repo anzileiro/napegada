@@ -26,7 +26,7 @@ namespace NaPegada.Model
         public ushort? IdadeMinimaEmAnos { get; set; }
         public ushort? IdadeMaximaEmAnos { get; set; }
 
-        protected InteresseMOD()
+        public InteresseMOD()
         {
             _portes = new List<AnimalPorte>();
         }
