@@ -4,14 +4,30 @@
 
 -->
 
+
+@using NaPegada.Web.Models
+
 @{
     ViewBag.Title = "Meus Interesses";
 }
 
+
    <div>
        <a href="#" data-toggle="modal" class="btn-group btn btn-success btn-sm" data-target="#modal-cadastrar-interesse">Cadastrar</a>
-    
-</div>
+   </div>
+
+<br/>
+
+@if (TempData["msg"] != null)
+{
+
+    <div class="alert alert-dismissable alert-info">
+        @TempData["msg"]
+    </div>
+
+}
+
+
 <br />
 <br />
 
@@ -114,7 +130,7 @@
 
             <div class="modal-body">
 
-                @Html.Partial("_Interesse")
+                @Html.Partial("_Interesse", new InteresseViewModel())
 
             </div>
         </div>

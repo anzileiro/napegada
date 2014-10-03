@@ -1,13 +1,13 @@
-﻿@model NaPegada.Web.Models.UsuarioViewModel
+﻿@model NaPegada.Web.Models.InteresseViewModel
 
 
-@using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form" }))
+@using (Html.BeginForm("CadastrarInteresse", "Usuario", FormMethod.Post, new { @class = "form" }))
 {
     <div class="form-group">
         <label for="Especie">Espécie</label>
         
         
-            @Html.TextBoxFor(u => u.Interesse.Especie, new { @class = "form-control" })
+            @Html.TextBoxFor(u => u.Interesse.Especie , new { @class = "form-control" })
         
     </div>
 

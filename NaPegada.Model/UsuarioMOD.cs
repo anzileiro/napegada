@@ -16,7 +16,7 @@ namespace NaPegada.Model
         public string Senha { get; set; }
         public int Reputacao { get; set; }
         public string NomeFotoPerfil { get; set; }
-        public IEnumerable<InteresseMOD> Interesse 
+        public IEnumerable<InteresseMOD> Interesses 
         {
             get { return _interesses; }
             protected set { _interesses = (IList<InteresseMOD>)value; }
