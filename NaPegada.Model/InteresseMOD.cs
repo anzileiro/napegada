@@ -22,11 +22,11 @@ namespace NaPegada.Model
         }
         public AnimalEspecie Especie { get; set; }
 
-        public RacaMOD Raca { get; set; }
+        public String Raca { get; set; }
         public ushort? IdadeMinimaEmAnos { get; set; }
         public ushort? IdadeMaximaEmAnos { get; set; }
 
-        public InteresseMOD()
+        public InteresseMOD(): base()
         {
             _portes = new List<AnimalPorte>();
         }
