@@ -12,6 +12,7 @@ namespace NaPegada.Web.Controllers
     public class UsuarioController : AsyncController
     {
         private readonly UsuarioBUS _usuarioBUS;
+        private readonly RacaBUS _racaBUS;
 
         public UsuarioController()
         {
@@ -49,6 +50,7 @@ namespace NaPegada.Web.Controllers
         //[OutputCache(Duration = 86400)]
         public async Task<ViewResult> MeusInteresses()
         {
+
             return await Task.Run(() => View(ObterUsuarioDaSecao()));
         }
         #endregion
@@ -86,10 +88,13 @@ namespace NaPegada.Web.Controllers
             return RedirectToAction("MeusInteresses");
         }
 
+       
+
 
         #endregion
 
         #region [NonAction]
+        
         [NonAction]
         private async Task<bool> LogIn(UsuarioViewModel usuarioVM)
         {
