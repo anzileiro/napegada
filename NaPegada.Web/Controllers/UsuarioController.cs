@@ -1,6 +1,7 @@
 ﻿using NaPegada.Business;
 using NaPegada.Model;
 using NaPegada.Web.Models;
+using NaPegada.Web.Models.Usuario;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -39,9 +40,9 @@ namespace NaPegada.Web.Controllers
 
         [HttpGet]
         //[OutputCache(Duration = 86400)]
-        public async Task<ViewResult> MinhasDoacoes()
+        public ViewResult MinhasDoacoes()
         {
-            return await Task.Run(() => View(ObterUsuarioDaSecao()));
+            return View(new MinhasDoacoesViewModel());
         }
 
         [HttpGet]

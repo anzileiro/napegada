@@ -1,55 +1,62 @@
-﻿@model NaPegada.Web.Models.UsuarioViewModel
+﻿@model NaPegada.Web.Models.Doacao.DetalhesViewModel
 
-@using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form" }))
+@using (Html.BeginForm("Detalhes", "Doacao", FormMethod.Post, new { @class = "form" }))
 {
+    @Html.HiddenFor(d => d.Id)
+    
     <div class="form-group">
         <label for="Nome">Nome</label>
 
-        @Html.TextBoxFor(d => d.Doacao.NomeAnimal, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label for="Raça">Raça</label>
-
-        @Html.TextBoxFor(d => d.Doacao.RacaAnimal, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label for="Porte">Porte</label>
-
-        <select class="form-control" id="porte">
-            <option selected="selected">Selecione...</option>
-            <option value="pequeno">Pequeno</option>
-            <option value="medio">Médio</option>
-            <option value="grande">Grande</option>
-        </select>
-        <br />
+        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
     </div>
     <div class="form-group">
         <label for="Especie">Espécie</label>
 
-        @Html.TextBoxFor(d => d.Doacao.EspecieAnimal, new { @class = "form-control" })
+        @Html.EnumDropDownListFor(d => d.Especie, "Selecie uma espécie", new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label for="Idade">Idade</label>
+        <label for="Raça">Raça</label>
 
-        @Html.TextBoxFor(d => d.Doacao.IdadeAnimal, new { @class = "form-control" })
-    </div>
-    <div class="form-group">        
-        @Html.CheckBoxFor(d => d.Doacao.EhVacinado)
-       <label for="Vacinado">Vacinado</label><br />
+        <select class="form-control">
+            <option>Selecione uma espécie</option>
+        </select>
     </div>
     <div class="form-group">
-        
-        @Html.CheckBoxFor(d => d.Doacao.EhCastrado)
-        <label for="Castrado">Castrado</label><br />
-    </div>
-    <div class="form-group">
+        <label for="Porte">Porte</label>
 
-        @Html.CheckBoxFor(d => d.Doacao.TomouVermifugo)
-        <label for="Vermifugo">Vermifugo</label>
+        @Html.EnumDropDownListFor(d => d.Porte, "Selecione um porte", new { @class = "form-control" })
+    </div>    
+    <div>
+        <fieldset title="Idade">
+            <div class="row">
+                <div class="form-group col-xs-6">
+                    <label for="Anos">Anos</label>
+                    @Html.TextBoxFor(d => d.Anos, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-xs-6">
+                    <label for="Anos">Meses</label>
+                    @Html.TextBoxFor(d => d.Anos, new { @class = "form-control" })
+                </div>
+            </div>            
+        </fieldset>
+    </div>    
+    <div class="checkbox">                
+       <label>
+        @Html.CheckBoxFor(d => d.EhVacinado)
+           Vacinado
+       </label>
     </div>
-        
-    <div class="form-group">
-        <label></label>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(d => d.EhCastrado)
+            Castrado
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(d => d.TomouVermifugo)
+            Vermifugo
+        </label>
     </div>
     
     <div class="form-group text-right">

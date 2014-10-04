@@ -6,6 +6,7 @@
     
 -->
 
+@model NaPegada.Web.Models.Usuario.MinhasDoacoesViewModel
 
 @{
     ViewBag.Title = "MinhasDoacoes";
@@ -13,7 +14,8 @@
 
 <h2>Doações</h2>
 <div>
-<a href="#" data-toggle="modal" data-target="#modal-cadastrar-doacao" class="btn btn-success btn-sm">Cadastrar Doação</a>
+    @*<a href="@Url.Action("Detalhes", "Doacao")" data-toggle="modal" class="btn btn-success btn-sm abrir-doacao">Cadastrar Doação</a>*@
+    <button data-url="@Url.Action("Detalhes", "Doacao")" class="btn btn-success btn-sm abrir-doacao">Cadastrar Doação</button>
 </div>
 
 <br />
@@ -24,92 +26,52 @@
         <h3 class="panel-title">Lista de Doações</h3>
     </div>
     <div class="panel-body">
-<table class="table table-striped">
-    <tr>
-        <th>Nome</th>
-        <th>Raça</th>
-        <th>Porte</th>
-        <th>Espécie</th>
-        <th>Data de Cadastro</th>
-        <th>Idade</th>
-        <th>Vacinado</th>
-        <th>Castrado</th>
-        <th>Vermifugo</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <td>Mylon</td>
-        <td>Pitbull</td>
-        <td>Grande</td>
-        <td>Cachorro</td>
-        <td>01/10/2014</td>
-        <td>5 anos e 3 meses</td>
-        <td>Sim</td>
-        <td>Não</td>
-        <td>Sim</td>
-        <td><a href="#" data-toggle="modal" data-target="#modal-editar-doacao"><span class="glyphicon glyphicon-pencil"></span></a></td>
-        <td><a href="#" data-toggle="modal" data-target="#modal-deletar-doacao"><span class="glyphicon glyphicon-remove"></span></a></td>
-    </tr>
-    <tr>
-        <td>Nina</td>
-        <td>Poodle</td>
-        <td>Pequeno</td>
-        <td>Cachorro</td>
-        <td>05/10/2014</td>
-        <td>3 anos</td>
-        <td>Sim</td>
-        <td>Não</td>
-        <td>Sim</td>
-        <td><a href="#" data-toggle="modal" data-target="#modal-editar-doacao"><span class="glyphicon glyphicon-pencil"></span></a></td>
-        <td><a href="#" data-toggle="modal" data-target="#modal-deletar-doacao"><span class="glyphicon glyphicon-remove"></span></a></td>
-    </tr>
-    <tr>
-        <td>Totó</td>
-        <td>Schnauzer</td>
-        <td>Médio</td>
-        <td>Cachorro</td>
-        <td>01/11/2014</td>
-        <td>8 anos e 6 meses</td>
-        <td>Sim</td>
-        <td>Não</td>
-        <td>Sim</td>
-        <td><a href="#" data-toggle="modal" data-target="#modal-editar-doacao"><span class="glyphicon glyphicon-pencil"></span></a></td>
-        <td><a href="#" data-toggle="modal" data-target="#modal-deletar-doacao"><span class="glyphicon glyphicon-remove"></span></a></td>
-    </tr>
-</table>
+        <table class="table table-striped">
+            <tr>
+                <th>Nome</th>
+                <th>Raça</th>
+                <th>Porte</th>
+                <th>Espécie</th>
+                <th>Data de Cadastro</th>
+                <th>Idade</th>
+                <th>Vacinado</th>
+                <th>Castrado</th>
+                <th>Vermifugo</th>
+                <th></th>
+                <th></th>
+            </tr>
+            
+            @foreach(var doacao in Model.Doacoes)
+            {
+                <tr>
+                    <td>@doacao.Nome</td>
+                    <td>@doacao.Raca</td>
+                    <td>@doacao.Porte</td>
+                    <td>@doacao.Especie</td>
+                    <td>@doacao.DataCadastro</td>
+                    <td>@doacao.Idade</td>
+                    <td>@doacao.Vacinado</td>
+                    <td>@doacao.Castrado</td>
+                    <td>@doacao.Vermifugo</td>
+                    <td><a href="#" data-url="@Url.Action("Detalhes", "Doacao", new { id = doacao.Id })"><span class="glyphicon glyphicon-pencil abrir-doacao"></span></a></td>
+                    <td><a href="#" data-toggle="modal" data-target="#modal-deletar-doacao"><span class="glyphicon glyphicon-remove"></span></a></td>
+                </tr>
+            }
+        </table>
     </div>
 </div>
 
 <!-- MODAL CADASTRAR -->
-<div class="modal fade" id="modal-cadastrar-doacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-doacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title">Cadastrar Doação</h4>
             </div>
-            <div class="modal-body">
-                @Html.Partial("_Doacao")
+            <div class="modal-body" id="doacao">
             </div>
            
-        </div>
-    </div>
-</div>
-
-<!-- MODAL EDITAR -->
-<div class="modal fade" id="modal-editar-doacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Editar Doação</h4>
-            </div>
-            <div class="modal-body">
-
-                @Html.Partial("_EditarDoacao")
-            </div>
-
         </div>
     </div>
 </div>
@@ -130,3 +92,7 @@
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/Usuario/minhas-doacoes.js"></script>
+}

@@ -23,7 +23,7 @@ namespace NaPegada.Model
         }
 
         public AnimalPorte PorteAnimal { get; set; }
-        public RacaMOD RacaAnimal { get; set; }
+        public string RacaAnimal { get; set; }
         public AnimalEspecie EspecieAnimal { get; set; }
         public DateTime DataCadastro { get; set; }
         public string NomeAnimal { get; set; }
