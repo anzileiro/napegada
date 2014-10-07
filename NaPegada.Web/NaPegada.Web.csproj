@@ -132,6 +132,7 @@
     <Compile Include="Models\Usuario\DoacaoViewModel.cs" />
     <Compile Include="Models\Usuario\MinhasDoacoesViewModel.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
+    <Compile Include="Models\Usuario\RegistroEhLoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

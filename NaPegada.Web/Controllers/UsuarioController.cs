@@ -59,7 +59,7 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("Entrar")]
-        public async Task<JsonResult> Entrar(UsuarioViewModel usuarioVM)
+        public async Task<JsonResult> Entrar(RegistroEhLoginViewModel usuarioVM)
         {
             return await Task.Run(async () => Json(new
             {
@@ -70,9 +70,13 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("Registrar")]
-        public async Task<JsonResult> Registrar(UsuarioViewModel usuarioVM)
+        public async Task<JsonResult> Registrar(RegistroEhLoginViewModel usuarioVM)
         {
-            return await Task.Run(() => Json(_usuarioBUS.Registrar(usuarioVM.Usuario)));
+            return await Task.Run(() => Json(_usuarioBUS.Registrar(new UsuarioMOD 
+            {
+                Email = usuarioVM.Email,
+                Senha = usuarioVM.Senha
+            })));
         }
 
         [HttpPost]
@@ -96,11 +100,15 @@ namespace NaPegada.Web.Controllers
         #region [NonAction]
         
         [NonAction]
-        private async Task<bool> LogIn(UsuarioViewModel usuarioVM)
+        private async Task<bool> LogIn(RegistroEhLoginViewModel usuarioVM)
         {
             Session.Timeout = 1440;
 
-            var retornoUser = await _usuarioBUS.EhUsuario(usuarioVM.Usuario);
+            var retornoUser = await _usuarioBUS.EhUsuario(new UsuarioMOD 
+            {
+                Email = usuarioVM.Email,
+                Senha = usuarioVM.Senha
+            });
             return (Session["napegada_auth"] = retornoUser) != null;
         }
 

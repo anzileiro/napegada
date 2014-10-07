@@ -1,4 +1,5 @@
-﻿<!-- Modal - Cadastrar usuario -->
+﻿@model NaPegada.Web.Models.Usuario.RegistroEhLoginViewModel
+<!-- Modal - Cadastrar usuario -->
 <div class="modal fade" id="modal-cadastrar" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -12,12 +13,14 @@
                 <div class="msg"></div>
                 <form id="frm-usuario-registrar" class="form">
                     <div class="form-group">
-                        <label for="Email">Seu endereço de e-mail</label>
-                        <input type="text" name="Usuario.Email" id="u-email" class="form-control" />
+                        @Html.LabelFor(u => u.Email)
+                        @Html.ValidationMessageFor(u => u.Email)
+                        @Html.TextBoxFor(u => u.Email, new { @id="u-email", @class = "form-control" }) 
                     </div>
                     <div class="form-group">
-                        <label for="Senha">Criar uma senha</label>
-                        <input type="password" name="Usuario.Senha" id="u-senha" class="form-control" />
+                        @Html.LabelFor(u => u.Senha)
+                        @Html.ValidationMessageFor(u => u.Senha)
+                        @Html.PasswordFor(u => u.Senha, new { @id = "u-senha", @class = "form-control" })
                     </div>
                     <div class="form-group">
                         <p class="help-block">
@@ -25,7 +28,7 @@
                             <a>Termos de Serviço</a> e a <a>Política de Privacidade</a>.
                         </p>
                     </div>
-                    <button id="btn-registrar" class="btn btn-success" type="button">Criar conta</button>
+                    <button id="btn-registrar" class="btn btn-success" type="submit">Criar conta</button>
                     <span class="load"></span>
                 </form>
             </div>
