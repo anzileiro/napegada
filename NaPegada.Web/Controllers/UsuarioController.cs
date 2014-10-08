@@ -85,7 +85,7 @@ namespace NaPegada.Web.Controllers
 
             var id = ObterUsuarioDaSecao().Id;
 
-            _usuarioBUS.CadastrarInteresse(id, interesseVM.Interesse);
+            //_usuarioBUS.CadastrarInteresse(id, interesseVM.Interesse);
 
             TempData["msg"] = "Seu interesse foi cadastrado com sucesso!";
 

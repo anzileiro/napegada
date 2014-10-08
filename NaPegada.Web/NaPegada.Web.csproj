@@ -128,7 +128,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Doacao\DetalhesViewModel.cs" />
-    <Compile Include="Models\InteresseViewModel.cs" />
+    <Compile Include="Models\Usuario\InteresseViewModel.cs" />
     <Compile Include="Models\Usuario\DoacaoViewModel.cs" />
     <Compile Include="Models\Usuario\MinhasDoacoesViewModel.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
@@ -154,6 +154,7 @@
     <Content Include="Views\Shared\_MeuPerfil.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_DeletarDoacao.cshtml" />
+    <Content Include="Views\Shared\_DeletarInteresse.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
