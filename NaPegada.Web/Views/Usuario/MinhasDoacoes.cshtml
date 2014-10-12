@@ -10,56 +10,73 @@
 
 @{
     ViewBag.Title = "MinhasDoacoes";
+    var sucesso = TempData["sucesso"] as string;
 }
 
 <h2>Doações</h2>
 <div>
-    @*<a href="@Url.Action("Detalhes", "Doacao")" data-toggle="modal" class="btn btn-success btn-sm abrir-doacao">Cadastrar Doação</a>*@
     <button data-url="@Url.Action("Detalhes", "Doacao")" class="btn btn-success btn-sm abrir-doacao">Cadastrar Doação</button>
 </div>
+
+@if(!string.IsNullOrWhiteSpace(sucesso))
+{
+    <div class="alert alert-success">
+        @sucesso
+    </div>
+}
 
 <br />
 <br /> 
 
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h3 class="panel-title">Lista de Doações</h3>
-    </div>
-    <div class="panel-body">
-        <table class="table table-striped">
-            <tr>
-                <th>Nome</th>
-                <th>Raça</th>
-                <th>Porte</th>
-                <th>Espécie</th>
-                <th>Data de Cadastro</th>
-                <th>Idade</th>
-                <th>Vacinado</th>
-                <th>Castrado</th>
-                <th>Vermifugo</th>
-                <th></th>
-                <th></th>
-            </tr>
-            
-            @foreach(var doacao in Model.Doacoes)
-            {
+@if (Model.Doacoes.Any())
+{
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Lista de Doações</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
                 <tr>
-                    <td>@doacao.Nome</td>
-                    <td>@doacao.Raca</td>
-                    <td>@doacao.Porte</td>
-                    <td>@doacao.Especie</td>
-                    <td>@doacao.DataCadastro</td>
-                    <td>@doacao.Idade</td>
-                    <td>@doacao.Vacinado</td>
-                    <td>@doacao.Castrado</td>
-                    <td>@doacao.Vermifugo</td>
-                    <td><a href="#" data-url="@Url.Action("Detalhes", "Doacao", new { id = doacao.Id })"><span class="glyphicon glyphicon-pencil abrir-doacao"></span></a></td>
-                    <td><a href="#" data-toggle="modal" data-target="#modal-deletar-doacao"><span class="glyphicon glyphicon-remove"></span></a></td>
+                    <th>Nome</th>
+                    <th>Raça</th>
+                    <th>Porte</th>
+                    <th>Espécie</th>
+                    <th>Data de Cadastro</th>
+                    <th>Idade</th>
+                    <th>Vacinado</th>
+                    <th>Castrado</th>
+                    <th>Vermifugo</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var doacao in Model.Doacoes)
+                {
+                    <tr>
+                        <td>@doacao.Nome</td>
+                        <td>@doacao.Raca</td>
+                        <td>@doacao.Porte</td>
+                        <td>@doacao.Especie</td>
+                        <td>@doacao.DataCadastro</td>
+                        <td>@doacao.Idade</td>
+                        <td>@doacao.Vacinado</td>
+                        <td>@doacao.Castrado</td>
+                        <td>@doacao.Vermifugo</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-pencil abrir-doacao" data-url="@Url.Action("Detalhes", "Doacao", new { id = doacao.Id })"></span></a></td>
+                        <td><a href="#"><span class="glyphicon glyphicon-remove excluir-doacao" data-url="@Url.Action("Exclusao", "Doacao", new { id = doacao.Id })"></span></a></td>
+                    </tr>
+                }
+            </table>
+        </div>
     </div>
-</div>
+}
+else
+{
+    <div class="alert alert-info">
+        Não há doações cadastradas
+    </div>
+}
+
 
 <!-- MODAL CADASTRAR -->
 <div class="modal fade" id="modal-doacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -84,9 +101,7 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title">Deletar Doação</h4>
             </div>
-            <div class="modal-body">
-
-                @Html.Partial("_DeletarDoacao")
+            <div class="modal-body" id="exclusao">
             </div>
 
         </div>

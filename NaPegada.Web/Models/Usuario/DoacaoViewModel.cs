@@ -26,7 +26,7 @@ namespace NaPegada.Web.Models.Usuario
             Raca = doacao.RacaAnimal;
             Especie = doacao.EspecieAnimal.ToString();
             DataCadastro = doacao.DataCadastro.ToShortDateString();
-            Idade = doacao.IdadeAnimal.ToString();
+            Idade = doacao.IdadeAnimal == null ? null : doacao.IdadeAnimal.ToString();
             Vacinado = doacao.EhVacinado ? "Sim" : "Não";
             Castrado = doacao.EhCastrado ? "Sim" : "Não";
             Vermifugo = doacao.TomouVermifugo ? "Sim" : "Não";

@@ -4,7 +4,7 @@ using System.Web.Mvc;
 namespace NaPegada.Web.Controllers
 {
     [RoutePrefix("Site")]
-    public class SiteController : AsyncController
+    public class SiteController : BaseAsyncController
     {
         [HttpGet]
         //[OutputCache(Duration = 86400)]

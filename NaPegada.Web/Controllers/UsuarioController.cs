@@ -9,7 +9,7 @@ namespace NaPegada.Web.Controllers
 {
     [AutenticarAutorizar]
     [RoutePrefix("Usuario")]
-    public class UsuarioController : AsyncController
+    public class UsuarioController : BaseAsyncController
     {
         private readonly UsuarioBUS _usuarioBUS;
         private readonly RacaBUS _racaBUS;
@@ -41,9 +41,13 @@ namespace NaPegada.Web.Controllers
 
         [HttpGet]
         //[OutputCache(Duration = 86400)]
-        public ViewResult MinhasDoacoes()
+        public async Task<ViewResult> MinhasDoacoes()
         {
-            return View(new MinhasDoacoesViewModel());
+            var userId = ObterUsuarioDaSecao().Id;
+
+            var doacoes = await _usuarioBUS.ObterDoacoes(userId);
+
+            return View(new MinhasDoacoesViewModel(doacoes));
         }
 
         [HttpGet]
@@ -116,13 +120,7 @@ namespace NaPegada.Web.Controllers
         private void LogOut()
         {
             Session["napegada_auth"] = null;
-        }
-
-        [NonAction]
-        private UsuarioMOD ObterUsuarioDaSecao()
-        {
-            return Session["napegada_auth"] as UsuarioMOD;
-        }
+        }        
         #endregion
     }
 }

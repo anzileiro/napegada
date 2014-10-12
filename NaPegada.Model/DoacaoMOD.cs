@@ -37,6 +37,7 @@ namespace NaPegada.Model
         public DoacaoMOD()
         {
             Fotos = new List<string>();
+            DataCadastro = DateTime.Today;
         }
 
         public void AdicionarFoto(string path)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NaPegada.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,14 @@ namespace NaPegada.Web.Models.Usuario
     {
         public IEnumerable<DoacaoViewModel> Doacoes { get; set; }
 
-        public MinhasDoacoesViewModel()
+        public MinhasDoacoesViewModel(IEnumerable<DoacaoMOD> doacoes)
         {
-            Doacoes = new List<DoacaoViewModel>();
+            var models = new List<DoacaoViewModel>();
+
+            foreach (var doacao in doacoes)
+                models.Add(new DoacaoViewModel(doacao));
+
+            Doacoes = models;
         }
     }
 }

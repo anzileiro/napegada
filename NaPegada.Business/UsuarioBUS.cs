@@ -1,6 +1,8 @@
 ﻿using MongoDB.Bson;
 using NaPegada.Model;
+using NaPegada.Model.DTO;
 using NaPegada.Repository;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -64,6 +66,35 @@ namespace NaPegada.Business
             return ObjectId.Parse(s);
         }
 
-        
+        #region Doacao
+
+        public async Task<DoacaoMOD> ObterDoacao(string id)
+        {
+            var mongoId = ConverterParaObjectId(id);
+
+            return await _usuarioREP.ObterDoacao(mongoId);
+        }
+
+        public async Task RegistrarDoacao(RegistroDoacaoDTO dto)
+        {
+            await _usuarioREP.RegistrarDoacao(dto);
+        }
+
+        public async Task AtualizarDoacao(RegistroDoacaoDTO dto)
+        {
+            await _usuarioREP.AtualizarDoacao(dto);
+        }
+
+        public async Task<IEnumerable<DoacaoMOD>> ObterDoacoes(ObjectId userId)
+        {
+            return await _usuarioREP.ObterDoacoes(userId);
+        }
+
+        public async Task ExcluirDoacao(ExclusaoDoacaoDTO dto)
+        {
+            await _usuarioREP.ExcluirDoacao(dto);
+        }
+
+        #endregion Doacao
     }
 }

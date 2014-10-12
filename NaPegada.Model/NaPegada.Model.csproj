@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdotanteMOD.cs" />
+    <Compile Include="DTO\ExclusaoDoacaoDTO.cs" />
+    <Compile Include="DTO\RegistroDoacaoDTO.cs" />
     <Compile Include="InteresseMOD.cs" />
     <Compile Include="AnimalIdadeMOD.cs" />
     <Compile Include="AnimalMOD.cs" />

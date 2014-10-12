@@ -41,7 +41,7 @@ $(function () {
         });
     });
 
-    $('#frm-usuario-registrar').on('submit', function () {
+    $('#btn-registrar').click(function () {
         if ($(this).valid()) {
             $('#btn-registrar').attr('disabled', 'disabled');
             $('#btn-registrar').text('Entrando...');

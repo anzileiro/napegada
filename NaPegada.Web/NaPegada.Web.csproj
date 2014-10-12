@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseAsyncController.cs" />
     <Compile Include="Controllers\DoacaoController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
@@ -128,6 +129,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Doacao\DetalhesViewModel.cs" />
+    <Compile Include="Models\Doacao\ExclusaoViewModel.cs" />
     <Compile Include="Models\Usuario\InteresseViewModel.cs" />
     <Compile Include="Models\Usuario\DoacaoViewModel.cs" />
     <Compile Include="Models\Usuario\MinhasDoacoesViewModel.cs" />
@@ -165,6 +167,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\upload\" />
+    <Folder Include="Views\BaseAsync\" />
     <Folder Include="Views\Doacao\" />
   </ItemGroup>
   <ItemGroup>
