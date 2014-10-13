@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using NaPegada.Model.DTO;
 using System.Collections;
 using System.Collections.Generic;
+using NaPegada.Model.DTO.Doacao;
+using NaPegada.Model.DTO.Interesse;
 
 namespace NaPegada.Repository
 {
@@ -52,18 +54,6 @@ namespace NaPegada.Repository
                                                   Complemento = userMOD.Endereco.Complemento
                                               })));
             }
-        }
-
-        public async Task CadastrarInteresse(ObjectId userId, InteresseMOD interesseMOD)
-        {
-
-            using(_conn = new Conexao<UsuarioMOD>()){
-
-                await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
-                     .Update(Query<UsuarioMOD>.EQ(u => u.Id, userId), Update.PushWrapped("Interesses", interesseMOD)));
-
-            }
-
         }
 
 
@@ -160,5 +150,85 @@ namespace NaPegada.Repository
         }
 
         #endregion Doacao
+
+        #region Interesse
+
+        public async Task<InteresseMOD> ObterInteresse(ObjectId id)
+        {
+            using (_conn = new Conexao<UsuarioMOD>())
+            {
+                return await Task.Run(() =>
+                {
+                    return (from usuario in _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
+
+                            select usuario.Interesses.FirstOrDefault(_ => _.Id == id)).SingleOrDefault();
+                });
+            }
+        }
+
+        public async Task RegistrarInteresse(RegistroInteresseDTO dto)
+        {
+            using (_conn = new Conexao<UsuarioMOD>())
+            {
+                await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+                                                 .Update(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
+                                                         Update<UsuarioMOD>.Push<InteresseMOD>(_ => _.Interesses, dto.Interesse)));
+            }
+        }
+
+        public async Task AtualizarInteresse(RegistroInteresseDTO dto)
+        {
+            using (_conn = new Conexao<UsuarioMOD>())
+            {
+                await Task.Run(() =>
+                {
+                    var query = Query.And(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
+                                          Query.EQ("Interesses._id", dto.Interesse.Id));
+                    var update = Update.Set("Interesses.$.Raca", dto.Interesse.Raca)
+                                        .Set("Interesses.$.IdadeMinimaEmAnos", dto.Interesse.IdadeMinimaEmAnos)
+                                        .Set("Interesses.$.IdadeMaximaEmAnos", dto.Interesse.IdadeMaximaEmAnos)
+                                        .Set("Interesses.$.Porte", dto.Interesse.Porte.ToBson())
+                                        .Set("Interesses.$.TomouVermifugo", dto.Interesse.TomouVermifugo)
+                                        .Set("Interesses.$.EhCastrado", dto.Interesse.EhCastrado)
+                                        .Set("Interesses.$.EhVacinado", dto.Interesse.EhVacinado)
+                                        .Set("Interesses.$.Especie", dto.Interesse.Especie);
+
+                    
+                    if (!string.IsNullOrWhiteSpace(dto.Interesse.Raca))
+                        update.Set("Interesses.$.Raca", dto.Interesse.Raca);
+
+                    _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);
+                });
+            }
+        }
+
+        public async Task<IEnumerable<InteresseMOD>> ObterInteresses(ObjectId userId)
+        {
+            using (_conn = new Conexao<UsuarioMOD>())
+            {
+                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
+                                                 .Where(_ => _.Id == userId)
+                                                 .Select(_ => _.Interesses)
+                                                 .FirstOrDefault());
+            }
+        }
+
+        public async Task ExcluirInteresse(ExclusaoInteresseDTO dto)
+        {
+            using (_conn = new Conexao<UsuarioMOD>())
+            {
+                await Task.Run(() =>
+                {
+                    var query = Query.And(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
+                                          Query.EQ("Interesses._id", dto.IdInteresse));
+                    var update = Update.PopFirst("Interesses");
+
+                    _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);
+                });
+            }
+        }
+
+        #endregion Interesse
+
     }
 }

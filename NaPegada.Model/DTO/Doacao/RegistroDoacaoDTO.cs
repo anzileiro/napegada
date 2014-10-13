@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NaPegada.Model.DTO
+namespace NaPegada.Model.DTO.Doacao
 {
     public class RegistroDoacaoDTO
     {

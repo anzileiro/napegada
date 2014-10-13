@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NaPegada.Model.DTO
+namespace NaPegada.Model.DTO.Interesse
 {
-    public class ExclusaoDoacaoDTO
+    public class RegistroInteresseDTO
     {
+        public InteresseMOD Interesse { get; set; }
+
         public ObjectId IdUsuario { get; set; }
-        public ObjectId IdDoacao { get; set; }
+
     }
 }

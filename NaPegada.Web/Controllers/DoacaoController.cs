@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using NaPegada.Business;
 using NaPegada.Model.DTO;
+using NaPegada.Model.DTO.Doacao;
 using NaPegada.Web.Models.Doacao;
 using System;
 using System.Collections.Generic;

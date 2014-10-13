@@ -4,125 +4,86 @@
 
 -->
 
+@model NaPegada.Web.Models.Usuario.MeusInteressesViewModel
 
 @using NaPegada.Web.Models
 
 @{
     ViewBag.Title = "Meus Interesses";
+    var sucesso = TempData["sucesso"] as string;
 }
 
-<div class="form-group">
-    <label></label>
+<h2>Interesses</h2>
+
+<div>
+    <button data-url="@Url.Action("Detalhes", "Interesse")" class="btn btn-success btn-sm abrir-interesse">Cadastrar Interesse</button>
 </div>
 
 
-   <div>
-       <a href="#" data-toggle="modal" class="btn-group btn btn-success btn-sm" data-target="#modal-cadastrar-interesse">Cadastrar</a>
-   </div>
-
-<br/>
-
-@if (TempData["msg"] != null)
+@if (!string.IsNullOrWhiteSpace(sucesso))
 {
-    <div class="alert alert-dismissable alert-info" role="alert">
-        
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        @TempData["msg"]
+    <div class="alert alert-success">
+        @sucesso
     </div>
 
 }
 
+
+<div class="form-group">
+    <label></label>
+</div>
 <div class="form-group">
     <label></label>
 </div>
 
-<div class="panel panel-success"  >
-    <div class="panel-heading">
-        <h3 class="panel-title">Lista de Cachorros</h3>
+@if (Model.Interesses.Any())
+{
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Lista de Interesses</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Raça</th>
+                    <th>Espécie</th>
+                    <th>Idade Mínima</th>
+                    <th>Idade Máxima</th>
+                    <th>Vacinado</th>
+                    <th>Castrado</th>
+                    <th>Vermifugo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+                @foreach (var interesse in Model.Interesses)
+                {
+                    <tr>
+                        <td>@interesse.Raca</td>
+                        <td>@interesse.Especie</td>
+                        <td>@interesse.IdadeMin</td>
+                        <td>@interesse.IdadeMax</td>
+                        <td>@interesse.Vacinado</td>
+                        <td>@interesse.Castrado</td>
+                        <td>@interesse.Vermifugo</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-pencil abrir-interesse" data-url="@Url.Action("Detalhes", "Interesse", new { id = interesse.Id })"></span></a></td>
+                        <td><a href="#"><span class="glyphicon glyphicon-remove excluir-interesse" data-url="@Url.Action("Exclusao", "Interesse", new { id = interesse.Id })"></span></a></td>
+                    </tr>
+                }
+            </table>
+        </div>
     </div>
-    <div class="panel-body">
-        <table class="table table-striped">
 
-            <tr>
 
-                <th> Nome</th>
-                <th>Raça</th>
-                <th>Idade</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-
-                <td>Nicholas</td>
-                <td>Pitty Lessy</td>
-                <td>01 até 3 anos</td>
-                <td><a href="#" data-toggle="modal" data-target="#modal-cadastrar-interesse"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td><a href="#" data-toggle="modal" data-target="#modal-excluir-interesse"><span class="glyphicon glyphicon-remove"></span></a> </td>
-            </tr>
-            <tr>
-
-                <td>Caca</td>
-                <td>Caca</td>
-                <td>01 até 4 anos</td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
-            </tr>
-            <tr>
-
-                <td>toto</td>
-                <td> toto</td>
-                <td>01 até 5 anos</td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
-            </tr>
-        </table>
+}
+else
+{
+    <div class="alert alert-info">
+        Não há doações cadastradas
     </div>
-</div>
+}
 
-<br />
-
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h3 class="panel-title">Lista de Gatos</h3>
-    </div>
-    <div class="panel-body">
-        <table class="table table-striped">
-
-            <tr>
-
-                <th> Nome</th>
-                <th>Raça</th>
-                <th>Idade</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-
-                <td>Nicholas</td>
-                <td>Pitty Lessy</td>
-                <td>01 até 3 anos</td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
-            </tr>
-            <tr>
-
-                <td>Anderson</td>
-                <td>Rex</td>
-                <td>01 até 4 anos</td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
-            </tr>
-            <tr>
-
-                <td>Caca</td>
-                <td>Caca</td>
-                <td>01 até 5 anos</td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td> <a href="#"> <span class="glyphicon glyphicon-remove"></span></a> </td>
-            </tr>
-        </table>
-    </div>
-</div>
 
 <!--Modal-->
 <div class="modal fade" id="modal-cadastrar-interesse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -133,10 +94,7 @@
                 <h4 class="modal-title" id="myModalLabel">Interesse de Doação</h4>
             </div>
 
-            <div class="modal-body">
-
-                @Html.Partial("_Interesse", new InteresseViewModel())
-
+            <div class="modal-body" id="interesse">
             </div>
         </div>
     </div>
@@ -151,10 +109,7 @@
                 <h4 class="modal-title" id="myModalLabel">Deletar Interesse de Doação</h4>
             </div>
 
-            <div class="modal-body">
-
-                @Html.Partial("_DeletarInteresse", null)
-
+            <div class="modal-body" id="exclusao">
             </div>
         </div>
     </div>

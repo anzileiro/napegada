@@ -121,6 +121,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseAsyncController.cs" />
     <Compile Include="Controllers\DoacaoController.cs" />
+    <Compile Include="Controllers\InteresseController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Filters\AutenticarAutorizar.cs" />
@@ -130,8 +131,11 @@
     </Compile>
     <Compile Include="Models\Doacao\DetalhesViewModel.cs" />
     <Compile Include="Models\Doacao\ExclusaoViewModel.cs" />
+    <Compile Include="Models\Interesse\DetalhesViewModel.cs" />
+    <Compile Include="Models\Interesse\ExclusaoViewModel.cs" />
     <Compile Include="Models\Usuario\InteresseViewModel.cs" />
     <Compile Include="Models\Usuario\DoacaoViewModel.cs" />
+    <Compile Include="Models\Usuario\MeusInteressesViewModel.cs" />
     <Compile Include="Models\Usuario\MinhasDoacoesViewModel.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Models\Usuario\RegistroEhLoginViewModel.cs" />
@@ -169,6 +173,7 @@
     <Folder Include="Content\upload\" />
     <Folder Include="Views\BaseAsync\" />
     <Folder Include="Views\Doacao\" />
+    <Folder Include="Views\Interesse\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NaPegada.Business\NaPegada.Business.csproj">

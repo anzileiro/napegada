@@ -55,7 +55,12 @@ namespace NaPegada.Web.Controllers
         public async Task<ViewResult> MeusInteresses()
         {
 
-            return await Task.Run(() => View(ObterUsuarioDaSecao()));
+            var userId = ObterUsuarioDaSecao().Id;
+
+            var interesses = await _usuarioBUS.ObterInteresses(userId);
+
+
+            return View(new MeusInteressesViewModel(interesses));
         }
         #endregion
 

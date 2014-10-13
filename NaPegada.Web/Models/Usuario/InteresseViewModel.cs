@@ -14,12 +14,12 @@ namespace NaPegada.Web.Models.Usuario
         public string Especie { get; set; }
         public string IdadeMin { get; set; }
         public string IdadeMax { get; set; }
-        public bool PortePequeno { get; set; }
-        public bool PorteMedio { get; set; }
-        public bool PorteGrande { get; set; }
-        public bool Vacinado { get; set; }
-        public bool Castrado { get; set; }
-        public bool Vermifugo { get; set; }
+        public string PortePequeno { get; set; }
+        public string PorteMedio { get; set; }
+        public string PorteGrande { get; set; }
+        public string Vacinado { get; set; }
+        public string Castrado { get; set; }
+        public string Vermifugo { get; set; }
 
 
         public InteresseViewModel(InteresseMOD interesse)
@@ -29,31 +29,15 @@ namespace NaPegada.Web.Models.Usuario
             Raca = interesse.Raca;
             IdadeMin = interesse.IdadeMinimaEmAnos.ToString();
             IdadeMax = interesse.IdadeMaximaEmAnos.ToString();
-           
+            PortePequeno = interesse.Porte.Contains(AnimalPorte.Pequeno) ? "Sim" : "Não";
+            PorteMedio = interesse.Porte.Contains(AnimalPorte.Médio) ? "Sim" : "Não";
+            PorteGrande = interesse.Porte.Contains(AnimalPorte.Grande) ? "Sim" : "Não";
+            Vacinado = interesse.EhVacinado ? "Sim" : "Não";
+            Castrado = interesse.EhCastrado ? "Sim" : "Não";
+            Vermifugo = interesse.TomouVermifugo ? "Sim" : "Não";
+
 
             //interesse.Porte = adicionaPortes();
-        }
-
-
-        private List<String> adicionaPortes()
-        {
-
-            List<string> listaPorte = new List<string>();
-
-            if(PortePequeno == true){
-                listaPorte.Add("Pequeno");     
-            }
-
-            if(PorteMedio == true){
-                listaPorte.Add("Médio");     
-            }
-            
-            if(PorteGrande == true){
-                listaPorte.Add("Grande");     
-            }
-
-
-            return listaPorte.ToList();
         }
 
     }
