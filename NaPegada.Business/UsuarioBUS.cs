@@ -1,6 +1,8 @@
 ﻿using MongoDB.Bson;
 using NaPegada.Model;
 using NaPegada.Model.DTO;
+using NaPegada.Model.DTO.Doacao;
+using NaPegada.Model.DTO.Interesse;
 using NaPegada.Repository;
 using NaPegada.Repository.Interfaces;
 using System.Collections.Generic;
@@ -24,13 +26,6 @@ namespace NaPegada.Business
         {
             usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha);
             await _usuarioREP.Registrar(usuarioMOD);
-        }
-
-        public async Task CadastrarInteresse(ObjectId userId, InteresseMOD interesseMOD)
-        {
-
-            await _usuarioREP.CadastrarInteresse(userId, interesseMOD);
-
         }
 
         public async Task<UsuarioMOD> EhUsuario(UsuarioMOD usuarioMOD)
@@ -97,5 +92,38 @@ namespace NaPegada.Business
         }
 
         #endregion Doacao
+
+
+        #region Interesse
+
+        public async Task<InteresseMOD> ObterInteresse(string id)
+        {
+            var mongoId = ConverterParaObjectId(id);
+
+            return await _usuarioREP.ObterInteresse(mongoId);
+        }
+
+        public async Task RegistrarInteresse(RegistroInteresseDTO dto)
+        {
+            await _usuarioREP.RegistrarInteresse(dto);
+        }
+
+        public async Task AtualizarInteresse(RegistroInteresseDTO dto)
+        {
+            await _usuarioREP.AtualizarInteresse(dto);
+        }
+
+        public async Task<IEnumerable<InteresseMOD>> ObterInteresses(ObjectId userId)
+        {
+            return await _usuarioREP.ObterInteresses(userId);
+        }
+
+        public async Task ExcluirInteresse(ExclusaoInteresseDTO dto)
+        {
+            await _usuarioREP.ExcluirInteresse(dto);
+        }
+
+        #endregion Interesse
+
     }
 }

@@ -6,5 +6,12 @@ namespace NaPegada.Model
     {
         public ObjectId Id { get; set; }
 
+        public ObjectMongo()
+        {
+
+            Id = ObjectId.GenerateNewId();
+
+        }
+
     }
 }

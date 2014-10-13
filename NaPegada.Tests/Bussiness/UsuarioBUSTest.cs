@@ -2,6 +2,7 @@
 using MongoDB.Bson;
 using NaPegada.Model;
 using NaPegada.Model.DTO;
+using NaPegada.Model.DTO.Doacao;
 using NaPegada.Repository.Interfaces;
 using NaPegada.Tests.Stubs;
 using System;

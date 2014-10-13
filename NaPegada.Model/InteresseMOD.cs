@@ -15,11 +15,7 @@ namespace NaPegada.Model
         public bool TomouVermifugo { get; set; }
 
         public bool EhCastrado { get; set; }
-        public IEnumerable<AnimalPorte> Porte 
-        {
-            get { return _portes; }
-            protected set { _portes = (IList<AnimalPorte>)value; }
-        }
+        public List<AnimalPorte> Porte { get; set; }
         public AnimalEspecie Especie { get; set; }
 
         public String Raca { get; set; }

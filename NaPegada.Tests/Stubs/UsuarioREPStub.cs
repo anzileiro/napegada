@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using NaPegada.Model;
 using NaPegada.Model.DTO;
+using NaPegada.Model.DTO.Doacao;
 using NaPegada.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -87,6 +88,32 @@ namespace NaPegada.Tests.Stubs
         }
 
         public Task Atualizar(UsuarioMOD usuario)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Task<InteresseMOD> ObterInteresse(ObjectId id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RegistrarInteresse(Model.DTO.Interesse.RegistroInteresseDTO dto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AtualizarInteresse(Model.DTO.Interesse.RegistroInteresseDTO dto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<InteresseMOD>> ObterInteresses(ObjectId userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ExcluirInteresse(Model.DTO.Interesse.ExclusaoInteresseDTO dto)
         {
             throw new NotImplementedException();
         }
