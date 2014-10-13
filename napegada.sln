@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Model", "NaPegada.Model\NaPegada.Model.csproj", "{9AD42331-1845-49C8-9BBC-0C445FDACFF7}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Business", "NaPegada.Business\NaPegada.Business.csproj", "{8CF1F98C-586C-45F0-90E2-038E9BAFB051}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Web", "NaPegada.Web\NaPegada.Web.csproj", "{737A1FAD-202B-4046-9243-D4A589F6FA01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaPegada.Tests", "NaPegada.Tests\NaPegada.Tests.csproj", "{5F5FC9D4-E772-4254-8442-137D533B5C69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{737A1FAD-202B-4046-9243-D4A589F6FA01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{737A1FAD-202B-4046-9243-D4A589F6FA01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{737A1FAD-202B-4046-9243-D4A589F6FA01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F5FC9D4-E772-4254-8442-137D533B5C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F5FC9D4-E772-4254-8442-137D533B5C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F5FC9D4-E772-4254-8442-137D533B5C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F5FC9D4-E772-4254-8442-137D533B5C69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

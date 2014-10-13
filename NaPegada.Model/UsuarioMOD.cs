@@ -86,5 +86,10 @@ namespace NaPegada.Model
 
             _doacoes.Add(doacao);
         }
+
+        public void ExcluirDoacao(DoacaoMOD doacao)
+        {
+            _doacoes.Remove(doacao);
+        }
     }
 }

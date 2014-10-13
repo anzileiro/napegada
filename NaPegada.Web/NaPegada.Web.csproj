@@ -179,6 +179,10 @@
       <Project>{9ad42331-1845-49c8-9bbc-0c445fdacff7}</Project>
       <Name>NaPegada.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NaPegada.Repository\NaPegada.Repository.csproj">
+      <Project>{da01e13f-784d-41e8-a307-3ee8acfd8b79}</Project>
+      <Name>NaPegada.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

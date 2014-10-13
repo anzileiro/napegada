@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using NaPegada.Business;
 using NaPegada.Model.DTO;
+using NaPegada.Repository;
 using NaPegada.Web.Models.Doacao;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace NaPegada.Web.Controllers
 
             if(!string.IsNullOrWhiteSpace(id))
             {
-                var userBus = new UsuarioBUS();
+                var userBus = new UsuarioBUS(new UsuarioREP());
                 var doacao = await userBus.ObterDoacao(id);
                 model = new DetalhesViewModel(doacao);
             }
@@ -36,7 +37,7 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Detalhes(DetalhesViewModel model)
         {
-            var userBus = new UsuarioBUS();
+            var userBus = new UsuarioBUS(new UsuarioREP());
             var dto = ObterDTO(model);
             var ehCadastro = string.IsNullOrWhiteSpace(model.Id);
 
@@ -68,7 +69,7 @@ namespace NaPegada.Web.Controllers
         [HttpGet]
         public async Task<PartialViewResult> Exclusao(string id)
         {
-            var userBus = new UsuarioBUS();
+            var userBus = new UsuarioBUS(new UsuarioREP());
             var doacao = await userBus.ObterDoacao(id);
 
             return PartialView("_DeletarDoacao", new ExclusaoViewModel(doacao));
@@ -77,7 +78,7 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Excluir(string id)
         {
-            var userBus = new UsuarioBUS();
+            var userBus = new UsuarioBUS(new UsuarioREP());
 
             await userBus.ExcluirDoacao(ObterDTO(id));
             TempData["sucesso"] = "Doação excluída com sucesso";

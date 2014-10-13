@@ -2,6 +2,7 @@
 using NaPegada.Model;
 using NaPegada.Model.DTO;
 using NaPegada.Repository;
+using NaPegada.Repository.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
@@ -10,12 +11,12 @@ namespace NaPegada.Business
 {
     public class UsuarioBUS : AvisoSistema
     {
-        private readonly UsuarioREP _usuarioREP;
+        private readonly IUsuarioREP _usuarioREP;
         private readonly Utilitaria _utilitaria;
 
-        public UsuarioBUS()
+        public UsuarioBUS(IUsuarioREP usuarioREP)
         {
-            _usuarioREP = new UsuarioREP();
+            _usuarioREP = usuarioREP;
             _utilitaria = new Utilitaria();
         }
 

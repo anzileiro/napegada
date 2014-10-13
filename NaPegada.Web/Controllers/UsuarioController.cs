@@ -1,5 +1,6 @@
 ﻿using NaPegada.Business;
 using NaPegada.Model;
+using NaPegada.Repository;
 using NaPegada.Web.Models;
 using NaPegada.Web.Models.Usuario;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace NaPegada.Web.Controllers
 
         public UsuarioController()
         {
-            _usuarioBUS = new UsuarioBUS();
+            _usuarioBUS = new UsuarioBUS(new UsuarioREP());
         }
 
         #region [ViewResult]

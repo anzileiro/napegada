@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 using NaPegada.Model.DTO;
 using System.Collections;
 using System.Collections.Generic;
+using NaPegada.Repository.Interfaces;
 
 namespace NaPegada.Repository
 {
-    public class UsuarioREP
+    public class UsuarioREP : IUsuarioREP
     {
         private Conexao<UsuarioMOD> _conn;
 
