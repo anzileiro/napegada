@@ -13,13 +13,10 @@ $(function () {
         $('#modal-interesse').modal('show');
     }
 
-    $('.excluir-interesse').click(function (e) {
+    $('.excluir-interesse').on('click', function () {
         $.get($(this).data('url'), function (data) {
             $('#exclusao').html(data);
             $('#modal-excluir-interesse').modal('show');
-        })
-
-        e.preventDefault();
-        return false;
+        });
     });
 });

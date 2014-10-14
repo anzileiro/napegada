@@ -185,10 +185,13 @@ namespace NaPegada.Repository
                 {
                     var query = Query.And(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
                                           Query.EQ("Interesses._id", dto.Interesse.Id));
-                    var update = Update.Set("Interesses.$.Raca", dto.Interesse.Raca)
-                                        .Set("Interesses.$.IdadeMinimaEmAnos", dto.Interesse.IdadeMinimaEmAnos)
+
+                    var portes = new BsonArray();
+                    portes.AddRange(dto.Interesse.Porte);
+
+                    var update = Update .Set("Interesses.$.IdadeMinimaEmAnos", dto.Interesse.IdadeMinimaEmAnos)
                                         .Set("Interesses.$.IdadeMaximaEmAnos", dto.Interesse.IdadeMaximaEmAnos)
-                                        .Set("Interesses.$.Porte", dto.Interesse.Porte.ToBson())
+                                        .Set("Interesses.$.Porte", portes)
                                         .Set("Interesses.$.TomouVermifugo", dto.Interesse.TomouVermifugo)
                                         .Set("Interesses.$.EhCastrado", dto.Interesse.EhCastrado)
                                         .Set("Interesses.$.EhVacinado", dto.Interesse.EhVacinado)

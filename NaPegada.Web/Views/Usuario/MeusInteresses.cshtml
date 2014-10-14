@@ -58,10 +58,13 @@
 
                 @foreach (var interesse in Model.Interesses)
                 {
+                    
+                    
+                    
                     <tr>
                         <td>@interesse.Raca</td>
                         <td>@interesse.Especie</td>
-                        <td>Entre: @interesse.IdadeMin e @interesse.IdadeMax ano(s)</td>
+                        <td>Entre: @interesse.IdadeMin e @interesse.IdadeMax ano(s) </td>
                         <td>
                             <strong>Pequeno:</strong> @interesse.PortePequeno
                             <br/>
@@ -72,8 +75,8 @@
                         <td>@interesse.Vacinado</td>
                         <td>@interesse.Castrado</td>
                         <td>@interesse.Vermifugo</td>
-                        <td><a href="#"><span class="glyphicon glyphicon-pencil abrir-interesse" data-url="@Url.Action("Detalhes", "Interesse", new { id = interesse.Id })"></span></a></td>
-                        <td><a href="#"><span class="glyphicon glyphicon-remove excluir-interesse" data-url="@Url.Action("Exclusao", "Interesse", new { id = interesse.Id })"></span></a></td>
+                        <td><a href="#"><span class="glyphicon glyphicon-pencil abrir-interesse" data-codigo="@interesse.Id" data-url="@Url.Action("Detalhes", "Interesse", new { id = interesse.Id })"></span></a></td>
+                        <td><a href="#"><span class="glyphicon glyphicon-remove excluir-interesse" data-codigo="@interesse.Id" data-url="@Url.Action("Exclusao", "Interesse", new { id = interesse.Id })"></span></a></td>
                     </tr>
                 }
             </table>
