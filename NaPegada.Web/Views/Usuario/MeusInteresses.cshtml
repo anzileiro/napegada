@@ -15,10 +15,17 @@
 
 <h2>Interesses</h2>
 
-<div>
-    <button data-url="@Url.Action("Detalhes", "Interesse")" class="btn btn-success btn-sm abrir-interesse">Cadastrar Interesse</button>
+<div class="form-group">
+    <label></label>
 </div>
 
+<div>
+    <button data-url="@Url.Action("Detalhes", "Interesse")" class="btn btn-primary btn-sm abrir-interesse">Cadastrar Interesse</button>
+</div>
+
+<div class="form-group">
+    <label></label>
+</div>
 
 @if (!string.IsNullOrWhiteSpace(sucesso))
 {
@@ -28,18 +35,10 @@
 
 }
 
-
-<div class="form-group">
-    <label></label>
-</div>
-<div class="form-group">
-    <label></label>
-</div>
-
 @if (Model.Interesses.Any())
 {
 
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">Lista de Interesses</h3>
         </div>
@@ -48,11 +47,11 @@
                 <tr>
                     <th>Raça</th>
                     <th>Espécie</th>
-                    <th>Idade Mínima</th>
-                    <th>Idade Máxima</th>
+                    <th>Idade Desejada</th>
+                    <th>Portes</th>
                     <th>Vacinado</th>
                     <th>Castrado</th>
-                    <th>Vermifugo</th>
+                    <th>Vermífugo</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -62,8 +61,14 @@
                     <tr>
                         <td>@interesse.Raca</td>
                         <td>@interesse.Especie</td>
-                        <td>@interesse.IdadeMin</td>
-                        <td>@interesse.IdadeMax</td>
+                        <td>Entre: @interesse.IdadeMin e @interesse.IdadeMax ano(s)</td>
+                        <td>
+                            <strong>Pequeno:</strong> @interesse.PortePequeno
+                            <br/>
+                            <strong>Médio:</strong> @interesse.PorteMedio
+                            <br/>
+                            <strong>Grande:</strong> @interesse.PorteGrande
+                        </td>
                         <td>@interesse.Vacinado</td>
                         <td>@interesse.Castrado</td>
                         <td>@interesse.Vermifugo</td>
@@ -86,12 +91,12 @@ else
 
 
 <!--Modal-->
-<div class="modal fade" id="modal-cadastrar-interesse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-interesse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Interesse de Doação</h4>
+                <h4 class="modal-title" id="myModalLabel">Cadastrar Interesse</h4>
             </div>
 
             <div class="modal-body" id="interesse">
@@ -106,7 +111,7 @@ else
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Deletar Interesse de Doação</h4>
+                <h4 class="modal-title" id="myModalLabel">Deletar Interesse</h4>
             </div>
 
             <div class="modal-body" id="exclusao">
@@ -114,3 +119,7 @@ else
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/Usuario/meus-interesses.js"></script>
+}

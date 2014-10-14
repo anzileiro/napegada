@@ -4,4 +4,13 @@
 
 a {
     cursor: pointer;
+    color: #325d88;
+}
+
+a:hover{
+    color:#29abe0;
+}
+
+.alert-success{
+    background-color: #787975;
 }

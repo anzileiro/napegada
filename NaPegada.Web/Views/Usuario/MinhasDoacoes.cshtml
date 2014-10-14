@@ -14,8 +14,13 @@
 }
 
 <h2>Doações</h2>
+
+<div class="form-group">
+    <label></label>
+</div>
+
 <div>
-    <button data-url="@Url.Action("Detalhes", "Doacao")" class="btn btn-success btn-sm abrir-doacao">Cadastrar Doação</button>
+    <button data-url="@Url.Action("Detalhes", "Doacao")" class="btn btn-primary btn-sm abrir-doacao">Cadastrar Doação</button>
 </div>
 
 @if(!string.IsNullOrWhiteSpace(sucesso))
@@ -25,8 +30,11 @@
     </div>
 }
 
-<br />
-<br /> 
+<div class="form-group">
+    <label></label>
+</div>
+
+
 
 @if (Model.Doacoes.Any())
 {

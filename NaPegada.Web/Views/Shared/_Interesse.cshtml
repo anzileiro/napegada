@@ -1,30 +1,33 @@
-﻿@model NaPegada.Web.Models.InteresseViewModel
+﻿@model NaPegada.Web.Models.Interesse.DetalhesViewModel
 
 
-@using (Html.BeginForm("CadastrarInteresse", "Usuario", FormMethod.Post, new { @class = "form" }))
+@using (Html.BeginForm("Detalhes", "Interesse", FormMethod.Post, new { @class = "form" }))
 {
+    
+    @Html.HiddenFor(i => i.Id)
+    
     <div class="form-group">
         <label for="Especie">Espécie:</label>
-        @Html.TextBoxFor(i => i.Interesse.Especie, new { @class = "form-control" })
+        @Html.EnumDropDownListFor(i => i.Especie, "Selecie uma espécie", new { @class = "form-control" })
 
     </div>
 
     <div class="form-group">
         <label for="Raca">Raca:</label>
-        @Html.TextBoxFor(i => i.Interesse.Raca, new { @class = "form-control" })
+        @Html.TextBoxFor(i => i.Raca, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
         <label for="IdadeMin" class="col-sm-1">Idade Min:</label>
 
         <div class="col-sm-5">
-            @Html.TextBoxFor(i => i.Interesse.IdadeMinimaEmAnos, new { @class = "form-control" })
+            @Html.TextBoxFor(i => i.IdadeMin, new { @class = "form-control" })
         </div>
 
         <label for="IdadeMax" class="col-sm-1">Idade Max:</label>
 
         <div class="col-sm-5">
-            @Html.TextBoxFor(i => i.Interesse.IdadeMaximaEmAnos, new { @class = "form-control" })
+            @Html.TextBoxFor(i => i.IdadeMax, new { @class = "form-control" })
         </div>
     </div>
 
@@ -39,7 +42,7 @@
         <div class="col-sm-4">
             <div class="input-group ">
                 <span class="input-group-addon">
-                    <input type="checkbox" />
+                    @Html.CheckBoxFor(i => i.PortePequeno)
                 </span>
                 <input type="text" class="form-control" disabled value="Pequeno">
             </div>
@@ -47,7 +50,7 @@
         <div class="col-sm-4">
             <div class="input-group">
                 <span class="input-group-addon">
-                    <input type="checkbox" />
+                    @Html.CheckBoxFor(i => i.PorteMedio)
                 </span>
                 <input type="text" class="form-control" disabled value="Médio">
             </div>
@@ -56,7 +59,7 @@
         <div class="col-sm-4">
             <div class="input-group">
                 <span class="input-group-addon">
-                    <input type="checkbox" />
+                    @Html.CheckBoxFor(i => i.PorteGrande)
                 </span>
                 <input type="text" class="form-control" disabled value="Grande">
             </div>
@@ -72,7 +75,7 @@
         <div class="col-sm-4">
             <div class="input-group ">
                 <span class="input-group-addon">
-                    @Html.CheckBoxFor(i => i.Interesse.EhVacinado)
+                    @Html.CheckBoxFor(i => i.Vacinado)
                 </span>
                 <input type="text" class="form-control" disabled value="Vacinado">
             </div>
@@ -81,7 +84,7 @@
         <div class="col-sm-4">
             <div class="input-group">
                 <span class="input-group-addon">
-                    @Html.CheckBoxFor(i => i.Interesse.EhCastrado)
+                    @Html.CheckBoxFor(i => i.Castrado)
                 </span>
                 <input type="text" class="form-control" disabled value="Castrado">
             </div>
@@ -90,7 +93,7 @@
         <div class="col-sm-4">
             <div class="input-group">
                 <span class="input-group-addon">
-                    @Html.CheckBoxFor(i => i.Interesse.TomouVermifugo)
+                    @Html.CheckBoxFor(i => i.Vermifugo)
                 </span>
                 <input type="text" class="form-control" disabled value="Vermífugo">
             </div>
@@ -104,7 +107,8 @@
 
 
     <div class="form-group text-right">
-        <button class="btn btn-success" type="submit">Cadastrar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button class="btn btn-primary" type="submit">Cadastrar</button>
     </div>
-  
+
 }
