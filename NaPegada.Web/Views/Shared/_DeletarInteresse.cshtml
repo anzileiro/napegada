@@ -1,8 +1,15 @@
-﻿<p>
-    Deseja realmente excluir esta Doação ?
+﻿@model NaPegada.Web.Models.Interesse.ExclusaoViewModel
+
+<p>
+    Deseja realmente excluir o interesse de doacao da raça: @Model.Raca?
 </p>
 
 <div class="form-group text-right">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-    <button class="btn btn-danger" type="submit">Sim</button>
+    @using (Html.BeginForm("Excluir", "Interesse", FormMethod.Post))
+    {
+        @Html.HiddenFor(_ => _.Id)
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button class="btn btn-danger" type="submit">Sim</button>
+    }
 </div>

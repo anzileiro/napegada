@@ -16,7 +16,7 @@ $(function () {
     $('.excluir-interesse').click(function (e) {
         $.get($(this).data('url'), function (data) {
             $('#exclusao').html(data);
-            $('#modal-deletar-interesse').modal('show');
+            $('#modal-excluir-interesse').modal('show');
         })
 
         e.preventDefault();
