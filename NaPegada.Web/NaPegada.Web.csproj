@@ -173,6 +173,7 @@
     <Content Include="Views\Shared\_DeletarDoacao.cshtml" />
     <Content Include="Views\Shared\_DeletarInteresse.cshtml" />
     <Content Include="Views\Shared\_DescricaoAnimal.cshtml" />
+    <Content Include="Views\Site\Parceiros.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

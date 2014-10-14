@@ -25,15 +25,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="navbar-brand">Na Pegada</a>
+                    <a class="navbar-brand">Home</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="@Url.Action("Home", "Site")">Home</a></li>
-                        <li class="dropdown">
+                       
+                        <li class="active"><a href="@Url.Action("Parceiros", "Site")">Parceiros</a></li>
+                        <li class="active"><a href="@Url.Action("Links", "Site")">Links</a></li>
+                        <li class="active"><a href="@Url.Action("Historia", "Site")">Historia</a></li>
+                        <li class="dropdown menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a id="btn-modal-entrar" data-toggle="modal" data-target="#modal-entrar">Entrar</a></li>
+                            <ul class="dropdown-menu submenu">
+                                <li><a id="btn-modal-entrar"  data-toggle="modal" data-target="#modal-entrar">Entrar</a></li>
                                 <li><a id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Registrar</a></li>
 
                             </ul>

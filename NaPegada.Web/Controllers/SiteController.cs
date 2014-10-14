@@ -12,5 +12,10 @@ namespace NaPegada.Web.Controllers
         {
             return await Task.Run(() => View());
         }
+
+        public ActionResult Parceiros()
+        {
+            return View();
+        }
     }
 }
