@@ -104,10 +104,12 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap-site.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\foto.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\images\1500x500.jpg" />
     <Content Include="Content\images\amigo.jpg" />
-    <Content Include="Content\images\filhotes.jpg" />
+    <Content Include="Content\images\chow-chow.jpg" />
+    <Content Include="Content\images\thumbs\filhotes.jpg" />
     <Content Include="Content\images\images.jpg" />
     <Content Include="Content\images\load-100x9.gif" />
     <Content Include="Content\images\load-20x21.gif" />
@@ -180,6 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\full\" />
     <Folder Include="Content\upload\" />
     <Folder Include="Views\BaseAsync\" />
     <Folder Include="Views\Doacao\" />

@@ -1,0 +1,84 @@
+
+.lb-overlay{
+	width: 0px;
+	height: 0px;
+	position: fixed;
+	overflow: hidden;
+	left: 0px;
+	top: -40px;
+	padding: 0px;
+	z-index: 99;
+	text-align: center;
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.56)), color-stop(100%,rgba(241,210,194,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(241,210,194,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(241,210,194,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(241,210,194,1) 100%);
+	background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(241,210,194,1) 100%);
+}
+
+ span{
+     color:#fff;
+	display: block;
+    position:relative;
+    bottom:80px;
+	
+}
+
+
+.lb-overlay a.lb-close{
+	color: #f00;
+    position: relative;
+    left:200px;
+	
+	
+	
+
+}
+.lb-overlay img{
+	max-width:650px;
+	
+}
+.lb-overlay:target {
+	width: auto;
+	height: auto;
+	bottom: 0px;
+	right: 0px;
+	padding: 80px 100px 120px 100px;
+}
+.lb-overlay:target img {
+	-webkit-animation: fadeInScale 1.2s ease-in-out;
+	-moz-animation: fadeInScale 1.2s ease-in-out;
+	-o-animation: fadeInScale 1.2s ease-in-out;
+	-ms-animation: fadeInScale 1.2s ease-in-out;
+	animation: fadeInScale 1.2s ease-in-out;
+}
+
+@-webkit-keyframes fadeInScale {
+  0% { -webkit-transform: scale(0.6); opacity: 0; }
+  100% { -webkit-transform: scale(1); opacity: 1; }
+}
+@-moz-keyframes fadeInScale {
+  0% { -moz-transform: scale(0.6); opacity: 0; }
+  100% { -moz-transform: scale(1); opacity: 1; }
+}
+@-o-keyframes fadeInScale {
+  0% { -o-transform: scale(0.6); opacity: 0; }
+  100% { -o-transform: scale(1); opacity: 1; }
+}
+@-ms-keyframes fadeInScale {
+  0% { -ms-transform: scale(0.6); opacity: 0; }
+  100% { -ms-transform: scale(1); opacity: 1; }
+}
+@keyframes fadeInScale {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.lb-prev{
+	margin-left: -30px;
+	background: transparent url(../images/arrows.png) no-repeat top left;
+}
+.lb-next{
+	margin-left: 6px;
+	background: transparent url(../images/arrows.png) no-repeat top right;
+}

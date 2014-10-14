@@ -8,10 +8,10 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="~/Content/css/bootstrap-site.min.css" rel="stylesheet" />
-    <!--[if lt IE 9]>
-        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    
     <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <link href="~/Content/css/foto.css" rel="stylesheet" />
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -41,12 +41,9 @@
                     </ul>
                 </div>
             </div>
-        </div><!-- /container -->
-    </div><!-- /navbar wrapper -->
-    <!-- Carousel
-    ================================================== -->
+        </div>
+    </div>
     <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -54,14 +51,17 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="/Content/images/1500X500.jpg" class="img-responsive">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Doação com amor e responsabilidade. Adote um de nossos amiguinhos!</h1>
-                        <p><a class="btn btn-large btn-primary" id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Clique Aqui.</a></p>
+                    <img src="/Content/images/1500X500.jpg" class="img-responsive">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Doação com amor e responsabilidade. Adote um de nossos amiguinhos!</h1>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <!-- <p><a class="btn btn-large btn-primary" id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Clique Aqui.</a></p> -->
+                        </div>
                     </div>
-                </div>
-            </div>
+                
+</div>
             <div class="item">
                 <img src="/Content/images/1500X500.jpg" class="img-responsive">
                 <div class="container">
@@ -69,7 +69,7 @@
                         <h1>Em busca de um novo amigo?</h1>
                         <h2>Existem vários animais em busca de uma nova oportunidade de felicidade</h2>
 
-                        <p><a class="btn btn-large btn-primary" id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Clique Aqui.</a></p>
+                        <!-- <p><a class="btn btn-large btn-primary" id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Clique Aqui.</a></p> -->
                     </div>
                 </div>
             </div>
@@ -80,12 +80,12 @@
 
                         <h2>Ajude-nos a fazer a diferença, Adote um Animal.</h2>
                         <p>&nbsp;</p>
-                        <p><a class="btn btn-large btn-primary" id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Clique Aqui.</a></p>
+                        <!-- <p><a class="btn btn-large btn-primary" id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Clique Aqui.</a></p> -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Controls -->
+        
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
         </a>
@@ -93,168 +93,523 @@
             <span class="icon-next"></span>
         </a>
     </div>
-    <!-- /.carousel -->
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+  
     <div class="container marketing">
-        <!-- Three columns of text below the carousel -->
+     
         <div class="row">
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg" />
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p>
-                    <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
-                    <a class="btn btn-default" href="#">Fotos »</a>
-                </p>
+                <section>
+                    <a href="#image-1">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg" >
+                      <!--  <span>Abrir Foto</span> -->
+                    </a>
+                    
+                    <div class="lb-overlay" id="image-1">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/amigo.jpg"/>
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                                <a href="#" class="lb-prev">Prev</a>
+                                <a href="#" class="lb-next">Next</a>
+                          
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+                       
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p>
-                    <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
-                    <a class="btn btn-default" href="#">Fotos »</a>
-                </p>
+                <section>
+                    <a href="#image-2">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-2">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/chow-chow.jpg" /> 
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p>
-                    <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
-                    <a class="btn btn-default" href="#">Fotos »</a>
-                </p>
+                <section>
+                    <a href="#image-3">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-3">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/amigo.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
-        </div><!-- /.row -->
-        <!-- START THE FEATURETTES
-          <hr class="featurette-divider">
-          <div class="featurette">
-              <img class="featurette-image img-circle pull-right" src="~/Content/images/amigo.jpg">
-              <h2 class="featurette-heading">Responsive Design. <span class="text-muted">It'll blow your mind.</span></h2>
-              <p class="lead">In simple terms, a responsive web design figures out what resolution of device it's being served on. Flexible grids then size correctly to fit the screen.</p>
-          </div>
-        -->
+        </div>
+        
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg" />
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">View details »</a></p>
+                <section>
+                    <a href="#image-4">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-4">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/chow-chow.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-5">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-5">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/amigo.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-6">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-6">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/chow-chow.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
         </div>
 
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg" />
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-7">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-7">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/amigo.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-8">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-8">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/chow-chow.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-9">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-9">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/amigo.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
         </div>
 
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg" />
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-10">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-10">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/chow-chow.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-11">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-11">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/amigo.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-12">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-12">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/chow-chow.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
         </div>
 
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg" />
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-13">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-13">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/amigo.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-14">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-14">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/chow-chow.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-15">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-15">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/amigo.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
         </div>
 
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg" />
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-16">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-16">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/chow-chow.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-17">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-17">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/amigo.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-circle" src="/Content/images/filhotes.jpg">
-                <h2>Nome Animal</h2>
-                <p>Descrição do animal</p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+                <section>
+                    <a href="#image-18">
+                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg">
+                        <!--  <span>Abrir Foto</span> -->
+                    </a>
+
+                    <div class="lb-overlay" id="image-18">
+                        <p> <a href="#page" class="lb-close">Close</a></p>
+                        <img src="~/Content/images/chow-chow.jpg" />
+                        <div>
+                            <p>Dance performed on the tips of the toes</p>
+                            <p> </p>
+                            <a href="#" class="lb-prev">Prev</a>
+                            <a href="#" class="lb-next">Next</a>
+
+                        </div>
+
+                    </div>
+                    <h2>Nome Animal</h2>
+                    <p>Descrição do animal</p>
+                    <p>
+                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+
+                    </p>
+                </section>
             </div>
         </div>
-
-        <!-- /END THE FEATURETTES -->
-        <!-- FOOTER -->
         <footer>
             <hr class="featurette-divider">
             <p class="pull-right"><a href="#">Subir pro topo</a></p>
             <p style="align-content:center;">© Na Pegada. Todos os direitos reservados.</a></p>
         </footer>
-    </div><!-- /.container -->
-    <!-- script references -->
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="~/Scripts/js/bootstrap.min.js"></script>
     <script src="~/Scripts/napegada.js"></script>
