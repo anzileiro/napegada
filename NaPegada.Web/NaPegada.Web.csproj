@@ -102,10 +102,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\bootstrap-site.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\images\1500x500.jpg" />
+    <Content Include="Content\images\amigo.jpg" />
+    <Content Include="Content\images\filhotes.jpg" />
+    <Content Include="Content\images\images.jpg" />
     <Content Include="Content\images\load-100x9.gif" />
     <Content Include="Content\images\load-20x21.gif" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\Usuario\meus-interesses.js" />
     <Content Include="Scripts\Usuario\minhas-doacoes.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -162,6 +170,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_DeletarDoacao.cshtml" />
     <Content Include="Views\Shared\_DeletarInteresse.cshtml" />
+    <Content Include="Views\Shared\_DescricaoAnimal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

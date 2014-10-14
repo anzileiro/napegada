@@ -1,12 +1,282 @@
-﻿@model NaPegada.Web.Models.UsuarioViewModel
-<div>
-    <h2>/Site/Home</h2>
-    @if (Session["napegada_auth"] != null)
-    {
-        <p>Você está logado.</p>
-    }
-    else
-    {
-        <p>Você não está logado.</p>
-    }
-</div>
+﻿@{Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Na Pegada</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/Content/css/bootstrap-site.min.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="navbar-wrapper">
+        <div class="container">
+            <div class="navbar navbar-inverse navbar-static-top">
+
+                <div class="navbar-header">
+                    <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="navbar-brand">Na Pegada</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="@Url.Action("Home", "Site")">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a id="btn-modal-entrar" data-toggle="modal" data-target="#modal-entrar">Entrar</a></li>
+                                <li><a id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Registrar</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- /container -->
+    </div><!-- /navbar wrapper -->
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="/Content/images/1500X500.jpg" class="img-responsive">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Doação com amor e responsabilidade. Adote um de nossos amiguinhos!</h1>
+                        <p><a class="btn btn-large btn-primary" id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Clique Aqui.</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/Content/images/1500X500.jpg" class="img-responsive">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Em busca de um novo amigo?</h1>
+                        <h2>Existem vários animais em busca de uma nova oportunidade de felicidade</h2>
+
+                        <p><a class="btn btn-large btn-primary" id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Clique Aqui.</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/Content/images/1500X500.jpg" class="img-responsive">
+                <div class="container">
+                    <div class="carousel-caption">
+
+                        <h2>Ajude-nos a fazer a diferença, Adote um Animal.</h2>
+                        <p>&nbsp;</p>
+                        <p><a class="btn btn-large btn-primary" id="btn-modal-registrar" data-toggle="modal" data-target="#modal-cadastrar">Clique Aqui.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </div>
+    <!-- /.carousel -->
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg" />
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p>
+                    <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+                    <a class="btn btn-default" href="#">Fotos »</a>
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p>
+                    <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+                    <a class="btn btn-default" href="#">Fotos »</a>
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p>
+                    <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
+                    <a class="btn btn-default" href="#">Fotos »</a>
+                </p>
+            </div>
+        </div><!-- /.row -->
+        <!-- START THE FEATURETTES
+          <hr class="featurette-divider">
+          <div class="featurette">
+              <img class="featurette-image img-circle pull-right" src="~/Content/images/amigo.jpg">
+              <h2 class="featurette-heading">Responsive Design. <span class="text-muted">It'll blow your mind.</span></h2>
+              <p class="lead">In simple terms, a responsive web design figures out what resolution of device it's being served on. Flexible grids then size correctly to fit the screen.</p>
+          </div>
+        -->
+        <hr class="featurette-divider">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg" />
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">View details »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg" />
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg" />
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg" />
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg" />
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="/Content/images/filhotes.jpg">
+                <h2>Nome Animal</h2>
+                <p>Descrição do animal</p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a></p>
+            </div>
+        </div>
+
+        <!-- /END THE FEATURETTES -->
+        <!-- FOOTER -->
+        <footer>
+            <hr class="featurette-divider">
+            <p class="pull-right"><a href="#">Subir pro topo</a></p>
+            <p style="align-content:center;">© Na Pegada. Todos os direitos reservados.</a></p>
+        </footer>
+    </div><!-- /.container -->
+    <!-- script references -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/napegada.js"></script>
+    @Html.Partial("_Entrar")
+    @Html.Partial("_Registrar")
+
+    <div class="modal fade" id="modal-descricao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Descrição </h4>
+                </div>
+                <div class="modal-body" id="descricao">
+
+                    @Html.Partial("_DescricaoAnimal", null)
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

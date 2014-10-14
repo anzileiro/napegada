@@ -1,0 +1,65 @@
+﻿
+@model NaPegada.Web.Models.Doacao.DetalhesViewModel
+
+@using (Html.BeginForm("Detalhes", "Doacao", FormMethod.Post, new { @class = "form" }))
+{
+    @Html.HiddenFor(d => d.Id)
+
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+
+        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="Especie">Espécie</label>
+
+        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="Raça">Raça</label>
+
+        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="Porte">Porte</label>
+
+        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
+    </div>
+    <div>
+        <fieldset title="Idade">
+            <div class="row">
+                <div class="form-group col-xs-6">
+                    <label for="Anos">Anos</label>
+                    @Html.TextBoxFor(d => d.Anos, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-xs-6">
+                    <label for="Anos">Meses</label>
+                    @Html.TextBoxFor(d => d.Meses, new { @class = "form-control" })
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(d => d.EhVacinado)
+            Vacinado
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(d => d.EhCastrado)
+            Castrado
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(d => d.TomouVermifugo)
+            Vermifugo
+        </label>
+    </div>
+
+   <div class="form-group text-right">
+        <button class="btn btn-success" type="submit">Adotar</button>
+    </div>
+  
+}
