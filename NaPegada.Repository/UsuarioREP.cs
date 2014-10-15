@@ -224,7 +224,7 @@ namespace NaPegada.Repository
                 {
                     var query = Query.And(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
                                           Query.EQ("Interesses._id", dto.IdInteresse));
-                    var update = Update.PopFirst("Interesses");
+                    var update = Update.Pull("Interesses", Query.EQ("_id", dto.IdInteresse));
 
                     _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);
                 });
