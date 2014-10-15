@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Arquivos\temp\" />
     <Folder Include="Content\images\full\" />
     <Folder Include="Content\upload\" />
     <Folder Include="Views\BaseAsync\" />
