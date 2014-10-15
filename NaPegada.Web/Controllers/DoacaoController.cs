@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace NaPegada.Web.Controllers
 {
@@ -38,12 +39,13 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Detalhes(DetalhesViewModel model)
         {
-            var userBus = new UsuarioBUS(new UsuarioREP());
-            var dto = ObterDTO(model);
+            var userBus = new UsuarioBUS(new UsuarioREP());            
+            var dto = await ObterDTO(model);
             var ehCadastro = string.IsNullOrWhiteSpace(model.Id);
 
             if(ehCadastro)
             {
+                
                 await userBus.RegistrarDoacao(dto);
                 TempData["sucesso"] = "Doação cadastrada com sucesso";
             }
@@ -56,15 +58,38 @@ namespace NaPegada.Web.Controllers
             return RedirectToAction("MinhasDoacoes", "Usuario");
         }
 
-        private RegistroDoacaoDTO ObterDTO(DetalhesViewModel model)
+        private async Task<RegistroDoacaoDTO> ObterDTO(DetalhesViewModel model)
         {
             var dto = new RegistroDoacaoDTO();
             var user = ObterUsuarioDaSecao();
+            var paths = await CarregarFotosNoTemp(model);
 
             dto.Doacao = model.ConverterParaDoacao();
             dto.IdUsuario = user.Id;
 
             return dto;
+        }
+
+        private async Task<IEnumerable<string>> CarregarFotosNoTemp(DetalhesViewModel model)
+        {
+            return await Task.Run(() => {
+                var paths = new List<string>(); 
+
+                foreach (var foto in model.Fotos)
+                    paths.Add(CarregarFotoNoTemp(foto));
+
+                return paths;
+            });            
+        }
+
+        private string CarregarFotoNoTemp(HttpPostedFileBase foto)
+        {
+            var path = string.Format("{0}-{1}{2}", Server.MapPath("~/Arquivos/temp/doacao"), Guid.NewGuid(), Path.GetExtension(foto.FileName));
+
+            using (var fileStream = System.IO.File.Create(path))
+                foto.InputStream.CopyTo(fileStream);
+
+            return path;
         }
 
         [HttpGet]

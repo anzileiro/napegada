@@ -15,6 +15,11 @@ namespace NaPegada.Tests.Stubs
     {
         private IList<UsuarioMOD> _usuarios = new List<UsuarioMOD>();
 
+        public UsuarioREPStub()
+        {
+
+        }
+
         public async Task<DoacaoMOD> ObterDoacao(ObjectId id)
         {
             return await Task.Run(() => _usuarios.SelectMany(_ => _.Doacoes).FirstOrDefault(_ => _.Id == id));

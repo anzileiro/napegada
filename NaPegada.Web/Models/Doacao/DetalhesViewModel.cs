@@ -34,6 +34,7 @@ namespace NaPegada.Web.Models.Doacao
         public bool EhVacinado { get; set; }
         public bool EhCastrado { get; set; }
         public bool TomouVermifugo { get; set; }
+        public IEnumerable<HttpPostedFileBase> Fotos { get; set; }
 
         public DetalhesViewModel(DoacaoMOD doacao)
         {
