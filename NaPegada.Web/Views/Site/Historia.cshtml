@@ -1,0 +1,72 @@
+﻿@{Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Na Pegada</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/Content/css/bootstrap-site.min.css" rel="stylesheet" />
+
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <link href="~/Content/css/foto.css" rel="stylesheet" />
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    @Html.Partial("_MenuSite")
+
+    <div class="container">
+
+    <h2>Historia</h2>
+
+        <div>
+            <p>A PitCão teve origem nos trabalhos de proteção animal executados pela Dra. Patrícia Arruda Cancellara que se iniciaram há 10 anos com a sua paixão por estes anjos de quatro patas abandonados, judiados e esquecidos pela sociedade.</p>
+
+<p>Como toda protetora, no começo ela se dedicou a qualquer cãozinho que precisasse de ajuda. Com o passar do tempo, constatou que haviam muitas protetoras que se dedicavam à causa, porém, que os animais de grande porte e, principalmente, os famigerados e estigmatizados Pit Bull’s não eram resgatados na mesma proporção dos de pequeno e médio porte. Desse momento em diante, a Dra. Patrícia decidiu que iria se dedicar justamente a estes segregados.</p>
+
+<p>Hoje, a Equipe PitCão, juntamente com o apoio de centenas de simpatizantes da causa, tem  um único ideal: Salvar as vidas dos cães abandonados nas ruas, principalmente o de   grande porte,  resgatando, tratando, medicando, vermifugando, vacinando, castrando, socializando e conseguindo bons e definitivos lares para eles! </p>
+<p>
+Nosso Trabalho:
+Baseados em denúncias por telefone e email, fazemos resgates que nos deixam, apesar de nossa experiência, horrorizados com tamanha crueldade.
+
+A grande maioria do resgatados precisam ser encaminhados imediatamente para clínicas veterinárias, onde, muitas vezes, permanecem internados e, em certos casos, chegando a ficar por meses!
+
+Os custos dos resgates e resgatados são extremamente elevados. São compostos por Táxi-Dog, veterinário e/ou clínica veterinária, exames, medicamentos, vitaminas, vermífugo, vacinas, castração, hospedagem, ração, banho, entre outros.
+
+Como a PitCão não é uma ONG ou empresa, dispomos de recursos dos próprios integrantes para realizar esse trabalho. Por isso, vimo-nos forçados constantemente pedir a colaboração de amigos e simpatizantes da causa.</p>
+        </div>
+
+    <footer>
+        <hr class="featurette-divider">
+        <p class="pull-right"><a href="#">Subir pro topo</a></p>
+        <p style="align-content:center;">© Na Pegada. Todos os direitos reservados.</a></p>
+    </footer>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/napegada.js"></script>
+    @Html.Partial("_Entrar")
+    @Html.Partial("_Registrar")
+
+    <div class="modal fade" id="modal-descricao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Descrição </h4>
+                </div>
+                <div class="modal-body" id="descricao">
+
+                    @Html.Partial("_DescricaoAnimal", null)
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

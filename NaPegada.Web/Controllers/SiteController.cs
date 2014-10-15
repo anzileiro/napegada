@@ -17,5 +17,16 @@ namespace NaPegada.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Historia()
+        {
+            return View();
+        }
+
+        public ActionResult Links()
+        {
+            return View();
+        }
+
     }
 }

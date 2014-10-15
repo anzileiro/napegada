@@ -113,6 +113,7 @@
     <Content Include="Content\images\images.jpg" />
     <Content Include="Content\images\load-100x9.gif" />
     <Content Include="Content\images\load-20x21.gif" />
+    <Content Include="Content\images\veterinaria.jpg" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
@@ -174,6 +175,9 @@
     <Content Include="Views\Shared\_DeletarInteresse.cshtml" />
     <Content Include="Views\Shared\_DescricaoAnimal.cshtml" />
     <Content Include="Views\Site\Parceiros.cshtml" />
+    <Content Include="Views\Site\Historia.cshtml" />
+    <Content Include="Views\Shared\_MenuSite.cshtml" />
+    <Content Include="Views\Site\Links.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -183,7 +187,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\full\" />
     <Folder Include="Content\upload\" />
     <Folder Include="Views\BaseAsync\" />
     <Folder Include="Views\Doacao\" />
