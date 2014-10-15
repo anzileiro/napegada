@@ -141,9 +141,8 @@ namespace NaPegada.Repository
             {
                 await Task.Run(() => 
                 {
-                    var query = Query.And(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
-                                          Query.EQ("Doacoes._id", dto.IdDoacao));
-                    var update = Update.PopFirst("Doacoes");
+                    var query = Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario);
+                    var update = Update.Pull("Doacoes", Query.EQ("_id", dto.IdDoacao));
 
                     _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);                    
                 });

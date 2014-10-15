@@ -42,23 +42,21 @@ $(function () {
     });
 
     $('#btn-registrar').click(function () {
-        if ($(this).valid()) {
-            $('#btn-registrar').attr('disabled', 'disabled');
-            $('#btn-registrar').text('Entrando...');
-            var dados = $('#frm-usuario-registrar').serialize();
-            $.ajax({
-                url: '/Usuario/Registrar',
-                type: 'post',
-                data: dados,
-                beforeSend: f.exibirLoad('.load', true),
-                complete: function () {
-                    f.postar('/Usuario/Entrar', data_ = dados, function (r) {
-                        f.exibirLoad('.load', false);
-                        f.redirecionar(r.url);
-                    });
-                }
-            });
-        }
+        $('#btn-registrar').attr('disabled', 'disabled');
+        $('#btn-registrar').text('Entrando...');
+        var dados = $('#frm-usuario-registrar').serialize();
+        $.ajax({
+            url: '/Usuario/Registrar',
+            type: 'post',
+            data: dados,
+            beforeSend: f.exibirLoad('.load', true),
+            complete: function () {
+                f.postar('/Usuario/Entrar', data_ = dados, function (r) {
+                    f.exibirLoad('.load', false);
+                    f.redirecionar(r.url);
+                });
+            }
+        });
     });
 
     $('#btn-sair').on('click', function () {
