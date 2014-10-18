@@ -3,7 +3,7 @@ using System;
 
 namespace NaPegada.DataAccess
 {
-    public class Conexao<T> : IDisposable
+    public class Conexao<T>
     {
         public MongoCollection<T> Conectar(string uri, string db, string colecao)
         {
@@ -13,11 +13,5 @@ namespace NaPegada.DataAccess
 
             return banco.GetCollection<T>(colecao);
         }
-
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-        }
-
     }
 }

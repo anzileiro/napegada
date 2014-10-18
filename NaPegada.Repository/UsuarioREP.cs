@@ -16,15 +16,13 @@ namespace NaPegada.Repository
 {
     public class UsuarioREP : IUsuarioREP
     {
-        private Conexao<UsuarioMOD> _conn;
+        private Conexao<UsuarioMOD> _conn = new Conexao<UsuarioMOD>();
 
         #region site
 
         public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes()
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                return await Task.Run(() =>
+            return await Task.Run(() =>
                 {
                     var lista = _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                         .FindAllAs<UsuarioMOD>()
@@ -32,7 +30,6 @@ namespace NaPegada.Repository
 
                     return lista.SelectMany(_ => _.Doacoes);
                 });
-            }
         }
 
         #endregion site
@@ -43,25 +40,17 @@ namespace NaPegada.Repository
         #region perfil
         public async Task Registrar(UsuarioMOD usuarioMOD)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").Insert(usuarioMOD));
-            }
+            await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").Insert(usuarioMOD));
         }
 
         public async Task<UsuarioMOD> EhUsuario(UsuarioMOD userMOD)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable<UsuarioMOD>().FirstOrDefault(u => u.Email.Equals(userMOD.Email) && u.Senha.Equals(userMOD.Senha)));
-            }
+            return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable<UsuarioMOD>().FirstOrDefault(u => u.Email.Equals(userMOD.Email) && u.Senha.Equals(userMOD.Senha)));
         }
 
         public async Task Atualizar(UsuarioMOD userMOD)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-               await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+            await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                      .Update(Query<UsuarioMOD>.EQ(u => u.Id, userMOD.Id), Update<UsuarioMOD>
                                               .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
                                               .Set(u => u.Senha, userMOD.Senha)
@@ -77,24 +66,17 @@ namespace NaPegada.Repository
                                                   Uf = userMOD.Endereco.Uf,
                                                   Complemento = userMOD.Endereco.Complemento
                                               })));
-            }
         }
 
 
         public async Task<UsuarioMOD> ObterPorEmail(string email)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").FindOne(Query.EQ("Email", email)));
-            }
+            return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").FindOne(Query.EQ("Email", email)));
         }
 
         public async Task<UsuarioMOD> ObterPorId(ObjectId id)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").FindOne(Query.EQ("_id", id)));
-            }
+            return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").FindOne(Query.EQ("_id", id)));
         }
 
         #endregion perfil
@@ -103,31 +85,23 @@ namespace NaPegada.Repository
 
         public async Task<DoacaoMOD> ObterDoacao(ObjectId id)
         {
-            using(_conn = new Conexao<UsuarioMOD>())
-            {
-                return await Task.Run(() => {
+            return await Task.Run(() => {
                                                 return (from usuario in _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
 
                                                         select usuario.Doacoes.FirstOrDefault(_ => _.Id == id)).SingleOrDefault();
                                             });
-            }
         }
 
         public async Task RegistrarDoacao(RegistroDoacaoDTO dto)
         {
-            using(_conn = new Conexao<UsuarioMOD>())
-            {
-                await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+            await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                                                  .Update(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario), 
                                                          Update<UsuarioMOD>.Push<DoacaoMOD>(_ => _.Doacoes, dto.Doacao)));
-            }
         }
 
         public async Task AtualizarDoacao(RegistroDoacaoDTO dto)
         {
-            using(_conn = new Conexao<UsuarioMOD>())
-            {
-                await Task.Run(() =>
+            await Task.Run(() =>
                 {
                     var query = Query.And(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
                                           Query.EQ("Doacoes._id", dto.Doacao.Id));
@@ -146,32 +120,25 @@ namespace NaPegada.Repository
 
                     _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);
                 });
-            }
         }
 
         public async Task<IEnumerable<DoacaoMOD>> ObterDoacoes(ObjectId userId)
         {
-            using(_conn = new Conexao<UsuarioMOD>())
-            {
-                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
+            return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
                                                  .Where(_ => _.Id == userId)
                                                  .Select(_ => _.Doacoes)
                                                  .FirstOrDefault());
-            }
         }
 
         public async Task ExcluirDoacao(ExclusaoDoacaoDTO dto)
         {
-            using(_conn = new Conexao<UsuarioMOD>())
-            {
-                await Task.Run(() => 
+            await Task.Run(() => 
                 {
                     var query = Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario);
                     var update = Update.Pull("Doacoes", Query.EQ("_id", dto.IdDoacao));
 
                     _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);                    
                 });
-            }
         }
 
         #endregion Doacao
@@ -180,32 +147,24 @@ namespace NaPegada.Repository
 
         public async Task<InteresseMOD> ObterInteresse(ObjectId id)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                return await Task.Run(() =>
+            return await Task.Run(() =>
                 {
                     return (from usuario in _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
                             where usuario.Interesses.Any(_ => _.Id == id)
                             select usuario.Interesses.FirstOrDefault(_ => _.Id == id)).SingleOrDefault();
                 });
-            }
         }
 
         public async Task RegistrarInteresse(RegistroInteresseDTO dto)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+            await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                                                  .Update(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
                                                          Update<UsuarioMOD>.Push<InteresseMOD>(_ => _.Interesses, dto.Interesse)));
-            }
         }
 
         public async Task AtualizarInteresse(RegistroInteresseDTO dto)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                await Task.Run(() =>
+            await Task.Run(() =>
                 {
                     var query = Query.And(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
                                           Query.EQ("Interesses._id", dto.Interesse.Id));
@@ -227,25 +186,19 @@ namespace NaPegada.Repository
 
                     _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);
                 });
-            }
         }
 
         public async Task<IEnumerable<InteresseMOD>> ObterInteresses(ObjectId userId)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
+            return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
                                                  .Where(_ => _.Id == userId)
                                                  .Select(_ => _.Interesses)
                                                  .FirstOrDefault());
-            }
         }
 
         public async Task ExcluirInteresse(ExclusaoInteresseDTO dto)
         {
-            using (_conn = new Conexao<UsuarioMOD>())
-            {
-                await Task.Run(() =>
+            await Task.Run(() =>
                 {
                     var query = Query.And(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
                                           Query.EQ("Interesses._id", dto.IdInteresse));
@@ -253,7 +206,6 @@ namespace NaPegada.Repository
 
                     _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);
                 });
-            }
         }
 
         #endregion Interesse

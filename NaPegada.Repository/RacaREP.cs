@@ -20,14 +20,7 @@ namespace NaPegada.Repository
 
             var listaDoBanco = default(IQueryable<RacaMOD>);
 
-            using (_conn = new Conexao<RacaMOD>())
-            {
-
-                listaDoBanco = await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable<RacaMOD>().Where(r => r.Especie == especie));          
-
-                
-
-            }
+            listaDoBanco = await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable<RacaMOD>().Where(r => r.Especie == especie));
 
             return listaDoBanco.ToList();
         }
