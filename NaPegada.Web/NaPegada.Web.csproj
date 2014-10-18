@@ -187,11 +187,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-<<<<<<< HEAD
-=======
     <Folder Include="Arquivos\temp\" />
     <Folder Include="Content\images\full\" />
->>>>>>> 6d5cf5c96f750e286c67c3d7d8dfaf090bfa8500
     <Folder Include="Content\upload\" />
     <Folder Include="Views\BaseAsync\" />
     <Folder Include="Views\Doacao\" />
