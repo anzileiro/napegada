@@ -1,30 +1,62 @@
 ﻿
-@model NaPegada.Web.Models.Doacao.DetalhesViewModel
+@model NaPegada.Web.Models.Usuario.DoacaoViewModel
 
 @using (Html.BeginForm("Detalhes", "Doacao", FormMethod.Post, new { @class = "form" }))
 {
-    @Html.HiddenFor(d => d.Id)
+    @Html.HiddenFor(@Model.Id)
 
     <div class="form-group">
-        <label for="Nome">Nome</label>
-
-        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
+        <label for="" class="col-sm-1">Nome: </label>
+        
+        <label class="col-sm-offset-1">@Model.Nome</label>
     </div>
+    
     <div class="form-group">
-        <label for="Especie">Espécie</label>
-
-        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
+        <label for="" class="col-sm-1">Espécie: </label>
+        
+        <label class="col-sm-offset-1">@Model.Especie</label>
     </div>
+    
     <div class="form-group">
-        <label for="Raça">Raça</label>
-
-        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
+        <label for="" class="col-sm-1">Raça: </label>
+        
+        <label class="col-sm-offset-1">@Model.Raca</label>
     </div>
+    
     <div class="form-group">
-        <label for="Porte">Porte</label>
-
-        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
+        <label for="" class="col-sm-1">Porte: </label>
+        
+        <label class="col-sm-offset-1">@Model.Porte</label>
     </div>
+    
+    <div class="form-group">
+        <label></label>
+    </div>
+    
+    <div class="form-group">
+        <label for="" >Informações Extras: </label>
+    </div>
+    
+    <div class="form-group">
+        
+        <div class="row">
+            <label class="col-sm-1">Vacinado: </label>
+            <label class="col-sm-offset-1">@Model.EhVacinado</label>
+        </div>
+        <div class="row">
+            <label class="col-sm-1">Castrado: </label>
+            <label class="col-sm-offset-1">@Model.EhCastrado</label>
+        </div>
+        <div class="row">
+            <label class="col-sm-1">Vermífugo: </label>
+            <label class="col-sm-offset-1">@Model.TomouVermifugo</label>
+        </div>
+    </div>
+    
+        
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    
+
     <div>
         <fieldset title="Idade">
             <div class="row">

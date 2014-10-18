@@ -109,6 +109,7 @@
     <Content Include="Content\images\1500x500.jpg" />
     <Content Include="Content\images\amigo.jpg" />
     <Content Include="Content\images\chow-chow.jpg" />
+    <Content Include="Content\images\logonapegada.png" />
     <Content Include="Content\images\thumbs\filhotes.jpg" />
     <Content Include="Content\images\images.jpg" />
     <Content Include="Content\images\load-100x9.gif" />
@@ -119,6 +120,7 @@
     <Content Include="Scripts\Doacao\_detalhes.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\Usuario\meus-interesses.js" />
+    <Content Include="Scripts\Usuario\doacao.js" />
     <Content Include="Scripts\Usuario\minhas-doacoes.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

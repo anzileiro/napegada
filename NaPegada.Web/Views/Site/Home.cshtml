@@ -24,6 +24,8 @@
   
     <div class="container marketing">
      
+        @foreach (var animal in Model.TodasDoacoes) { 
+
         <div class="row">
             <div class="col-md-4 text-center">
                 <section>
@@ -45,17 +47,19 @@
 
                     </div>*@
 
-
-                    <h2>Nome Animal</h2>
-                    <p>Descrição do animal</p>
+                    
+                    <h2>@animal.Nome</h2>
+                    <p>@animal.Especie</p>
                     <p>
-                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#modal-descricao">Detalhes »</a> &nbsp;
-                       
+                        <a href="#" class="btn btn-default abrir-doacao" data-url="@Url.Action("Detalhes", "Site", new { id = @animal.Id })">Detalhes</a>
                     </p>
                 </section>
             </div>
             
         </div>
+            
+        }
+            
         <footer>
             <hr class="featurette-divider">
             <p class="pull-right"><a href="#">Subir pro topo</a></p>
@@ -66,17 +70,14 @@
     @Html.Partial("_Entrar")
     @Html.Partial("_Registrar", new RegistroEhLoginViewModel())
 
-    <div class="modal fade" id="modal-descricao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-doacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">Descrição </h4>
+                    <h4 class="modal-title">Doação</h4>
                 </div>
-                <div class="modal-body" id="descricao">
-
-                    @*@Html.Partial("_DescricaoAnimal", null)*@
-
+                <div class="modal-body" id="doacao">
                 </div>
 
             </div>
@@ -86,6 +87,11 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="~/Scripts/js/bootstrap.min.js"></script>
     <script src="~/Scripts/napegada.js"></script>
+        <script type="text/javascript" src="~/Scripts/Usuario/minhas-doacoes.js"></script>
+  
+
 </body>
 </html>
+
+
     
