@@ -149,3 +149,8 @@ UpgradeLog*.htm
 *.bim_*.settings
 # Microsoft Fakes
 FakesAssemblies/
+
+# Customizacoes
+
+**/Arquivos/**/*.[jJ][pP][gG]
+**/Arquivos/**/*.[pP][nN][gG]
