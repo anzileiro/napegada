@@ -59,6 +59,17 @@
     </div>
 </div>  
 
-<div class="form-group text-right">
-    <button class="btn btn-success" type="submit">Adotar</button>
+<div class="form-group text-right" id="adocao">
+    <button class="btn btn-success" type="button" id="adotar">Quero adotar!</button>
 </div>
+
+<div style="display: none" id="confirmacao-adocao" class="text-right">
+    <p>Tem certeza de que tem interesse em adotar o(a) @Model.Nome?</p>
+
+    <div>
+        <button class="btn btn-danger" type="button" id="cancelar-adocao">Não</button>
+        <button class="btn btn-success" type="button" id="confirmar-adocao">Sim</button>
+    </div>
+</div>
+
+<script src="~/Scripts/Site/_descricao-animal.js"></script>

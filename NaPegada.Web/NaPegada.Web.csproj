@@ -120,6 +120,7 @@
     <Content Include="Scripts\Doacao\_detalhes.js" />
     <Content Include="Scripts\Interesse\_detalhes.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\Site\_descricao-animal.js" />
     <Content Include="Scripts\Usuario\meus-interesses.js" />
     <Content Include="Scripts\Usuario\doacao.js" />
     <Content Include="Scripts\Usuario\minhas-doacoes.js" />
