@@ -118,6 +118,7 @@
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\Doacao\_detalhes.js" />
+    <Content Include="Scripts\Interesse\_detalhes.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\Usuario\meus-interesses.js" />
     <Content Include="Scripts\Usuario\doacao.js" />

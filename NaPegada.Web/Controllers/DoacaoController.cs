@@ -37,17 +37,7 @@ namespace NaPegada.Web.Controllers
             }
 
             return PartialView("_Doacao", model);
-        }
-
-        [HttpGet]
-        public async Task<JsonResult> Racas(AnimalEspecie especie)
-        {
-            var racaBus = new RacaBUS();
-
-            var racas = await racaBus.BuscarPorEspecie(especie);
-
-            return Json(new { Racas = racas }, JsonRequestBehavior.AllowGet);
-        }
+        }        
 
         [HttpPost]
         public async Task<ActionResult> Detalhes(DetalhesViewModel model)

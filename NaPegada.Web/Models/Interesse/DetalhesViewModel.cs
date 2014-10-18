@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace NaPegada.Web.Models.Interesse
 {
@@ -15,7 +16,7 @@ namespace NaPegada.Web.Models.Interesse
         public string Raca { get; set; }
 
         [Required(ErrorMessage = "Espécie é obrigatória")]
-        public AnimalEspecie Especie { get; set; }
+        public AnimalEspecie? Especie { get; set; }
 
         [Range(0,10, ErrorMessage="Idade mínima inválida: 0 ~ 10")]
         public ushort? IdadeMin { get; set; }
@@ -28,15 +29,16 @@ namespace NaPegada.Web.Models.Interesse
         public bool Vacinado { get; set; }
         public bool Castrado { get; set; }
         public bool Vermifugo { get; set; }
+        public SelectList Racas { get; set; }
 
 
         public DetalhesViewModel()
         {
-
+            Racas = new SelectList(new List<string>());
         }
 
 
-        public DetalhesViewModel(InteresseMOD interesse)
+        public DetalhesViewModel(InteresseMOD interesse, IEnumerable<string> racas)
         {
             
             Id = interesse.Id.ToString();
@@ -50,7 +52,7 @@ namespace NaPegada.Web.Models.Interesse
             Vermifugo = interesse.TomouVermifugo;
             IdadeMin = interesse.IdadeMinimaEmAnos;
             IdadeMax = interesse.IdadeMaximaEmAnos;
-
+            Racas = new SelectList(racas);
         }
 
         public InteresseMOD ConverterParaInteresse()
@@ -60,7 +62,7 @@ namespace NaPegada.Web.Models.Interesse
 
             interesse.Id = string.IsNullOrWhiteSpace(Id) ? ObjectId.GenerateNewId() : ObjectId.Parse(Id);
             interesse.Raca = Raca;
-            interesse.Especie = Especie;
+            interesse.Especie = Especie.Value;
             interesse.EhVacinado = Vacinado;
             interesse.EhCastrado = Castrado;
             interesse.TomouVermifugo = Vermifugo;

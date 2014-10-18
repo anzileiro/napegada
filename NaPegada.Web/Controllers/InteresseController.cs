@@ -24,11 +24,11 @@ namespace NaPegada.Web.Controllers
 
             if (!string.IsNullOrWhiteSpace(id))
             {
-
                 var userBus = new UsuarioBUS(new UsuarioREP());
+                var racaBus = new RacaBUS();
                 var interesse = await userBus.ObterInteresse(id);
-                model = new DetalhesViewModel(interesse);
-
+                var racas = await racaBus.BuscarPorEspecie(interesse.Especie);
+                model = new DetalhesViewModel(interesse, racas);
             }
             else
             {
