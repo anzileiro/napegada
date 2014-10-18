@@ -2,7 +2,7 @@
 
 $(function () {
     $('.abrir-doacao').click(function (e) {
-        $.get($(this).data('url'), abrirForm)
+        $.get($(this).data('url'), abrirForm);
 
         e.preventDefault();
         return false;
@@ -13,13 +13,5 @@ $(function () {
         $('#modal-doacao').modal('show');
     }
 
-    $('.excluir-doacao').click(function (e) {
-        $.get($(this).data('url'), function (data) {
-            $('#exclusao').html(data);
-            $('#modal-deletar-doacao').modal('show');
-        })
 
-        e.preventDefault();
-        return false;
-    });
 });

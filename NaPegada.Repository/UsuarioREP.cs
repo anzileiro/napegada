@@ -87,7 +87,7 @@ namespace NaPegada.Repository
         {
             return await Task.Run(() => {
                                                 return (from usuario in _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
-
+                                                        where usuario.Doacoes.Any(_ => _.Id == id)
                                                         select usuario.Doacoes.FirstOrDefault(_ => _.Id == id)).SingleOrDefault();
                                             });
         }

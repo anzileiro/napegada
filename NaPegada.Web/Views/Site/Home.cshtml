@@ -23,14 +23,21 @@
     @Html.Partial("_MenuSite")
   
     <div class="container marketing">
-     
-        @foreach (var animal in Model.TodasDoacoes) { 
-
+     @{
+         var quantidadeDoacoes = Model.TodasDoacoes.Count();
+         var quantidadeLinhas = Math.Ceiling((decimal)(quantidadeDoacoes / 3f));
+    }
+        @for (var linha = 0; linha < quantidadeLinhas; linha++ )
+        { 
+            
         <div class="row">
-            <div class="col-md-4 text-center">
+            @for (var coluna = linha * 3; (coluna < quantidadeDoacoes && coluna < (linha * 3 + 3)); coluna++ )
+            {
+                var animal = Model.TodasDoacoes.ElementAt(coluna);
+                <div class="col-md-4 text-center">
                 <section>
-                    @*<a href="#image-1">
-                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg" >
+                    <a href="#image-1">
+                        <img class="img-circle" src="@animal.Foto">
                         <span>Abrir Foto</span> 
                     </a>
                     
@@ -45,19 +52,20 @@
                           
                         </div>
 
-                    </div>*@
+                    </div>
 
                     
                     <h2>@animal.Nome</h2>
-                    <p>@animal.Especie</p>
+                    <p>@animal.Raca</p>
                     <p>
                         <a href="#" class="btn btn-default abrir-doacao" data-url="@Url.Action("Detalhes", "Site", new { id = @animal.Id })">Detalhes</a>
                     </p>
                 </section>
             </div>
+            }       
             
         </div>
-            
+            <hr class="featurette-divider">
         }
             
         <footer>
@@ -75,7 +83,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">Doação</h4>
+                    <h4 class="modal-title">Estou esperando por um lar!</h4>
                 </div>
                 <div class="modal-body" id="doacao">
                 </div>
@@ -87,8 +95,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="~/Scripts/js/bootstrap.min.js"></script>
     <script src="~/Scripts/napegada.js"></script>
-        <script type="text/javascript" src="~/Scripts/Usuario/minhas-doacoes.js"></script>
-  
+        <script type="text/javascript" src="~/Scripts/Usuario/doacao.js"></script>
+    
 
 </body>
 </html>

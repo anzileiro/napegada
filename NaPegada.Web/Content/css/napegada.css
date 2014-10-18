@@ -14,3 +14,7 @@ a:hover{
 .alert-success{
     background-color: #787975;
 }
+
+.text{
+    font-size: 15px;
+}
