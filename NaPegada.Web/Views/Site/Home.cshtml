@@ -23,14 +23,21 @@
     @Html.Partial("_MenuSite")
   
     <div class="container marketing">
-     
-        @foreach (var animal in Model.TodasDoacoes) { 
-
+     @{
+         var quantidadeDoacoes = Model.TodasDoacoes.Count();
+         var quantidadeLinhas = Math.Ceiling((decimal)(quantidadeDoacoes / 3f));
+    }
+        @for (var linha = 0; linha < quantidadeLinhas; linha++ )
+        { 
+            
         <div class="row">
-            <div class="col-md-4 text-center">
+            @for (var coluna = linha * 3; (coluna < quantidadeDoacoes && coluna < (linha * 3 + 3)); coluna++ )
+            {
+                var animal = Model.TodasDoacoes.ElementAt(coluna);
+                <div class="col-md-4 text-center">
                 <section>
-                    @*<a href="#image-1">
-                        <img class="img-circle" src="/Content/images/thumbs/filhotes.jpg" >
+                    <a href="#image-1">
+                        <img class="img-circle" src="@animal.Foto">
                         <span>Abrir Foto</span> 
                     </a>
                     
@@ -45,7 +52,7 @@
                           
                         </div>
 
-                    </div>*@
+                    </div>
 
                     
                     <h2>@animal.Nome</h2>
@@ -55,9 +62,10 @@
                     </p>
                 </section>
             </div>
+            }       
             
         </div>
-            
+            <hr class="featurette-divider">
         }
             
         <footer>
