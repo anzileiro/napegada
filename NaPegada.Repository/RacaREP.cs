@@ -6,23 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver.Linq;
+using MongoDB.Driver.Builders;
 
 namespace NaPegada.Repository
 {
     public class RacaREP
     {
 
-        private Conexao<RacaMOD> _conn;
+        private Conexao<RacaMOD> _conn = new Conexao<RacaMOD>();
 
-
-        public async Task<List<RacaMOD>> BuscarPorEspecie(AnimalEspecie especie)
+        public async Task<IEnumerable<string>> BuscarPorEspecie(AnimalEspecie especie)
         {
+            var racas = new List<RacaMOD>();
 
-            var listaDoBanco = default(IQueryable<RacaMOD>);
+            racas = await Task.Run(() => racas = _conn.Conectar("mongodb://localhost", "napegada", "raca")
+                                                      .FindAs<RacaMOD>(Query<RacaMOD>.EQ(_ => _.Especie, especie))
+                                                      .SetFields(Fields<RacaMOD>.Include(_ => _.Nome)).ToList());
 
-            listaDoBanco = await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable<RacaMOD>().Where(r => r.Especie == especie));
-
-            return listaDoBanco.ToList();
+            return racas.Select(_ => _.Nome);
         }
 
     }

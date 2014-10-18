@@ -21,11 +21,9 @@ namespace NaPegada.Business
         }
 
 
-        public async Task<List<RacaMOD>> BuscarPorEspecie(AnimalEspecie especie)
+        public async Task<IEnumerable<string>> BuscarPorEspecie(AnimalEspecie especie)
         {
-
             return await _racaREP.BuscarPorEspecie(especie);
-
         }
 
     }

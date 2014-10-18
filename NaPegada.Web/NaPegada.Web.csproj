@@ -116,6 +116,7 @@
     <Content Include="Content\images\veterinaria.jpg" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\Doacao\_detalhes.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\Usuario\meus-interesses.js" />
     <Content Include="Scripts\Usuario\minhas-doacoes.js" />
@@ -191,7 +192,6 @@
     <Folder Include="Arquivos\Fotos\Doacoes\" />
     <Folder Include="Content\images\full\" />
     <Folder Include="Content\upload\" />
-    <Folder Include="Views\BaseAsync\" />
     <Folder Include="Views\Doacao\" />
     <Folder Include="Views\Interesse\" />
   </ItemGroup>
