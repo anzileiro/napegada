@@ -32,9 +32,7 @@ namespace NaPegada.Web.Models.Usuario
             Castrado = doacao.EhCastrado ? "Sim" : "Não";
             Vermifugo = doacao.TomouVermifugo ? "Sim" : "Não";
             Porte = doacao.PorteAnimal.ToString();
-
-            var foto = doacao.Fotos.FirstOrDefault();
-            Foto = string.IsNullOrWhiteSpace(foto) ? string.Empty : HttpUtility.HtmlEncode(foto);
+            Foto = doacao.Fotos.FirstOrDefault();
         }
     }
 }

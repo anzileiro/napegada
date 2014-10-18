@@ -110,7 +110,8 @@ namespace NaPegada.Repository
                                         .Set("Doacoes.$.TomouVermifugo", dto.Doacao.TomouVermifugo)
                                         .Set("Doacoes.$.EhCastrado", dto.Doacao.EhCastrado)
                                         .Set("Doacoes.$.EhVacinado", dto.Doacao.EhVacinado)
-                                        .Set("Doacoes.$.EspecieAnimal", dto.Doacao.EspecieAnimal);
+                                        .Set("Doacoes.$.EspecieAnimal", dto.Doacao.EspecieAnimal)
+                                        .Set("Doacoes.$.Fotos", new BsonArray(dto.Doacao.Fotos));
 
                     if (dto.Doacao.IdadeAnimal != null)
                         update.Set("Doacoes.$.IdadeAnimal", dto.Doacao.IdadeAnimal.ToBsonDocument<AnimalIdadeMOD>());
