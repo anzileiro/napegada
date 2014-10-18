@@ -145,6 +145,7 @@
     <Compile Include="Models\Doacao\ExclusaoViewModel.cs" />
     <Compile Include="Models\Interesse\DetalhesViewModel.cs" />
     <Compile Include="Models\Interesse\ExclusaoViewModel.cs" />
+    <Compile Include="Models\Site\HomeViewModel.cs" />
     <Compile Include="Models\Usuario\InteresseViewModel.cs" />
     <Compile Include="Models\Usuario\DoacaoViewModel.cs" />
     <Compile Include="Models\Usuario\MeusInteressesViewModel.cs" />

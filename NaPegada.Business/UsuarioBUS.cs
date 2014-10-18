@@ -22,6 +22,22 @@ namespace NaPegada.Business
             _utilitaria = new Utilitaria();
         }
 
+        #region site
+
+        public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes()
+        {
+            return await _usuarioREP.ObterTodasDoacoes();
+        }
+
+        #endregion site
+
+
+
+        #region usuario
+
+        #region perfil
+
+
         public async Task Registrar(UsuarioMOD usuarioMOD)
         {
             usuarioMOD.Senha = _utilitaria.CriptografarSenha(usuarioMOD.Senha);
@@ -62,6 +78,8 @@ namespace NaPegada.Business
             return ObjectId.Parse(s);
         }
 
+        #endregion perfil
+
         #region Doacao
 
         public async Task<DoacaoMOD> ObterDoacao(string id)
@@ -92,7 +110,6 @@ namespace NaPegada.Business
         }
 
         #endregion Doacao
-
 
         #region Interesse
 
@@ -125,5 +142,6 @@ namespace NaPegada.Business
 
         #endregion Interesse
 
+        #endregion usuario
     }
 }

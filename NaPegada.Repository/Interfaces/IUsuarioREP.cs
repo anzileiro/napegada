@@ -13,6 +13,18 @@ namespace NaPegada.Repository.Interfaces
 {
     public interface IUsuarioREP
     {
+
+        #region site
+
+        Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes();
+
+        #endregion site
+
+
+        #region usuario
+
+        #region perfil
+
         Task Registrar(UsuarioMOD usuarioMOD);
 
         Task<UsuarioMOD> EhUsuario(UsuarioMOD userMOD);
@@ -23,6 +35,8 @@ namespace NaPegada.Repository.Interfaces
         Task<UsuarioMOD> ObterPorEmail(string email);
 
         Task<UsuarioMOD> ObterPorId(ObjectId id);
+
+        #endregion perfil
 
         #region Doacao
 
@@ -51,5 +65,8 @@ namespace NaPegada.Repository.Interfaces
         Task ExcluirInteresse(ExclusaoInteresseDTO dto);
 
         #endregion Interesse
+
+
+        #endregion usuario
     }
 }

@@ -18,6 +18,29 @@ namespace NaPegada.Repository
     {
         private Conexao<UsuarioMOD> _conn;
 
+        #region site
+
+        public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes()
+        {
+            using (_conn = new Conexao<UsuarioMOD>())
+            {
+                return await Task.Run(() =>
+                {
+                    var lista = _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+                        .FindAllAs<UsuarioMOD>()
+                        .SetFields(Fields<UsuarioMOD>.Include(_ => _.Doacoes)).ToList();
+
+                    return lista.SelectMany(_ => _.Doacoes);
+                });
+            }
+        }
+
+        #endregion site
+
+
+        #region usuario
+
+        #region perfil
         public async Task Registrar(UsuarioMOD usuarioMOD)
         {
             using (_conn = new Conexao<UsuarioMOD>())
@@ -73,6 +96,8 @@ namespace NaPegada.Repository
                 return await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario").FindOne(Query.EQ("_id", id)));
             }
         }
+
+        #endregion perfil
 
         #region Doacao
 
@@ -232,5 +257,7 @@ namespace NaPegada.Repository
         }
 
         #endregion Interesse
+
+        #endregion usuario
     }
 }
