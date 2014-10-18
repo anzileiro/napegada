@@ -40,8 +40,9 @@ namespace NaPegada.Web.Models.Doacao
         public bool EhCastrado { get; set; }
         public bool TomouVermifugo { get; set; }
         public IEnumerable<HttpPostedFileBase> Fotos { get; set; }
+        public SelectList Racas { get; set; }
 
-        public DetalhesViewModel(DoacaoMOD doacao)
+        public DetalhesViewModel(DoacaoMOD doacao, IEnumerable<string> racas)
         {
             Id = doacao.ToString();
             Nome = doacao.NomeAnimal;
@@ -53,11 +54,12 @@ namespace NaPegada.Web.Models.Doacao
             EhVacinado = doacao.EhVacinado;
             EhCastrado = doacao.EhCastrado;
             TomouVermifugo = doacao.TomouVermifugo;
+            Racas = new SelectList(racas);
         }
 
         public DetalhesViewModel()
         {
-
+            Racas = new SelectList(new List<string>());
         }
 
         public async Task<RegistroDoacaoDTO> ConverterParaRegistroDoacaoDTO(ObjectId userId)
@@ -65,12 +67,12 @@ namespace NaPegada.Web.Models.Doacao
             var dto = new RegistroDoacaoDTO();
 
             dto.IdUsuario = userId;
-            dto.Doacao = await Task.Run(() => ObterDoacao());
+            dto.Doacao = await Task.Run(() => ConverterParaDoacao());
 
             return dto;
         }        
 
-        private DoacaoMOD ObterDoacao()
+        private DoacaoMOD ConverterParaDoacao()
         {
             var doacao = new DoacaoMOD();
 
@@ -94,7 +96,7 @@ namespace NaPegada.Web.Models.Doacao
             doacao.EhVacinado = EhVacinado;
             doacao.EhCastrado = EhCastrado;
             doacao.TomouVermifugo = TomouVermifugo;
-            var fotos = ObterFotos();
+            var fotos = Fotos.Any(_ => _ == null) ? new List<string>() : ObterFotos();
             fotos.ForEach(foto => doacao.AdicionarFoto(foto));
 
             return doacao;

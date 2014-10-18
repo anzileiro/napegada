@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using NaPegada.Model;
 
 namespace NaPegada.Web.Controllers
 {
@@ -25,8 +26,10 @@ namespace NaPegada.Web.Controllers
             if(!string.IsNullOrWhiteSpace(id))
             {
                 var userBus = new UsuarioBUS(new UsuarioREP());
+                var racaBus = new RacaBUS();                
                 var doacao = await userBus.ObterDoacao(id);
-                model = new DetalhesViewModel(doacao);
+                var racas = await racaBus.BuscarPorEspecie(doacao.EspecieAnimal);
+                model = new DetalhesViewModel(doacao, racas);
             }
             else
             {
@@ -34,6 +37,16 @@ namespace NaPegada.Web.Controllers
             }
 
             return PartialView("_Doacao", model);
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> Racas(AnimalEspecie especie)
+        {
+            var racaBus = new RacaBUS();
+
+            var racas = await racaBus.BuscarPorEspecie(especie);
+
+            return Json(new { Racas = racas }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

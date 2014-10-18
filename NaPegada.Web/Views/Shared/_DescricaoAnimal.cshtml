@@ -1,97 +1,64 @@
-﻿
-@model NaPegada.Web.Models.Usuario.DoacaoViewModel
+﻿@model NaPegada.Web.Models.Usuario.DoacaoViewModel
 
-@using (Html.BeginForm("Detalhes", "Doacao", FormMethod.Post, new { @class = "form" }))
-{
-    @Html.HiddenFor(@Model.Id)
+<div class="form-group">
+    <label for="" class="col-sm-1 text">Nome: </label>
 
-    <div class="form-group">
-        <label for="" class="col-sm-1">Nome: </label>
-        
-        <label class="col-sm-offset-1">@Model.Nome</label>
-    </div>
-    
-    <div class="form-group">
-        <label for="" class="col-sm-1">Espécie: </label>
-        
-        <label class="col-sm-offset-1">@Model.Especie</label>
-    </div>
-    
-    <div class="form-group">
-        <label for="" class="col-sm-1">Raça: </label>
-        
-        <label class="col-sm-offset-1">@Model.Raca</label>
-    </div>
-    
-    <div class="form-group">
-        <label for="" class="col-sm-1">Porte: </label>
-        
-        <label class="col-sm-offset-1">@Model.Porte</label>
-    </div>
-    
-    <div class="form-group">
-        <label></label>
-    </div>
-    
-    <div class="form-group">
-        <label for="" >Informações Extras: </label>
-    </div>
-    
-    <div class="form-group">
-        
-        <div class="row">
-            <label class="col-sm-1">Vacinado: </label>
-            <label class="col-sm-offset-1">@Model.EhVacinado</label>
-        </div>
-        <div class="row">
-            <label class="col-sm-1">Castrado: </label>
-            <label class="col-sm-offset-1">@Model.EhCastrado</label>
-        </div>
-        <div class="row">
-            <label class="col-sm-1">Vermífugo: </label>
-            <label class="col-sm-offset-1">@Model.TomouVermifugo</label>
-        </div>
-    </div>
-    
-        
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    
+    <label class="col-sm-offset-1">@Model.Nome</label>
+</div>
 
-    <div>
-        <fieldset title="Idade">
-            <div class="row">
-                <div class="form-group col-xs-6">
-                    <label for="Anos">Anos</label>
-                    @Html.TextBoxFor(d => d.Anos, new { @class = "form-control" })
-                </div>
-                <div class="form-group col-xs-6">
-                    <label for="Anos">Meses</label>
-                    @Html.TextBoxFor(d => d.Meses, new { @class = "form-control" })
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="checkbox">
-        <label>
-            @Html.CheckBoxFor(d => d.EhVacinado)
-            Vacinado
-        </label>
-    </div>
-    <div class="checkbox">
-        <label>
-            @Html.CheckBoxFor(d => d.EhCastrado)
-            Castrado
-        </label>
-    </div>
-    <div class="checkbox">
-        <label>
-            @Html.CheckBoxFor(d => d.TomouVermifugo)
-            Vermifugo
-        </label>
+<div class="form-group">
+    <label for="" class="col-sm-1">Espécie: </label>
+
+    <label class="col-sm-offset-1">@Model.Especie</label>
+</div>
+
+<div class="form-group">
+    <label for="" class="col-sm-1">Raça: </label>
+
+    <label class="col-sm-offset-1">@Model.Raca</label>
+</div>
+
+<div class="form-group">
+    <label for="" class="col-sm-1">Porte: </label>
+
+    <label class="col-sm-offset-1">@Model.Porte</label>
+</div>
+
+<div class="form-group">
+    <label for="" class="col-sm-1">Idade: </label>
+    <label class="col-sm-offset-1">@Model.Idade</label>
+</div>
+
+<div class="form-group">
+    <label></label>
+</div>
+
+<div class="form-group">
+    <label for="" class="col-sm-4">Informações Extras: </label>
+
+</div>
+
+<div class="form-group">
+    <label></label>
+</div>
+
+<div>
+    <div class="form-group">
+        <label class="col-sm-1">Vacinado: </label>
+        <label class="col-sm-offset-1">@Model.Vacinado</label>
     </div>
 
-   <div class="form-group text-right">
-        <button class="btn btn-success" type="submit">Adotar</button>
+    <div class="form-group">
+        <label class="col-sm-1">Castrado: </label>
+        <label class="col-sm-offset-1">@Model.Castrado</label>
     </div>
-  
-}
+
+    <div class="form-group">
+        <label class="col-sm-1">Vermífugo: </label>
+        <label class="col-sm-offset-1">@Model.Vermifugo</label>
+    </div>
+</div>  
+
+<div class="form-group text-right">
+    <button class="btn btn-success" type="submit">Adotar</button>
+</div>

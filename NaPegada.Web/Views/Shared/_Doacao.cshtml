@@ -12,14 +12,12 @@
     <div class="form-group">
         <label for="Especie">Espécie</label>
 
-        @Html.EnumDropDownListFor(d => d.Especie, "Selecie uma espécie", new { @class = "form-control" })
+        @Html.EnumDropDownListFor(d => d.Especie, "Selecione uma espécie", new { @class = "form-control", id = "especie" })
     </div>
     <div class="form-group">
-        <label for="Raça">Raça</label>
+        <label for="raca">Raça</label>
 
-        <select class="form-control">
-            <option>Selecione uma espécie</option>
-        </select>
+        @Html.DropDownListFor(d => d.Raca, Model.Racas, "Selecione uma espécie", new { @class = "form-control", id = "raca" })
     </div>
     <div class="form-group">
         <label for="Porte">Porte</label>
@@ -95,3 +93,5 @@
 
     </div>
 }
+
+<script type="text/javascript" src="~/Scripts/Doacao/_detalhes.js"></script>
