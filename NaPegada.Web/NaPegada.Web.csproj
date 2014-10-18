@@ -119,6 +119,7 @@
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\Usuario\meus-interesses.js" />
+    <Content Include="Scripts\Usuario\doacao.js" />
     <Content Include="Scripts\Usuario\minhas-doacoes.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
