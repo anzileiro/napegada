@@ -12,6 +12,14 @@ $(function () {
     });
 
     $('#confirmar-adocao').click(function () {
-        alert('ae');
+        var url = $(this).data('url');
+
+        $.post(url, function (data) {
+            $('#modal-doacao').modal('hide');
+            var titulo = data.Sucesso ? 'Sucesso' : 'Erro';
+            $('#titulo-aviso').html(titulo);
+            $('#mensagem-aviso').html(data.Mensagem);
+            $('#modal-aviso-notificacao').modal('show');
+        });
     });
 });

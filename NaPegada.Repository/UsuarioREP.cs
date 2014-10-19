@@ -154,6 +154,46 @@ namespace NaPegada.Repository
                 });
         }
 
+        public async Task<MensagemPrivadaDTO> ObterMensagemPrivadaDTO(AdocaoDTO dto)
+        {
+            return await Task.Run(() => 
+            {
+                var usuario = _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+                                   .FindAs<UsuarioMOD>(Query<UsuarioMOD>.ElemMatch<DoacaoMOD>(_ => _.Doacoes, _ => _.EQ(doacao => doacao.Id, dto.IdDoacao)))
+                                   .SetFields(Fields.ElemMatch("Doacoes", Query<DoacaoMOD>.EQ(_ => _.Id, dto.IdDoacao))
+                                                    .Include("Nome")
+                                                    .Include("Email")
+                                                    .Include("Reputacao")
+                                                    .Include("NomeFotoPerfil")).Single();
+
+                var retorno = new MensagemPrivadaDTO
+                {
+                    Destinatario = new MensageiroMOD
+                    {
+                        Email = usuario.Email,
+                        IdUsuario = usuario.Id,
+                        Nome = usuario.Nome,
+                        NomeFotoPerfil = usuario.NomeFotoPerfil,
+                        Reputacao = usuario.Reputacao
+                    },
+                    Doacao = usuario.Doacoes.Select(_ => new MensagemPrivadaDoacaoMOD 
+                    { 
+                        IdDoacao = _.Id,
+                        NomeAnimal = _.NomeAnimal
+                    }).Single(),
+                    Remetente = new MensageiroMOD
+                    {
+                        Email = dto.Adotante.Email,
+                        IdUsuario = dto.Adotante.Id,
+                        Nome = dto.Adotante.Nome,
+                        Reputacao = dto.Adotante.Reputacao
+                    }
+                };
+
+                return retorno;
+            });
+        }
+
         #endregion Doacao
 
         #region Interesse

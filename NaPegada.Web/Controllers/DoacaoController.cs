@@ -12,23 +12,34 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using NaPegada.Model;
+using NaPegada.Web.Models.Usuario;
 
 namespace NaPegada.Web.Controllers
 {
     [AutenticarAutorizar]
     public class DoacaoController : BaseAsyncController
-    {        
+    {
+        private readonly UsuarioBUS _usuarioBUS;
+        private readonly MensagemPrivadaBUS _mensagemPrivadaBUS;
+        private readonly RacaBUS _racaBUS;
+
+        public DoacaoController()
+        {
+            var usuarioREP = new UsuarioREP();
+            _usuarioBUS = new UsuarioBUS(usuarioREP);
+            _mensagemPrivadaBUS = new MensagemPrivadaBUS();
+            _racaBUS = new RacaBUS();
+        }
+
         [HttpGet]
         public async Task<PartialViewResult> Detalhes(string id = null)
         {
             var model = default(DetalhesViewModel);
 
             if(!string.IsNullOrWhiteSpace(id))
-            {
-                var userBus = new UsuarioBUS(new UsuarioREP());
-                var racaBus = new RacaBUS();                
-                var doacao = await userBus.ObterDoacao(id);
-                var racas = await racaBus.BuscarPorEspecie(doacao.EspecieAnimal);
+            {               
+                var doacao = await _usuarioBUS.ObterDoacao(id);
+                var racas = await _racaBUS.BuscarPorEspecie(doacao.EspecieAnimal);
                 model = new DetalhesViewModel(doacao, racas);
             }
             else
@@ -42,19 +53,18 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Detalhes(DetalhesViewModel model)
         {
-            var userBus = new UsuarioBUS(new UsuarioREP());
             var userId = ObterUsuarioDaSecao().Id;
             var dto = await model.ConverterParaRegistroDoacaoDTO(userId);
             var ehCadastro = string.IsNullOrWhiteSpace(model.Id);
 
             if(ehCadastro)
             {                
-                await userBus.RegistrarDoacao(dto);
+                await _usuarioBUS.RegistrarDoacao(dto);
                 TempData["sucesso"] = "Doação cadastrada com sucesso";
             }
             else
             {
-                await userBus.AtualizarDoacao(dto);
+                await _usuarioBUS.AtualizarDoacao(dto);
                 TempData["sucesso"] = "Doação atualizada com sucesso";
             }            
 
@@ -64,8 +74,7 @@ namespace NaPegada.Web.Controllers
         [HttpGet]
         public async Task<PartialViewResult> Exclusao(string id)
         {
-            var userBus = new UsuarioBUS(new UsuarioREP());
-            var doacao = await userBus.ObterDoacao(id);
+            var doacao = await _usuarioBUS.ObterDoacao(id);
 
             return PartialView("_DeletarDoacao", new ExclusaoViewModel(doacao));
         }
@@ -73,9 +82,7 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Excluir(string id)
         {
-            var userBus = new UsuarioBUS(new UsuarioREP());
-
-            await userBus.ExcluirDoacao(ObterDTO(id));
+            await _usuarioBUS.ExcluirDoacao(ObterDTO(id));
             TempData["sucesso"] = "Doação excluída com sucesso";
 
             return RedirectToAction("MinhasDoacoes", "Usuario");
@@ -89,6 +96,34 @@ namespace NaPegada.Web.Controllers
             dto.IdUsuario = ObterUsuarioDaSecao().Id;
 
             return dto;
-        }        
+        }
+        
+        [HttpPost]
+        public async Task<JsonResult> Adocao(string idDoacao)
+        {
+            var json = default(dynamic);
+
+            try
+            {
+                var dto = new AdocaoDTO(idDoacao, ObterUsuarioDaSecao());
+                await _mensagemPrivadaBUS.EnviarMensagemAdocao(dto);
+
+                json = new
+                {
+                    Mensagem = "Notificação enviada ao doador",
+                    Sucesso = true
+                };
+            }
+            catch(Exception)
+            {
+                json = new
+                {
+                    Mensagem = "Ocorreu um erro ao tentar enviar a notificação ao doador",
+                    Sucesso = false
+                };
+            }
+
+            return Json(json);
+        }
 	}
 }

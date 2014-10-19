@@ -1,5 +1,9 @@
 ﻿@model NaPegada.Web.Models.Usuario.DoacaoViewModel
 
+@{
+    var usuarioEstaLogado = HttpContext.Current.Session["napegada_auth"] != null;
+}
+
 <div class="form-group">
     <label for="" class="col-sm-1 text">Nome: </label>
 
@@ -59,17 +63,20 @@
     </div>
 </div>  
 
-<div class="form-group text-right" id="adocao">
-    <button class="btn btn-success" type="button" id="adotar">Quero adotar!</button>
-</div>
-
-<div style="display: none" id="confirmacao-adocao" class="text-right">
-    <p>Tem certeza de que tem interesse em adotar o(a) @Model.Nome?</p>
-
-    <div>
-        <button class="btn btn-danger" type="button" id="cancelar-adocao">Não</button>
-        <button class="btn btn-success" type="button" id="confirmar-adocao">Sim</button>
+@if (usuarioEstaLogado)
+{
+    <div class="form-group text-right" id="adocao">
+        <button class="btn btn-success" type="button" id="adotar">Quero adotar!</button>
     </div>
-</div>
+
+    <div style="display: none" id="confirmacao-adocao" class="text-right">
+        <p>Tem certeza de que tem interesse em adotar o(a) @Model.Nome?</p>
+
+        <div>
+            <button class="btn btn-danger" type="button" id="cancelar-adocao">Não</button>
+            <button class="btn btn-success" type="button" id="confirmar-adocao" data-url="@Url.Action("Adocao", "Doacao", new { idDoacao = @Model.Id })">Sim</button>
+        </div>
+    </div>
+}
 
 <script src="~/Scripts/Site/_descricao-animal.js"></script>

@@ -112,6 +112,11 @@ namespace NaPegada.Tests.Stubs
             });
         }
 
+        public Task<MensagemPrivadaDTO> ObterMensagemPrivadaDTO(AdocaoDTO dto)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion doacao
 
         #region interesse
@@ -148,6 +153,6 @@ namespace NaPegada.Tests.Stubs
         }
         #endregion interesse
 
-        #endregion usuario        
+        #endregion usuario            
     }
 }

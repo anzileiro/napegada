@@ -52,6 +52,8 @@ namespace NaPegada.Repository.Interfaces
 
         Task ExcluirDoacao(ExclusaoDoacaoDTO dto);
 
+        Task<MensagemPrivadaDTO> ObterMensagemPrivadaDTO(AdocaoDTO dto);
+
         #endregion Doacao
 
         #region Interesse

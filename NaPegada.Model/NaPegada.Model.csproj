@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdotanteMOD.cs" />
+    <Compile Include="DTO\Doacao\AdocaoDTO.cs" />
     <Compile Include="DTO\Doacao\ExclusaoDoacaoDTO.cs" />
     <Compile Include="DTO\Doacao\RegistroDoacaoDTO.cs" />
+    <Compile Include="DTO\Doacao\MensagemPrivadaDTO.cs" />
     <Compile Include="DTO\Interesse\ExclusaoInteresseDTO.cs" />
     <Compile Include="DTO\Interesse\RegistroInteresseDTO.cs" />
     <Compile Include="InteresseMOD.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="DoacaoMOD.cs" />
     <Compile Include="EnderecoMOD.cs" />
     <Compile Include="ItemRelatorioDoacaoMOD.cs" />
+    <Compile Include="MensagemPrivadaDoacaoMOD.cs" />
     <Compile Include="MensagemPrivadaMOD.cs" />
     <Compile Include="ObjectMongo.cs" />
     <Compile Include="PesquisaMOD.cs" />
