@@ -16,6 +16,8 @@ namespace NaPegada.Repository.Interfaces
 
         #region site
 
+        Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoesExcetoUsuarioLogado(ObjectId idUsuarioLogado);
+
         Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes();
 
         #endregion site

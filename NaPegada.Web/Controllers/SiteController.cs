@@ -14,11 +14,12 @@ namespace NaPegada.Web.Controllers
         [HttpGet]
         //[OutputCache(Duration = 86400)]
         public async Task<ViewResult> Home()
-        {
-            
+        {            
             var userBus = new UsuarioBUS(new UsuarioREP());
 
-            var listaTodasDoacoes = await userBus.ObterTodasDoacoes();
+            var user = ObterUsuarioDaSecao();
+            var listaTodasDoacoes = user != null ? await userBus.ObterTodasDoacoesExcetoUsuarioLogado(ObterUsuarioDaSecao().Id)
+                                                 : await userBus.ObterTodasDoacoes();
             var model = new HomeViewModel(listaTodasDoacoes);
 
             return await Task.Run(() => View(model));

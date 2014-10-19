@@ -24,6 +24,11 @@ namespace NaPegada.Business
 
         #region site
 
+        public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoesExcetoUsuarioLogado(ObjectId idUsuarioLogado)
+        {
+            return await _usuarioREP.ObterTodasDoacoesExcetoUsuarioLogado(idUsuarioLogado);
+        }
+
         public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes()
         {
             return await _usuarioREP.ObterTodasDoacoes();

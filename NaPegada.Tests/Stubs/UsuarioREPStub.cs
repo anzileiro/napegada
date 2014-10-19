@@ -15,16 +15,17 @@ namespace NaPegada.Tests.Stubs
     {
         private IList<UsuarioMOD> _usuarios = new List<UsuarioMOD>();
 
-        public UsuarioREPStub()
-        {
-
-        }
-
         #region site
 
-        public Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes()
+        public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoesExcetoUsuarioLogado(ObjectId idUsuarioLogado)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => _usuarios.Where(_ => _.Id != idUsuarioLogado)
+                                                 .SelectMany(_ => _.Doacoes)); 
+        }
+
+        public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes()
+        {
+            return await Task.Run(() => _usuarios.SelectMany(_ => _.Doacoes));
         }
 
         #endregion site
@@ -147,7 +148,6 @@ namespace NaPegada.Tests.Stubs
         }
         #endregion interesse
 
-        #endregion usuario
-
+        #endregion usuario        
     }
 }

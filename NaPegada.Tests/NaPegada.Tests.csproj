@@ -51,6 +51,10 @@
     <Compile Include="Stubs\UsuarioREPStub.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NaPegada.Business\NaPegada.Business.csproj">
+      <Project>{8cf1f98c-586c-45f0-90e2-038e9bafb051}</Project>
+      <Name>NaPegada.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NaPegada.Model\NaPegada.Model.csproj">
       <Project>{9ad42331-1845-49c8-9bbc-0c445fdacff7}</Project>
       <Name>NaPegada.Model</Name>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MongoDB.Bson;
+using NaPegada.Business;
 using NaPegada.Model;
 using NaPegada.Model.DTO;
 using NaPegada.Model.DTO.Doacao;
@@ -19,6 +20,7 @@ namespace NaPegada.Tests.Bussiness
         private readonly UsuarioMOD _usuarioLogado;
         private readonly IUsuarioREP _userREP;
         private readonly DoacaoMOD _doacaoDefault;
+        private readonly UsuarioBUS _userBUS;
 
         public UsuarioBUSTest()
         {
@@ -28,6 +30,7 @@ namespace NaPegada.Tests.Bussiness
             _usuarioLogado.AdicionarDoacao(_doacaoDefault);
             _userREP = new UsuarioREPStub();
             _userREP.Registrar(_usuarioLogado);
+            _userBUS = new UsuarioBUS(_userREP);
         }
 
         private DoacaoMOD ObterDoacaoDefault()
@@ -45,7 +48,7 @@ namespace NaPegada.Tests.Bussiness
         {
             var dto = ObterRegistroDoacaoDTO();
 
-            await _userREP.RegistrarDoacao(dto);
+            await _userBUS.RegistrarDoacao(dto);
 
             var doacao = _userREP.ObterDoacao(dto.Doacao.Id);
             Assert.IsNotNull(doacao);
@@ -71,7 +74,7 @@ namespace NaPegada.Tests.Bussiness
         {
             var dto = ObterRegistroDoacaoDTOAtualizacao();
 
-            await _userREP.AtualizarDoacao(dto);
+            await _userBUS.AtualizarDoacao(dto);
 
             var doacao = await _userREP.ObterDoacao(_doacaoDefault.Id);
             Assert.AreEqual("Totó", doacao.NomeAnimal);
@@ -94,7 +97,7 @@ namespace NaPegada.Tests.Bussiness
         [TestMethod]
         public async Task DeveObterTodasAsDoacoesCadastradas()
         {
-            var doacoes = await _userREP.ObterDoacoes(_usuarioLogado.Id);
+            var doacoes = await _userBUS.ObterDoacoes(_usuarioLogado.Id);
 
             Assert.AreEqual(1, doacoes.Count());
             Assert.IsTrue(doacoes.Any(_ => _.Id == _doacaoDefault.Id));
@@ -105,7 +108,7 @@ namespace NaPegada.Tests.Bussiness
         {
             var dto = ObterExclusaoDoacaoDTO();
 
-            await _userREP.ExcluirDoacao(dto);
+            await _userBUS.ExcluirDoacao(dto);
             var doacao = await _userREP.ObterDoacao(_doacaoDefault.Id);
 
             Assert.IsNull(doacao);
@@ -119,6 +122,22 @@ namespace NaPegada.Tests.Bussiness
             dto.IdUsuario = _usuarioLogado.Id;
 
             return dto;
+        }
+
+        [TestMethod]
+        public async Task QuandoUsuarioEstiverLogadoNaoDeveTrazerDoacoesProprias()
+        {
+            var doacoes = await _userBUS.ObterTodasDoacoesExcetoUsuarioLogado(_usuarioLogado.Id);
+
+            Assert.IsFalse(doacoes.Any());
+        }
+
+        [TestMethod]
+        public async Task QuandoUsuarioNaoEstiverLogadoDeveTrazerTodasAsDoacoes()
+        {
+            var doacoes = await _userBUS.ObterTodasDoacoes();
+
+            Assert.IsTrue(doacoes.Any());
         }
     }
 }

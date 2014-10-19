@@ -20,16 +20,28 @@ namespace NaPegada.Repository
 
         #region site
 
-        public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes()
+        public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoesExcetoUsuarioLogado(ObjectId idUsuarioLogado)
         {
             return await Task.Run(() =>
                 {
                     var lista = _conn.Conectar("mongodb://localhost", "napegada", "usuario")
-                        .FindAllAs<UsuarioMOD>()
+                        .FindAs<UsuarioMOD>(Query<UsuarioMOD>.NE(_ => _.Id, idUsuarioLogado))
                         .SetFields(Fields<UsuarioMOD>.Include(_ => _.Doacoes)).ToList();
 
                     return lista.SelectMany(_ => _.Doacoes);
                 });
+        }
+
+        public async Task<IEnumerable<DoacaoMOD>> ObterTodasDoacoes()
+        {
+            return await Task.Run(() =>
+            {
+                var lista = _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+                    .FindAllAs<UsuarioMOD>()
+                    .SetFields(Fields<UsuarioMOD>.Include(_ => _.Doacoes)).ToList();
+
+                return lista.SelectMany(_ => _.Doacoes);
+            });
         }
 
         #endregion site
@@ -211,6 +223,6 @@ namespace NaPegada.Repository
 
         #endregion Interesse
 
-        #endregion usuario
+        #endregion usuario       
     }
 }
