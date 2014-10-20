@@ -36,7 +36,8 @@
                 var animal = Model.TodasDoacoes.ElementAt(coluna);
                 <div class="col-md-4 text-center">
                 <section>
-                    <a href="#image-1">
+                    <img class="img-circle" src="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))">
+                    @*<a href="#image-1">
                         <img class="img-circle" src="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))">
                         <span>Abrir Foto</span> 
                     </a>
@@ -52,7 +53,7 @@
                           
                         </div>
 
-                    </div>
+                    </div>*@
 
                     
                     <h2>@animal.Nome</h2>
