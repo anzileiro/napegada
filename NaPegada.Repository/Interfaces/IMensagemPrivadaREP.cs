@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using NaPegada.Model;
+using NaPegada.Model.DTO.Doacao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace NaPegada.Repository.Interfaces
         Task Registrar(MensagemPrivadaMOD mensagem);
         Task<IEnumerable<MensagemPrivadaMOD>> ObterMensagensRecebidas(ObjectId idUsuarioLogado);
         MensagemPrivadaMOD ObterPorId(ObjectId id);
+        bool JaEnviouSolicitacaoAdocao(AdocaoDTO dto);
     }
 }

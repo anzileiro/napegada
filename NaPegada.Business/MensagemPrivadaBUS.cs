@@ -31,6 +31,9 @@ namespace NaPegada.Business
 
         private async Task<MensagemPrivadaMOD> ObterMensagemPrivada(AdocaoDTO dto)
         {
+            if (_mensagemPrivadaREP.JaEnviouSolicitacaoAdocao(dto))
+                throw new InvalidOperationException("Você já enviou uma solicitação ao doador. Por favor, aguarde a resposta do doador");
+
             var mensagemPrivadaDTO = await _usuarioREP.ObterMensagemPrivadaDTO(dto);
 
             var mensagem = new MensagemPrivadaMOD(mensagemPrivadaDTO);

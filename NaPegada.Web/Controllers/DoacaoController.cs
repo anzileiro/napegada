@@ -114,6 +114,14 @@ namespace NaPegada.Web.Controllers
                     Sucesso = true
                 };
             }
+            catch(InvalidOperationException e)
+            {
+                json = new
+                {
+                    Mensagem = e.Message,
+                    Sucesso = false
+                };
+            }
             catch(Exception)
             {
                 json = new

@@ -3,6 +3,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using NaPegada.DataAccess;
 using NaPegada.Model;
+using NaPegada.Model.DTO.Doacao;
 using NaPegada.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,14 @@ namespace NaPegada.Repository
         public MensagemPrivadaMOD ObterPorId(ObjectId id)
         {
             return _mensagens.FindAs<MensagemPrivadaMOD>(Query<MensagemPrivadaMOD>.EQ(_ => _.Id, id)).Single();
+        }
+
+        public bool JaEnviouSolicitacaoAdocao(AdocaoDTO dto)
+        {
+            var retorno = _mensagens.FindAs<MensagemPrivadaMOD>(Query.And(Query<MensagemPrivadaMOD>.EQ(_ => _.Remetente.IdUsuario, dto.Adotante.Id),
+                                                                          Query<MensagemPrivadaMOD>.EQ(_ => _.Doacao.IdDoacao, dto.IdDoacao))).Any();
+
+            return retorno;
         }
     }
 }
