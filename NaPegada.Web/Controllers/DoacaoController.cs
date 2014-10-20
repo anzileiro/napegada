@@ -27,7 +27,7 @@ namespace NaPegada.Web.Controllers
         {
             var usuarioREP = new UsuarioREP();
             _usuarioBUS = new UsuarioBUS(usuarioREP);
-            _mensagemPrivadaBUS = new MensagemPrivadaBUS();
+            _mensagemPrivadaBUS = new MensagemPrivadaBUS(new MensagemPrivadadaREP(), usuarioREP);
             _racaBUS = new RacaBUS();
         }
 

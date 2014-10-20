@@ -112,9 +112,24 @@ namespace NaPegada.Tests.Stubs
             });
         }
 
-        public Task<MensagemPrivadaDTO> ObterMensagemPrivadaDTO(AdocaoDTO dto)
+        public async Task<MensagemPrivadaDTO> ObterMensagemPrivadaDTO(AdocaoDTO dto)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                var retorno = new MensagemPrivadaDTO
+                {
+                    Remetente = new MensageiroMOD
+                    {
+                        IdUsuario = dto.Adotante.Id
+                    },
+                    Doacao = new MensagemPrivadaDoacaoMOD
+                    {
+                        IdDoacao = dto.IdDoacao
+                    }
+                };
+
+                return retorno;
+            });            
         }
 
         #endregion doacao

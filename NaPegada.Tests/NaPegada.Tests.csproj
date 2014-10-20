@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bussiness\MensagemPrivadaBUSTest.cs" />
     <Compile Include="Bussiness\UsuarioBUSTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stubs\MensagemPrivadaREPStub.cs" />
     <Compile Include="Stubs\UsuarioREPStub.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -16,10 +16,10 @@ namespace NaPegada.Business
         private IUsuarioREP _usuarioREP;
         private IMensagemPrivadaREP _mensagemPrivadaREP;
 
-        public MensagemPrivadaBUS()
+        public MensagemPrivadaBUS(IMensagemPrivadaREP mensagemPrivadaREP, IUsuarioREP usuarioREP)
         {
-            _usuarioREP = new UsuarioREP();
-            _mensagemPrivadaREP = new MensagemPrivadadaREP();
+            _usuarioREP = usuarioREP;
+            _mensagemPrivadaREP = mensagemPrivadaREP;
         }
 
         public async Task EnviarMensagemAdocao(AdocaoDTO dto)

@@ -17,6 +17,11 @@ namespace NaPegada.Model
         public DateTime DataCriacao { get; set; }
         public MensagemPrivadaDoacaoMOD Doacao { get; set; }
 
+        public MensagemPrivadaMOD()
+        {
+
+        }
+
         public MensagemPrivadaMOD(MensagemPrivadaDTO dto)
         {
             DataCriacao = DateTime.Now;

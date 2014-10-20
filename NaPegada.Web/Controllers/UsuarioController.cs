@@ -17,8 +17,9 @@ namespace NaPegada.Web.Controllers
 
         public UsuarioController()
         {
-            _usuarioBUS = new UsuarioBUS(new UsuarioREP());
-            _mensagemPrivadaBUS = new MensagemPrivadaBUS();
+            var usuarioREP = new UsuarioREP();
+            _usuarioBUS = new UsuarioBUS(usuarioREP);
+            _mensagemPrivadaBUS = new MensagemPrivadaBUS(new MensagemPrivadadaREP(), usuarioREP);
         }
 
         #region [ViewResult]
