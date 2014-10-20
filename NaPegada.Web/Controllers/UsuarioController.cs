@@ -13,11 +13,12 @@ namespace NaPegada.Web.Controllers
     public class UsuarioController : BaseAsyncController
     {
         private readonly UsuarioBUS _usuarioBUS;
-        private readonly RacaBUS _racaBUS;
+        private readonly MensagemPrivadaBUS _mensagemPrivadaBUS;
 
         public UsuarioController()
         {
             _usuarioBUS = new UsuarioBUS(new UsuarioREP());
+            _mensagemPrivadaBUS = new MensagemPrivadaBUS();
         }
 
         #region [ViewResult]
@@ -63,6 +64,29 @@ namespace NaPegada.Web.Controllers
 
             return View(new MeusInteressesViewModel(interesses));
         }
+
+        [HttpGet]
+        public async Task<ViewResult> MensagensRecebidas()
+        {
+            var userId = ObterUsuarioDaSecao().Id;
+
+            var mensagensRecebidas = await _mensagemPrivadaBUS.ObterMensagensRecebidas(userId);
+            var viewModel = new MensagensRecebidasViewModel(mensagensRecebidas);
+
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        public async Task<PartialViewResult> MensagemRecebida(string idMensagem)
+        {
+            return await Task.Run(() =>
+            {
+                var mensagem = _mensagemPrivadaBUS.ObterPorId(idMensagem);
+                var viewModel = new MensagemRecebidaViewModel(mensagem);
+                return PartialView("_MensagemRecebida", viewModel);
+            });            
+        }
+
         #endregion
 
         #region [JsonResult]

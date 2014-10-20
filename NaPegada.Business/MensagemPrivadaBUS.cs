@@ -1,4 +1,5 @@
-﻿using NaPegada.Model;
+﻿using MongoDB.Bson;
+using NaPegada.Model;
 using NaPegada.Model.DTO.Doacao;
 using NaPegada.Repository;
 using NaPegada.Repository.Interfaces;
@@ -33,6 +34,21 @@ namespace NaPegada.Business
             var mensagemPrivadaDTO = await _usuarioREP.ObterMensagemPrivadaDTO(dto);
 
             var mensagem = new MensagemPrivadaMOD(mensagemPrivadaDTO);
+
+            return mensagem;
+        }
+
+        public async Task<IEnumerable<MensagemPrivadaMOD>> ObterMensagensRecebidas(ObjectId idUsuarioLogado)
+        {
+            var mensagensRecebidas = await _mensagemPrivadaREP.ObterMensagensRecebidas(idUsuarioLogado);
+
+            return mensagensRecebidas;
+        }
+
+        public MensagemPrivadaMOD ObterPorId(string id)
+        {
+            var mongoId = ObjectId.Parse(id);
+            var mensagem = _mensagemPrivadaREP.ObterPorId(mongoId);
 
             return mensagem;
         }

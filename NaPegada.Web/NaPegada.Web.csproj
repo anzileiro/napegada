@@ -121,6 +121,7 @@
     <Content Include="Scripts\Interesse\_detalhes.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\Site\_descricao-animal.js" />
+    <Content Include="Scripts\Usuario\mensagens-recebidas.js" />
     <Content Include="Scripts\Usuario\meus-interesses.js" />
     <Content Include="Scripts\Usuario\doacao.js" />
     <Content Include="Scripts\Usuario\minhas-doacoes.js" />
@@ -153,10 +154,13 @@
     <Compile Include="Models\Site\HomeViewModel.cs" />
     <Compile Include="Models\Usuario\InteresseViewModel.cs" />
     <Compile Include="Models\Usuario\DoacaoViewModel.cs" />
+    <Compile Include="Models\Usuario\MensagemRecebidaViewModel.cs" />
+    <Compile Include="Models\Usuario\MensagensRecebidasViewModel.cs" />
     <Compile Include="Models\Usuario\MeusInteressesViewModel.cs" />
     <Compile Include="Models\Usuario\MinhasDoacoesViewModel.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Models\Usuario\RegistroEhLoginViewModel.cs" />
+    <Compile Include="Models\Usuario\ResumoMensagemRecebidaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +188,8 @@
     <Content Include="Views\Site\Historia.cshtml" />
     <Content Include="Views\Shared\_MenuSite.cshtml" />
     <Content Include="Views\Site\Links.cshtml" />
+    <Content Include="Views\Usuario\MensagensRecebidas.cshtml" />
+    <Content Include="Views\Shared\_MensagemRecebida.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

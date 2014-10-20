@@ -1,0 +1,16 @@
+﻿@model NaPegada.Web.Models.Usuario.MensagemRecebidaViewModel
+
+@if(Model.EhRequisicaoAdocao)
+{
+    <h2>Interesse em adotar @Model.NomeAnimal</h2>
+    <h4>De: @Model.Remetente</h4>    
+    
+    <p class="lead">@Model.Remetente gostaria de adotar @Model.NomeAnimal! Para iniciar o processo de doação, <a href="#">clique aqui</a></p>
+}
+else
+{
+    <h2>@Model.Titulo</h2>
+    <h4>De: @Model.Remetente</h4>
+
+    <p>@Model.Conteudo</p>
+}

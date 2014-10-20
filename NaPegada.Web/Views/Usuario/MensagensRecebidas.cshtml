@@ -1,0 +1,40 @@
+﻿@model NaPegada.Web.Models.Usuario.MensagensRecebidasViewModel
+
+@{
+    ViewBag.Title = "Mensagens Recebidas";
+}
+
+<div class="row">
+    <div class="col-xs-4">
+        <h3>Mensagens</h3>
+
+        <ul class="list-group">
+
+            @foreach (var mensagem in Model.Mensagens)
+            {                
+                <li class="list-group-item">
+                    <p class="lead"><a href="#" data-url="@Url.Action("MensagemRecebida", "Usuario", new { idMensagem = mensagem.IdMensagem })" class="mensagem">@mensagem.Titulo</a></p>
+                    <p><small>@mensagem.Subtitulo</small></p>
+                </li>
+            }
+
+        </ul>
+    </div>
+
+    <div class="col-xs-8" id="mensagem">
+        @if (Model.Mensagens.Any())
+        {
+            <h3>Clique em alguma mensagem para abri-la</h3>
+        }
+        else
+        {
+            <h3>Não há mensagens recebidas</h3>
+        }
+    </div>
+</div>
+
+@section scripts
+{
+<script src="~/Scripts/Usuario/mensagens-recebidas.js"></script>
+}
+

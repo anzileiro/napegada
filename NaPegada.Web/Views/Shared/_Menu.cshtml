@@ -32,6 +32,13 @@ else
                     <li class="active"><a href="@Url.Action("Home", "Site")">Home</a></li>
                     <li><a href="@Url.Action("MeusInteresses", "Usuario")">Meus Interesses</a></li>
                     <li><a href="@Url.Action("MinhasDoacoes", "Usuario")">Minhas Doações</a></li>
+
+                    <li class="dropdown menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mensagens <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Recebidas", "MensagensRecebidas", "Usuario")</li>
+                        </ul>
+                    </li>
                 </ul>
                 <form class="navbar-form navbar-left" role="search">
                     <div class="row">
