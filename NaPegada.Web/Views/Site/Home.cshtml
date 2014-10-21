@@ -12,70 +12,68 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="~/Content/css/bootstrap-site.min.css" rel="stylesheet" />
-    
+
     <link href="~/Content/css/styles.css" rel="stylesheet" />
     <link href="~/Content/css/foto.css" rel="stylesheet" />
     <link href="~/Content/css/demo.css" rel="stylesheet" />
 
 </head>
 <body>
-   
+
     @Html.Partial("_MenuSite")
-  
+
     <div class="container marketing">
-     @{
-         var quantidadeDoacoes = Model.TodasDoacoes.Count();
-         var quantidadeLinhas = Math.Ceiling((decimal)(quantidadeDoacoes / 3f));
-    }
-        @for (var linha = 0; linha < quantidadeLinhas; linha++ )
-        { 
-            
-        <div class="row">
-            @for (var coluna = linha * 3; (coluna < quantidadeDoacoes && coluna < (linha * 3 + 3)); coluna++ )
-            {
-                var animal = Model.TodasDoacoes.ElementAt(coluna);
-                <div class="col-md-4 text-center">
-                <section>
-                    <img class="img-circle" src="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))">
-                    @*<a href="#image-1">
-                        <img class="img-circle" src="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))">
-                        <span>Abrir Foto</span> 
-                    </a>
-                    
-                    <div class="lb-overlay" id="image-1">
-                        <p> <a href="#page" class="lb-close">Close</a></p>
-                        <img src="~/Content/images/amigo.jpg"/>
-                        <div>
-                            <p>Dance performed on the tips of the toes</p>
-                            <p> </p>
-                                <a href="#" class="lb-prev">Prev</a>
-                                <a href="#" class="lb-next">Next</a>
-                          
-                        </div>
+        @{
+            var quantidadeDoacoes = Model.TodasDoacoes.Count();
+            var quantidadeLinhas = Math.Ceiling((decimal)(quantidadeDoacoes / 3f));
+        }
+        @for (var linha = 0; linha < quantidadeLinhas; linha++)
+        {
 
-                    </div>*@
+            <div class="row">
+                @for (var coluna = linha * 3; (coluna < quantidadeDoacoes && coluna < (linha * 3 + 3)); coluna++)
+                {
+                    var animal = Model.TodasDoacoes.ElementAt(coluna);
+                    <div class="col-md-4 text-center">
+                        <section>
 
-                    
-                    <h2>@animal.Nome</h2>
-                    <p>@animal.Raca</p>
-                    <p>
-                        <a href="#" class="btn btn-default abrir-doacao" data-url="@Url.Action("Detalhes", "Site", new { id = @animal.Id })">Detalhes</a>
-                    </p>
-                </section>
+                            <a href="#image">
+                                <img class="img-circle" data-imagem="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))" src="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))">
+                                
+                            </a>
+                            <div class="lb-overlay" id="image">
+                                <p> <a href="#page" class="lb-close">Close</a></p>
+                                <img class="img-caca" src="" style="width:500px;" />
+                                <div>
+                                    <p> </p>
+                                   <!-- <a href="#" class="lb-prev">Prev</a>
+                                    <a href="#" class="lb-next">Next</a> -->
+
+                                </div>
+
+                            </div>
+
+
+                            <h2>@animal.Nome</h2>
+                            <p>@animal.Raca</p>
+                            <p>
+                                <a href="#" class="btn btn-default abrir-doacao" data-url="@Url.Action("Detalhes", "Site", new { id = @animal.Id })">Detalhes</a>
+                            </p>
+                        </section>
+                    </div>
+                }
+
             </div>
-            }       
-            
-        </div>
             <hr class="featurette-divider">
         }
-            
+
         <footer>
             <hr class="featurette-divider">
             <p class="pull-right"><a href="#">Subir pro topo</a></p>
             <p style="align-content:center;">© Na Pegada. Todos os direitos reservados.</p>
         </footer>
     </div>
-    
+
     @Html.Partial("_Entrar")
     @Html.Partial("_Registrar", new RegistroEhLoginViewModel())
 
@@ -111,11 +109,15 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="~/Scripts/js/bootstrap.min.js"></script>
     <script src="~/Scripts/napegada.js"></script>
-        <script type="text/javascript" src="~/Scripts/Usuario/doacao.js"></script>
-    
+    <script type="text/javascript" src="~/Scripts/Usuario/doacao.js"></script>
+    <script>
+        $(function () {
+            $('.img-circle').on('click', function () {
+                $('.img-caca').attr('src', $(this).data('imagem'))
+                ;
+            });
+        });
+    </script>
 
 </body>
 </html>
-
-
-    

@@ -4,11 +4,19 @@
     var usuarioEstaLogado = HttpContext.Current.Session["napegada_auth"] != null;
 }
 
-<div class="form-group">
-    <label for="" class="col-sm-1 text">Nome: </label>
+<div class="form-group ">
+
+    <img class="col-sm-offset-6" src="@(string.IsNullOrWhiteSpace(Model.Foto) ? "" : Url.Content(Model.Foto))">
+
+</div>
+
+<div class="form-group ">
+    <label for="" class="col-sm-1">Nome: </label>
 
     <label class="col-sm-offset-1">@Model.Nome</label>
+   
 </div>
+
 
 <div class="form-group">
     <label for="" class="col-sm-1">Espécie: </label>
