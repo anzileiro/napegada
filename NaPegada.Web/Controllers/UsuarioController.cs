@@ -8,8 +8,8 @@ using System.Web.Mvc;
 
 namespace NaPegada.Web.Controllers
 {
-    [AutenticarAutorizar]
-    [RoutePrefix("Usuario")]
+   [AutenticarAutorizar]
+   [RoutePrefix("Usuario")]
     public class UsuarioController : BaseAsyncController
     {
         private readonly UsuarioBUS _usuarioBUS;
