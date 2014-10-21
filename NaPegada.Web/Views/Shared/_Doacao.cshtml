@@ -7,12 +7,14 @@
     <div class="form-group">
         <label for="Nome">Nome</label>
 
-        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control" })
+        @Html.TextBoxFor(d => d.Nome, new { @class = "form-control", id = "nome" })
+        <p class="help-block">@Html.ValidationMessageFor(_ => _.Nome)</p>
     </div>
     <div class="form-group">
         <label for="Especie">Espécie</label>
 
         @Html.EnumDropDownListFor(d => d.Especie, "Selecione uma espécie", new { @class = "form-control", id = "especie" })
+        <p class="help-block">@Html.ValidationMessageFor(_ => _.Especie)</p>
     </div>
     <div class="form-group">
         <label for="raca">Raça</label>
@@ -23,6 +25,7 @@
         <label for="Porte">Porte</label>
 
         @Html.EnumDropDownListFor(d => d.Porte, "Selecione um porte", new { @class = "form-control" })
+        <p class="help-block">@Html.ValidationMessageFor(_ => _.Porte)</p>
     </div>    
     <div>
         <fieldset title="Idade">
@@ -30,10 +33,12 @@
                 <div class="form-group col-xs-6">
                     <label for="Anos">Anos</label>
                     @Html.TextBoxFor(d => d.Anos, new { @class = "form-control" })
+                    <p class="help-block">@Html.ValidationMessageFor(_ => _.Anos)</p>
                 </div>
                 <div class="form-group col-xs-6">
                     <label for="Anos">Meses</label>
                     @Html.TextBoxFor(d => d.Meses, new { @class = "form-control" })
+                    <p class="help-block">@Html.ValidationMessageFor(_ => _.Meses)</p>
                 </div>
             </div>            
         </fieldset>
@@ -72,7 +77,8 @@
     </div>
 
     <div class="form-group">
-        <input name="Fotos" type="file" multiple class="form-control" size="5000000" accept="image/jpg, image/png" />
+        <input name="Fotos" id="fotos" type="file" multiple class="form-control" size="5000000" accept="image/jpg, image/png" />
+        <p class="help-block" id="fotos-erro" style="display: none"></p>
     </div>
 
     <div class="form-group text-right">
