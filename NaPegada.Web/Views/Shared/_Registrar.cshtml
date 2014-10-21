@@ -1,6 +1,4 @@
-﻿@model NaPegada.Web.Models.Usuario.RegistroEhLoginViewModel
-<!-- Modal - Cadastrar usuario -->
-<div class="modal fade" id="modal-cadastrar" tabindex="-1" role="dialog" aria-hidden="true">
+﻿<div class="modal fade" id="modal-cadastrar" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -13,20 +11,12 @@
                 <div class="msg"></div>
                 <form id="frm-usuario-registrar" class="form">
                     <div class="form-group">
-                        @Html.LabelFor(u => u.Email)
-                        @Html.ValidationMessageFor(u => u.Email)
-                        @Html.TextBoxFor(u => u.Email, new { @id="u-email", @class = "form-control" }) 
+                        <label for="Email">Seu endereço de e-mail</label>
+                        <input type="text" name="Email" id="u-email-r" class="form-control" />
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(u => u.Senha)
-                        @Html.ValidationMessageFor(u => u.Senha)
-                        @Html.PasswordFor(u => u.Senha, new { @id = "u-senha", @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <p class="help-block">
-                            Ao clicar em Criar conta, concordo com os
-                            <a>Termos de Serviço</a> e a <a>Política de Privacidade</a>.
-                        </p>
+                        <label for="Senha">Sua senha</label>
+                        <input type="password" name="Senha" id="u-senha-r" class="form-control" />
                     </div>
                     <button id="btn-registrar" class="btn btn-success" type="button">Criar conta</button>
                     <span class="load"></span>

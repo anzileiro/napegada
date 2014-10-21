@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace NaPegada.Web.Controllers
 {
+    //[AutenticarAutorizar]
     public class BaseAsyncController : AsyncController
     {
         [NonAction]

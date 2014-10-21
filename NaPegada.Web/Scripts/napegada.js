@@ -1,8 +1,8 @@
 ﻿///<reference path="http://code.jquery.com/jquery-1.9.1.js" />
 
 $(function () {
-    $('#frm-usuario-perfil-dados .form-control').attr('disabled', 'disabled');
-    $('#frm-usuario-perfil-conta .form-control').attr('disabled', 'disabled');
+    //$('#frm-usuario-perfil-dados .form-control').attr('disabled', 'disabled');
+    //$('#frm-usuario-perfil-conta .form-control').attr('disabled', 'disabled');
 
     $('#btn-modal-entrar').on('click', function () {
         f.resetar(['.msg', '.load', '.form-control'], true);
@@ -21,6 +21,8 @@ $(function () {
             $('.msg').html(f.alerta('alert alert-warning alert-dismissible', 'Ops! Digite sua senha.'));
             return false;
         }
+
+        f.configButtons(['#btn-entrar', '#btn-entrar']);
         var retornoJson = undefined;
         $.ajax({
             url: '/Usuario/Entrar',
@@ -41,9 +43,17 @@ $(function () {
         });
     });
 
-    $('#btn-registrar').click(function () {
-        $('#btn-registrar').attr('disabled', 'disabled');
-        $('#btn-registrar').text('Entrando...');
+    $('#btn-registrar').on('click', function () {
+        if (!f.patternEmail($('#u-email-r').val())) {
+            $('.msg').html(f.alerta('alert alert-warning alert-dismissible', 'Ops! Digite um email válido. Ex: fulano.tal@mail.com'));
+            return false;
+        }
+        if ($('#u-senha-r').val() == '') {
+            $('.msg').html(f.alerta('alert alert-warning alert-dismissible', 'Ops! Digite sua senha.'));
+            return false;
+        }
+
+        f.configButtons(['#btn-registrar', '#btn-registrar']);
         var dados = $('#frm-usuario-registrar').serialize();
         $.ajax({
             url: '/Usuario/Registrar',
@@ -62,10 +72,35 @@ $(function () {
     $('#btn-sair').on('click', function () {
         f.obter('/Usuario/Sair', undefined, function (r) { f.redirecionar(r.url) });
     });
+
+    $('#btn-modal-perfil').on('click', function () {
+        $.getJSON('/Usuario/ObterSecao', undefined, function (r) {
+            $('#p-id').text(r.secao.Id);
+            $('#p-id').attr('value', r.secao.Id);
+        });
+    });
+
+    $('#btn-atualizar-perfil-dados').on('click', function () {
+        if ($('#p-nome').val() == '') {
+            $('.msg').html(f.alerta('alert alert-warning alert-dismissible', 'Ops! Informe seu nome.'));
+        } else {
+            f.configButtons(['#btn-atualizar-perfil-dados']);
+            
+            $('#frm-usuario-perfil-dados').submit();
+        }
+    });
 });
 
 //funções
 var f = {
+    'configButtons': function (elementos) {
+        $.each(elementos, function (k, v) {
+            $(v).attr('disabled', 'disabled');
+            $(v).text('Entrando...');
+        });
+    },
+    //'#btn-registrar'
+    //'#btn-registrar'
     'ajax': function (url_, type_, data_, beforeSend_, success_, complete_, error_) {
         $.ajax({
             url: url_,

@@ -65,20 +65,28 @@ namespace NaPegada.Repository
             await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                      .Update(Query<UsuarioMOD>.EQ(u => u.Id, userMOD.Id), Update<UsuarioMOD>
                                               .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
-                                              .Set(u => u.Senha, userMOD.Senha)
-                                              .Set(u => u.Nome, userMOD.Nome)
-                                              .Set(u => u.Email, userMOD.Email)
-                                              .Set(u => u.Endereco, new EnderecoMOD
-                                              {
-                                                  Cep = userMOD.Endereco.Cep,
-                                                  Bairro = userMOD.Endereco.Bairro,
-                                                  Localidade = userMOD.Endereco.Localidade,
-                                                  Logradouro = userMOD.Endereco.Logradouro,
-                                                  Numero = userMOD.Endereco.Numero,
-                                                  Uf = userMOD.Endereco.Uf,
-                                                  Complemento = userMOD.Endereco.Complemento
-                                              })));
+                                              .Set(u => u.Nome, userMOD.Nome)));
         }
+
+        //public async Task Atualizar(UsuarioMOD userMOD)
+        //{
+        //    await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
+        //             .Update(Query<UsuarioMOD>.EQ(u => u.Id, userMOD.Id), Update<UsuarioMOD>
+        //                                      .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
+        //                                      .Set(u => u.Senha, userMOD.Senha)
+        //                                      .Set(u => u.Nome, userMOD.Nome)
+        //                                      .Set(u => u.Email, userMOD.Email)
+        //                                      .Set(u => u.Endereco, new EnderecoMOD
+        //                                      {
+        //                                          Cep = userMOD.Endereco.Cep,
+        //                                          Bairro = userMOD.Endereco.Bairro,
+        //                                          Localidade = userMOD.Endereco.Localidade,
+        //                                          Logradouro = userMOD.Endereco.Logradouro,
+        //                                          Numero = userMOD.Endereco.Numero,
+        //                                          Uf = userMOD.Endereco.Uf,
+        //                                          Complemento = userMOD.Endereco.Complemento
+        //                                      })));
+        //}
 
 
         public async Task<UsuarioMOD> ObterPorEmail(string email)
@@ -97,17 +105,18 @@ namespace NaPegada.Repository
 
         public async Task<DoacaoMOD> ObterDoacao(ObjectId id)
         {
-            return await Task.Run(() => {
-                                                return (from usuario in _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
-                                                        where usuario.Doacoes.Any(_ => _.Id == id)
-                                                        select usuario.Doacoes.FirstOrDefault(_ => _.Id == id)).SingleOrDefault();
-                                            });
+            return await Task.Run(() =>
+            {
+                return (from usuario in _conn.Conectar("mongodb://localhost", "napegada", "usuario").AsQueryable()
+                        where usuario.Doacoes.Any(_ => _.Id == id)
+                        select usuario.Doacoes.FirstOrDefault(_ => _.Id == id)).SingleOrDefault();
+            });
         }
 
         public async Task RegistrarDoacao(RegistroDoacaoDTO dto)
         {
             await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
-                                                 .Update(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario), 
+                                                 .Update(Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario),
                                                          Update<UsuarioMOD>.Push<DoacaoMOD>(_ => _.Doacoes, dto.Doacao)));
         }
 
@@ -128,7 +137,7 @@ namespace NaPegada.Repository
                     if (dto.Doacao.IdadeAnimal != null)
                         update.Set("Doacoes.$.IdadeAnimal", dto.Doacao.IdadeAnimal.ToBsonDocument<AnimalIdadeMOD>());
 
-                    if(!string.IsNullOrWhiteSpace(dto.Doacao.RacaAnimal))
+                    if (!string.IsNullOrWhiteSpace(dto.Doacao.RacaAnimal))
                         update.Set("Doacoes.$.RacaAnimal", dto.Doacao.RacaAnimal);
 
                     _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);
@@ -145,18 +154,18 @@ namespace NaPegada.Repository
 
         public async Task ExcluirDoacao(ExclusaoDoacaoDTO dto)
         {
-            await Task.Run(() => 
+            await Task.Run(() =>
                 {
                     var query = Query<UsuarioMOD>.EQ(_ => _.Id, dto.IdUsuario);
                     var update = Update.Pull("Doacoes", Query.EQ("_id", dto.IdDoacao));
 
-                    _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);                    
+                    _conn.Conectar("mongodb://localhost", "napegada", "usuario").Update(query, update);
                 });
         }
 
         public async Task<MensagemPrivadaDTO> ObterMensagemPrivadaDTO(AdocaoDTO dto)
         {
-            return await Task.Run(() => 
+            return await Task.Run(() =>
             {
                 var usuario = _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                                    .FindAs<UsuarioMOD>(Query<UsuarioMOD>.ElemMatch<DoacaoMOD>(_ => _.Doacoes, _ => _.EQ(doacao => doacao.Id, dto.IdDoacao)))
@@ -176,8 +185,8 @@ namespace NaPegada.Repository
                         NomeFotoPerfil = usuario.NomeFotoPerfil,
                         Reputacao = usuario.Reputacao
                     },
-                    Doacao = usuario.Doacoes.Select(_ => new MensagemPrivadaDoacaoMOD 
-                    { 
+                    Doacao = usuario.Doacoes.Select(_ => new MensagemPrivadaDoacaoMOD
+                    {
                         IdDoacao = _.Id,
                         NomeAnimal = _.NomeAnimal
                     }).Single(),
@@ -225,7 +234,7 @@ namespace NaPegada.Repository
                     var portes = new BsonArray();
                     portes.AddRange(dto.Interesse.Porte);
 
-                    var update = Update .Set("Interesses.$.IdadeMinimaEmAnos", dto.Interesse.IdadeMinimaEmAnos)
+                    var update = Update.Set("Interesses.$.IdadeMinimaEmAnos", dto.Interesse.IdadeMinimaEmAnos)
                                         .Set("Interesses.$.IdadeMaximaEmAnos", dto.Interesse.IdadeMaximaEmAnos)
                                         .Set("Interesses.$.Porte", portes)
                                         .Set("Interesses.$.TomouVermifugo", dto.Interesse.TomouVermifugo)
@@ -233,7 +242,7 @@ namespace NaPegada.Repository
                                         .Set("Interesses.$.EhVacinado", dto.Interesse.EhVacinado)
                                         .Set("Interesses.$.Especie", dto.Interesse.Especie);
 
-                    
+
                     if (!string.IsNullOrWhiteSpace(dto.Interesse.Raca))
                         update.Set("Interesses.$.Raca", dto.Interesse.Raca);
 
@@ -263,6 +272,6 @@ namespace NaPegada.Repository
 
         #endregion Interesse
 
-        #endregion usuario       
+        #endregion usuario
     }
 }

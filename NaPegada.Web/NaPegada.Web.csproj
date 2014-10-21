@@ -157,11 +157,13 @@
     <Compile Include="Models\Usuario\DoacaoViewModel.cs" />
     <Compile Include="Models\Usuario\MensagemRecebidaViewModel.cs" />
     <Compile Include="Models\Usuario\MensagensRecebidasViewModel.cs" />
+    <Compile Include="Models\Usuario\MeuPerfilViewModel.cs" />
     <Compile Include="Models\Usuario\MeusInteressesViewModel.cs" />
     <Compile Include="Models\Usuario\MinhasDoacoesViewModel.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Models\Usuario\RegistroEhLoginViewModel.cs" />
     <Compile Include="Models\Usuario\ResumoMensagemRecebidaViewModel.cs" />
+    <Compile Include="Models\Usuario\SecaoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

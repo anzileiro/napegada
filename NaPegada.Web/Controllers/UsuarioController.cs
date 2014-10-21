@@ -85,7 +85,7 @@ namespace NaPegada.Web.Controllers
                 var mensagem = _mensagemPrivadaBUS.ObterPorId(idMensagem);
                 var viewModel = new MensagemRecebidaViewModel(mensagem);
                 return PartialView("_MensagemRecebida", viewModel);
-            });            
+            });
         }
 
         #endregion
@@ -107,7 +107,7 @@ namespace NaPegada.Web.Controllers
         [Route("Registrar")]
         public async Task<JsonResult> Registrar(RegistroEhLoginViewModel usuarioVM)
         {
-            return await Task.Run(() => Json(_usuarioBUS.Registrar(new UsuarioMOD 
+            return await Task.Run(() => Json(_usuarioBUS.Registrar(new UsuarioMOD
             {
                 Email = usuarioVM.Email,
                 Senha = usuarioVM.Senha
@@ -127,19 +127,48 @@ namespace NaPegada.Web.Controllers
             return RedirectToAction("MeusInteresses");
         }
 
-       
 
+        [HttpPost]
+        [Route("MeuPerfil")]
+        public async Task<JsonResult> MeuPerfil(MeuPerfilViewModel meuPerfilVM)
+        {
+            await _usuarioBUS.Atualizar(new UsuarioMOD
+            {
+                Nome = meuPerfilVM.Nome
+            }, meuPerfilVM.ArquivoFoto);
+
+            return await Task.Run(() => Json(new
+            {
+                usuario = _usuarioBUS.ObterPorId(meuPerfilVM.Id)
+            }, JsonRequestBehavior.AllowGet));
+        }
+
+        [HttpGet]
+        [Route("ObterSecao")]
+        public async Task<JsonResult> ObterSecao()
+        {
+            var dados = ObterUsuarioDaSecao();
+            return await Task.Run(() => Json(new
+            {
+                secao = new SecaoViewModel
+                {
+                    Id = dados.Id.ToString(),
+                    Nome = dados.Nome,
+                    Email = dados.Email
+                }
+            }, JsonRequestBehavior.AllowGet));
+        }
 
         #endregion
 
         #region [NonAction]
-        
+
         [NonAction]
         private async Task<bool> LogIn(RegistroEhLoginViewModel usuarioVM)
         {
             Session.Timeout = 1440;
 
-            var retornoUser = await _usuarioBUS.EhUsuario(new UsuarioMOD 
+            var retornoUser = await _usuarioBUS.EhUsuario(new UsuarioMOD
             {
                 Email = usuarioVM.Email,
                 Senha = usuarioVM.Senha
@@ -151,7 +180,7 @@ namespace NaPegada.Web.Controllers
         private void LogOut()
         {
             Session["napegada_auth"] = null;
-        }        
+        }
         #endregion
     }
 }
