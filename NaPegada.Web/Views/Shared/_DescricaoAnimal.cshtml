@@ -4,72 +4,76 @@
     var usuarioEstaLogado = HttpContext.Current.Session["napegada_auth"] != null;
 }
 
-<div class="form-group ">
-
-    <img class="col-sm-offset-6" src="@(string.IsNullOrWhiteSpace(Model.Foto) ? "" : Url.Content(Model.Foto))">
-
-</div>
 
 <div class="form-group ">
-    <label for="" class="col-sm-1">Nome: </label>
 
-    <label class="col-sm-offset-1">@Model.Nome</label>
-   
-</div>
-
-
-<div class="form-group">
-    <label for="" class="col-sm-1">Espécie: </label>
-
-    <label class="col-sm-offset-1">@Model.Especie</label>
-</div>
-
-<div class="form-group">
-    <label for="" class="col-sm-1">Raça: </label>
-
-    <label class="col-sm-offset-1">@Model.Raca</label>
-</div>
-
-<div class="form-group">
-    <label for="" class="col-sm-1">Porte: </label>
-
-    <label class="col-sm-offset-1">@Model.Porte</label>
-</div>
-
-<div class="form-group">
-    <label for="" class="col-sm-1">Idade: </label>
-    <label class="col-sm-offset-1">@Model.Idade</label>
-</div>
-
-<div class="form-group">
-    <label></label>
-</div>
-
-<div class="form-group">
-    <label for="" class="col-sm-4">Informações Extras: </label>
+    <img class="col-sm-offset-8 img-circle" style="width:190px; height:190px;" src="@(string.IsNullOrWhiteSpace(Model.Foto) ? "" : Url.Content(Model.Foto))">
 
 </div>
 
-<div class="form-group">
-    <label></label>
-</div>
+<div class="detalhes-info" style="position: relative; bottom:180px;">
+    <div class="form-group ">
+        <label for="" class="col-sm-1">Nome: </label>
 
-<div>
+        <label class="col-sm-offset-1">@Model.Nome</label>
+
+    </div>
+
+
     <div class="form-group">
-        <label class="col-sm-1">Vacinado: </label>
-        <label class="col-sm-offset-1">@Model.Vacinado</label>
+        <label for="" class="col-sm-1">Espécie: </label>
+
+        <label class="col-sm-offset-1">@Model.Especie</label>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-1">Castrado: </label>
-        <label class="col-sm-offset-1">@Model.Castrado</label>
+        <label for="" class="col-sm-1">Raça: </label>
+
+        <label class="col-sm-offset-1">@Model.Raca</label>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-1">Vermífugo: </label>
-        <label class="col-sm-offset-1">@Model.Vermifugo</label>
+        <label for="" class="col-sm-1">Porte: </label>
+
+        <label class="col-sm-offset-1">@Model.Porte</label>
     </div>
-</div>  
+
+    <div class="form-group">
+        <label for="" class="col-sm-1">Idade: </label>
+        <label class="col-sm-offset-1">@Model.Idade</label>
+    </div>
+
+    <div class="form-group">
+        <label></label>
+    </div>
+
+    <div class="form-group">
+        <label for="" class="col-sm-4">Informações Extras: </label>
+
+    </div>
+
+    <div class="form-group">
+        <label></label>
+    </div>
+
+    <div>
+        <div class="form-group">
+            <label class="col-sm-1">Vacinado: </label>
+            <label class="col-sm-offset-1">@Model.Vacinado</label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-1">Castrado: </label>
+            <label class="col-sm-offset-1">@Model.Castrado</label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-1">Vermífugo: </label>
+            <label class="col-sm-offset-1">@Model.Vermifugo</label>
+        </div>
+    </div>
+
+</div>
 
 @if (usuarioEstaLogado)
 {

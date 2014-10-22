@@ -38,18 +38,21 @@
                         <section>
 
                             <a href="#image">
-                                <img class="img-circle" data-imagem="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))" src="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))">
+                                <img class="img-circle" style="width:160px; height:160px;" data-imagem="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))" src="@(string.IsNullOrWhiteSpace(animal.Foto) ? "" : Url.Content(animal.Foto))">
                                 
                             </a>
                             <div class="lb-overlay" id="image">
                                 <p> <a href="#page" class="lb-close">Close</a></p>
+                                
+                                
                                 <img class="img-caca" src="" style="width:500px;" />
-                                <div>
+                              
+                                @*<div>
                                     <p> </p>
-                                   <!-- <a href="#" class="lb-prev">Prev</a>
-                                    <a href="#" class="lb-next">Next</a> -->
+                                    <a href="#" class="lb-prev">Prev</a>
+                                    <a href="#" class="lb-next">Next</a> 
 
-                                </div>
+                                </div>*@
 
                             </div>
 
