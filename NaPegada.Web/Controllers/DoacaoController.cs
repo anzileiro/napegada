@@ -53,12 +53,29 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Detalhes(DetalhesViewModel model)
         {
+            var result = default(ActionResult);
+
+            if (ModelState.IsValid)
+            {
+                await Salvar(model);
+                result = RedirectToAction("MinhasDoacoes", "Usuario");
+            }
+            else
+            {
+                result = View(model);
+            }
+
+            return result;
+        }
+
+        private async Task Salvar(DetalhesViewModel model)
+        {
             var userId = ObterUsuarioDaSecao().Id;
             var dto = await model.ConverterParaRegistroDoacaoDTO(userId);
             var ehCadastro = string.IsNullOrWhiteSpace(model.Id);
 
-            if(ehCadastro)
-            {                
+            if (ehCadastro)
+            {
                 await _usuarioBUS.RegistrarDoacao(dto);
                 TempData["sucesso"] = "Doação cadastrada com sucesso";
             }
@@ -66,9 +83,7 @@ namespace NaPegada.Web.Controllers
             {
                 await _usuarioBUS.AtualizarDoacao(dto);
                 TempData["sucesso"] = "Doação atualizada com sucesso";
-            }            
-
-            return RedirectToAction("MinhasDoacoes", "Usuario");
+            }  
         }
 
         [HttpGet]

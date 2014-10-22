@@ -44,7 +44,23 @@ namespace NaPegada.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Detalhes(DetalhesViewModel model)
         {
+            var result = default(ActionResult);
 
+            if(ModelState.IsValid)
+            {
+                await Salvar(model);
+                result = RedirectToAction("MeusInteresses", "Usuario");
+            }
+            else
+            {
+                result = View(model);
+            }
+
+            return result;
+        }
+
+        private async Task Salvar(DetalhesViewModel model)
+        {
             var userBus = new UsuarioBUS(new UsuarioREP());
             var dto = ObterDTO(model);
             var ehCadastro = string.IsNullOrWhiteSpace(model.Id);
@@ -59,8 +75,6 @@ namespace NaPegada.Web.Controllers
                 await userBus.AtualizarInteresse(dto);
                 TempData["sucesso"] = "Interesse atualizado com sucesso";
             }
-
-            return RedirectToAction("MeusInteresses", "Usuario");
         }
 
         private RegistroInteresseDTO ObterDTO(DetalhesViewModel model)
