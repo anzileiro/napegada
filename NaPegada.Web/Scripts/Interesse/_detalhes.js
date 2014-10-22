@@ -1,6 +1,8 @@
 ﻿///<reference path="http://code.jquery.com/jquery-1.9.1.js" />
 
 $(function () {
+    $.validator.unobtrusive.parse($('.form'));
+
     $('#especie').change(function () {
         var valor = $(this).val();
 
@@ -12,7 +14,8 @@ $(function () {
 
         if (especie == '')
             $racas.html('<option value="">Selecione uma espécie</option>');
-        else
+        else {
+            $racas.html('<option value="">Selecione uma raça</option>');
             $.get('/BaseAsync/Racas/', { especie: especie }, function (data) {
                 var racas = [];
                 var length = data.Racas.length;
@@ -22,7 +25,12 @@ $(function () {
                     racas.push(raca);
                 }
 
-                $racas.html(racas.toString());
+                $racas.append(racas.toString());
             }, 'json');
+        }            
     };
+
+    $('.form-control').blur(function () {
+        $(this).valid();
+    });
 });

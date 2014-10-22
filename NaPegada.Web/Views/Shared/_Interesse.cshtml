@@ -9,7 +9,7 @@
     <div class="form-group">
         <label for="Especie">Espécie:</label>
         @Html.EnumDropDownListFor(i => i.Especie, "Selecione uma espécie", new { @class = "form-control", id = "especie" })
-
+        <p class="help-block">@Html.ValidationMessageFor(i => i.Especie)</p>
     </div>
 
     <div class="form-group">
@@ -22,12 +22,14 @@
 
         <div class="col-sm-5">
             @Html.TextBoxFor(i => i.IdadeMin, new { @class = "form-control" })
+            <p class="help-block">@Html.ValidationMessageFor(i => i.IdadeMin)</p>
         </div>
 
         <label for="IdadeMax" class="col-sm-1">Idade Max:</label>
 
         <div class="col-sm-5">
             @Html.TextBoxFor(i => i.IdadeMax, new { @class = "form-control" })
+            <p class="help-block">@Html.ValidationMessageFor(i => i.IdadeMax)</p>
         </div>
     </div>
 

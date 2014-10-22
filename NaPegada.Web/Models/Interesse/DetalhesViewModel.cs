@@ -21,7 +21,7 @@ namespace NaPegada.Web.Models.Interesse
         [Range(0,10, ErrorMessage="Idade mínima inválida: 0 ~ 10")]
         public ushort? IdadeMin { get; set; }
 
-        [Range(0, 10, ErrorMessage = "Idade máxima inválida: 0 ~ 10")]
+        [Range(15, 50, ErrorMessage = "Idade máxima inválida: 15 ~ 50")]
         public ushort? IdadeMax { get; set; }
         public bool PortePequeno { get; set; }
         public bool PorteMedio { get; set; }
