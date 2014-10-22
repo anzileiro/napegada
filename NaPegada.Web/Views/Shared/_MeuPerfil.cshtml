@@ -15,63 +15,27 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="active"><a href="#dados" role="tab" data-toggle="tab">Meus dados</a></li>
-                    <li><a href="#conta" role="tab" data-toggle="tab">Minha conta</a></li>
-                    <li><a href="#endereco" role="tab" data-toggle="tab">Meu endereco</a></li>
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div class="tab-pane active" id="dados">
                         <div class="msg-p"></div>
-                        <form action="@Url.Action("MeuPerfil", "Usuario")" method="post" id="frm-usuario-perfil-dados" class="form" enctype="multipart/form-data">
+                        <form id="frm-usuario-perfil-dados" class="form">
                             <input type="text" hidden="hidden" name="Id" id="p-id" value="" />
-                            <div class="form-group">
-                                <label for="p-arquivo-foto">Minha foto:</label>
-                                <input type="file" name="ArquivoFoto" id="p-arquivo-foto" class="form-control" />
-                            </div>
                             <div class="form-group">
                                 <label for="p-nome">Meu nome:</label>
                                 <input type="text" name="Nome" id="p-nome" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="p-nome">Meu e-mail:</label>
+                                <input type="text" name="Email" id="p-email" class="form-control" />
                             </div>
                             <button id="btn-atualizar-perfil-dados" class="btn btn-success" type="button">Salvar alterações</button>
                             <span class="load-p"></span>
                         </form>
                     </div>
-                    <div class="tab-pane" id="endereco">
-                        <form id="frm-usuario-perfil-endereco" class="form">
-                            <div class="form-group">
-                                <label for="p-estado">Estado</label>
-                                <input type="text" name="Estado" id="p-estado" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label for="p-logradouro">Logradouro</label>
-                                <input type="text" name="Logradouro" id="p-logradouro" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label for="p-numero">Número</label>
-                                <input type="text" name="Numero" id="p-numero" class="form-control" />
-                            </div>
-                            <button id="btn-atualizar-perfil-endereco" class="btn btn-success" type="button">Salvar alterações</button>
-                            <span class="load"></span>
-                        </form>
-                    </div>
-                    <div class="tab-pane" id="conta">
-                        <form id="frm-usuario-perfil-conta" class="form">
-                            <div class="form-group">
-                                <label for="p-email">Meu e-mail</label>
-                                <input type="text" name="Email" id="p-email" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label for="p-senha">Minha senha</label>
-                                <input type="password" name="Senha" id="p-senha" class="form-control" />
-                            </div>
-                            <button id="btn-atualizar-perfil-conta" class="btn btn-success" type="button">Salvar alterações</button>
-                            <span class="load"></span>
-                        </form>
-                    </div>
                 </div>
-
-
             </div>
         </div>
     </div>

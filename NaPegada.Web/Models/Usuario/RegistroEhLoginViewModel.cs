@@ -13,5 +13,7 @@ namespace NaPegada.Web.Models.Usuario
         Required(ErrorMessage = "Informe sua senha"),
         StringLength(100, ErrorMessage = "Limite de caracteres 20")]
         public string Senha { get; set; }
+
+        public string Nome { get; set; }
     }
 }

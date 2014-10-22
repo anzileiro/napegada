@@ -134,8 +134,10 @@ namespace NaPegada.Web.Controllers
         {
             await _usuarioBUS.Atualizar(new UsuarioMOD
             {
-                Nome = meuPerfilVM.Nome
-            }, meuPerfilVM.ArquivoFoto);
+                Id = _usuarioBUS.ConverterParaObjectId(meuPerfilVM.Id),
+                Nome = meuPerfilVM.Nome,
+                Email = meuPerfilVM.Email
+            }, null);
 
             return await Task.Run(() => Json(new
             {
@@ -171,7 +173,8 @@ namespace NaPegada.Web.Controllers
             var retornoUser = await _usuarioBUS.EhUsuario(new UsuarioMOD
             {
                 Email = usuarioVM.Email,
-                Senha = usuarioVM.Senha
+                Senha = usuarioVM.Senha,
+                Nome = usuarioVM.Nome
             });
             return (Session["napegada_auth"] = retornoUser) != null;
         }

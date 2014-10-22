@@ -65,7 +65,8 @@ namespace NaPegada.Repository
             await Task.Run(() => _conn.Conectar("mongodb://localhost", "napegada", "usuario")
                      .Update(Query<UsuarioMOD>.EQ(u => u.Id, userMOD.Id), Update<UsuarioMOD>
                                               .Set(u => u.NomeFotoPerfil, userMOD.NomeFotoPerfil)
-                                              .Set(u => u.Nome, userMOD.Nome)));
+                                              .Set(u => u.Nome, userMOD.Nome)
+                                              .Set(u => u.Email, userMOD.Email)));
         }
 
         //public async Task Atualizar(UsuarioMOD userMOD)

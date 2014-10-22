@@ -3,7 +3,7 @@
 $(function () {
     //$('#frm-usuario-perfil-dados .form-control').attr('disabled', 'disabled');
     //$('#frm-usuario-perfil-conta .form-control').attr('disabled', 'disabled');
-
+    f.carrefarPerfil();
     $('#btn-modal-entrar').on('click', function () {
         f.resetar(['.msg', '.load', '.form-control'], true);
     });
@@ -85,14 +85,33 @@ $(function () {
             $('.msg').html(f.alerta('alert alert-warning alert-dismissible', 'Ops! Informe seu nome.'));
         } else {
             f.configButtons(['#btn-atualizar-perfil-dados']);
-            
-            $('#frm-usuario-perfil-dados').submit();
+            $.ajax({
+                url: '/Usuario/MeuPerfil',
+                type: 'post',
+                data: $('#frm-usuario-perfil-dados').serialize(),
+                beforeSend: f.exibirLoad('.load', true),
+                success: function (r) {
+                    $('#nome-usuario').text(r.usuario.Nome);
+                    $('#email-usuario').text(r.usuario.Email);
+                },
+                complete: function () {
+                    f.carrefarPerfil();
+                    f.exibirLoad('.load', false)
+                    $('#btn-atualizar-perfil-dados').text('Dados atualizados');
+                }
+            });
         }
     });
 });
 
 //funções
 var f = {
+    'carrefarPerfil': function () {
+        $.getJSON('/Usuario/ObterSecao', undefined, function (r) {
+            $('#nome-usuario').text(r.secao.Nome);
+            $('#email-usuario').text(r.secao.Email);
+        });
+    },
     'configButtons': function (elementos) {
         $.each(elementos, function (k, v) {
             $(v).attr('disabled', 'disabled');
