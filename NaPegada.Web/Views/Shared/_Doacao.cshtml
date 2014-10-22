@@ -1,6 +1,6 @@
 ﻿@model NaPegada.Web.Models.Doacao.DetalhesViewModel
 
-@using (Html.BeginForm("Detalhes", "Doacao", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Detalhes", "Doacao", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data", id = "form-doacao" }))
 {
     @Html.HiddenFor(d => d.Id)
     
@@ -86,15 +86,11 @@
         
         @if (@Model.Id != null)
         {
-
-
-            <button class="btn btn-primary" type="submit">Atualizar</button>
+            <button class="btn btn-primary" type="button" id="salvar-doacao">Atualizar</button>
         }
         else
         {
-
-            <button class="btn btn-primary" type="submit">Cadastrar</button>
-
+            <button class="btn btn-primary" type="button" id="salvar-doacao">Cadastrar</button>
         }
 
     </div>
