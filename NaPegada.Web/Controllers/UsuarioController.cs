@@ -161,6 +161,22 @@ namespace NaPegada.Web.Controllers
             }, JsonRequestBehavior.AllowGet));
         }
 
+        [HttpGet]
+        [Route("ObterUsuario")]
+        public async Task<JsonResult> ObterUsuario(string id)
+        {
+            var dados = await _usuarioBUS.ObterPorId(id);
+            return await Task.Run(() => Json(new
+            {
+                usuario = new MeuPerfilViewModel
+                {
+                    Id = dados.Id.ToString(),
+                    Nome = dados.Nome,
+                    Email = dados.Email
+                }
+            }, JsonRequestBehavior.AllowGet));
+        }
+
         #endregion
 
         #region [NonAction]

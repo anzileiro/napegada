@@ -13,6 +13,7 @@ $(function () {
     });
 
     $('#btn-entrar').on('click', function () {
+        f.configButtons(['#btn-entrar'], false);
         if (!f.patternEmail($('#u-email').val())) {
             $('.msg').html(f.alerta('alert alert-warning alert-dismissible', 'Ops! Digite um email válido. Ex: fulano.tal@mail.com'));
             return false;
@@ -22,7 +23,7 @@ $(function () {
             return false;
         }
 
-        f.configButtons(['#btn-entrar', '#btn-entrar']);
+        f.configButtons(['#btn-entrar'], true);
         var retornoJson = undefined;
         $.ajax({
             url: '/Usuario/Entrar',
@@ -36,6 +37,7 @@ $(function () {
                 f.exibirLoad('.load', false)
                 if (retornoJson == '/Site/Home') {
                     $('.msg').html(f.alerta('alert alert-warning alert-dismissible', 'Ops! Usuario ou senha são inválidos.'));
+                    f.configButtons(['#btn-entrar'], false);
                 } else {
                     f.redirecionar(retornoJson);
                 }
@@ -44,6 +46,7 @@ $(function () {
     });
 
     $('#btn-registrar').on('click', function () {
+        f.configButtons(['#btn-registrar', '#btn-registrar'], false);
         if (!f.patternEmail($('#u-email-r').val())) {
             $('.msg').html(f.alerta('alert alert-warning alert-dismissible', 'Ops! Digite um email válido. Ex: fulano.tal@mail.com'));
             return false;
@@ -53,7 +56,7 @@ $(function () {
             return false;
         }
 
-        f.configButtons(['#btn-registrar', '#btn-registrar']);
+        f.configButtons(['#btn-registrar', '#btn-registrar'], true);
         var dados = $('#frm-usuario-registrar').serialize();
         $.ajax({
             url: '/Usuario/Registrar',
@@ -77,14 +80,18 @@ $(function () {
         $.getJSON('/Usuario/ObterSecao', undefined, function (r) {
             $('#p-id').text(r.secao.Id);
             $('#p-id').attr('value', r.secao.Id);
+            $('#p-nome').val(r.secao.Nome);
+            $('#p-email').val(r.secao.Email);
         });
     });
 
     $('#btn-atualizar-perfil-dados').on('click', function () {
+        $('#btn-atualizar-perfil-dados').text('Dados atualizados');
+        $('#btn-atualizar-perfil-dados').removeAttr('disabled', 'disabled');
         if ($('#p-nome').val() == '') {
             $('.msg').html(f.alerta('alert alert-warning alert-dismissible', 'Ops! Informe seu nome.'));
         } else {
-            f.configButtons(['#btn-atualizar-perfil-dados']);
+            f.configButtons(['#btn-atualizar-perfil-dados'], true);
             $.ajax({
                 url: '/Usuario/MeuPerfil',
                 type: 'post',
@@ -95,13 +102,21 @@ $(function () {
                     $('#email-usuario').text(r.usuario.Email);
                 },
                 complete: function () {
-                    f.carrefarPerfil();
                     f.exibirLoad('.load', false)
                     $('#btn-atualizar-perfil-dados').text('Dados atualizados');
+                    $('#btn-atualizar-perfil-dados').removeAttr('disabled', 'disabled');
+                    var id_ = '';
+                    $.getJSON('/Usuario/ObterSecao', undefined, function (r) {
+                        id_ = JSON.stringify(r.secao.Id);
+                    });
+                    $.getJSON('/Usuario/ObterUsuario', {'id': id_}, function (r) {
+                        $('#nome-usuario').text(r.usuario.Nome);
+                        $('#email-usuario').text(r.usuario.Email);
+                    });
                 }
             });
         }
-    });
+    }); 
 });
 
 //funções
@@ -112,11 +127,18 @@ var f = {
             $('#email-usuario').text(r.secao.Email);
         });
     },
-    'configButtons': function (elementos) {
-        $.each(elementos, function (k, v) {
-            $(v).attr('disabled', 'disabled');
-            $(v).text('Entrando...');
-        });
+    'configButtons': function (elementos, esconder) {
+        if (esconder) {
+            $.each(elementos, function (k, v) {
+                $(v).attr('disabled', 'disabled');
+                $(v).text('Entrando...');
+            });
+        } else {
+            $.each(elementos, function (k, v) {
+                $(v).removeAttr('disabled', 'disabled');
+                $(v).text('Entrar');
+            });
+        }
     },
     //'#btn-registrar'
     //'#btn-registrar'
